@@ -1,0 +1,7 @@
+parameters:
+#    voyage.example.class: voyage\FirstBundle\Example
+
+services:
+#    voyage.example:
+#        class: %voyage.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

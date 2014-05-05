@@ -1,0 +1,9 @@
+voyage_homepage:
+    pattern:  /
+    defaults: { _controller: VoyageBundle:Default:index }
+voyage_list_annonces:
+    pattern:  /annonces
+    defaults: { _controller: VoyageBundle:Default:annonces }
+voyage_contact:
+    pattern:  /contact
+    defaults: { _controller: VoyageBundle:Default:contact }
