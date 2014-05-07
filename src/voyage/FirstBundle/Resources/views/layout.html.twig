@@ -15,8 +15,8 @@
 				
 				<!-- Style Sheet-->
                 <link rel="stylesheet" href="{{asset('bundles/voyage/css/bootstrap.css')}}">
-				<link rel="stylesheet" href="{{asset('bundles/voyage/css/style.css')}}">
-				<link rel="stylesheet" href="{{asset('bundles//css/responsive.css')}}">
+		<link rel="stylesheet" href="{{asset('bundles/voyage/css/style.css')}}">
+		<link rel="stylesheet" href="{{asset('bundles/voyage/css/responsive.css')}}">
                 <link rel="stylesheet" href="{{asset('bundles/voyage/css/flexslider.css')}}">
 				
                <!-- favicon -->
@@ -37,8 +37,7 @@
 					            <div class="row">
 					            	<div class="span5 clearfix">
 					                	<div class="lang pull-right">
-					                    	<span>Select a language:<a href="#">English</a></span>
-					                    
+					                    	<span> Language:<a href="#">Français</a></span>
                                                                 </div>
 					                </div>
 					                <div class="span4 srch">
@@ -48,18 +47,15 @@
                                         </form>
 					                </div>
 					                <div class="span3">
-                                                             <a href="#" class="sign-in" id="login-link">Connexion</a>
-                                        <a href="#" class="sign-in" id="login-link">Inscription</a>
+                                        <a href="#" class="sign-in" id="login-link">Connexion</a>
+                                        <a href="#" class="sign-in" id="signon-link">Inscription</a>
 					                	<div class="social-nav">
 					                    	<a href="#" class="facebook "></a>
 					                    	<a href="#" class="twitter" ></a>
 					                    	<a href="#" class="google"></a>
 					                    	<a href="#" class="rss"></a>
                                        
-					                    </div>
-                                                        
-                                                               
-                                                              
+					                    </div>       
 					                </div>
 					            </div>
 					    </div>
@@ -108,17 +104,17 @@
                             
                             	<nav>
                                     <ul>
-                                        <li><a href="./">Home </a>
+                                        <li><a href="{{path('voyage_homepage')}}">Home </a>
                                         	<ul class="clearfix">
                                                 <li><a href="index2.html">Home 2</a></li>
                                                 <li><a href="index3.html">Home 3 </a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="annonces">Travel</a>
+                                        <li><a href="{{path('voyage_list_annonces')}}">Travel</a>
                                         	<ul class="clearfix">
                                                 <li><a href="travel_grid.html">Travel Grid</a></li>
                                                 <li><a href="list_annonces">Travel list</a></li>
-                                                <li><a href="details_annonces">Travel Detail</a></li>
+                                                <li><a href="{{path('voyage_details')}}">Travel Detail</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Holidays</a></li>
@@ -142,7 +138,7 @@
                                                 <li><a href="confirm.html">Confirmation</a></li>
                                             </ul>
                                         </li>
-                                        <li  class="last"><a href="contact.html">Contact</a></li>
+                                        <li  class="last"><a href="{{path('voyage_contact')}}">Contact</a></li>
                                     </ul>
                                 </nav>
 
@@ -271,7 +267,7 @@
                 
                 <div class="login-popup-wrapper">
                     <div id="login-popup">
-                    	<h2>login Panel</h2>
+                    	<h2>authentification</h2>
                         <form method="get" action="#">
                             <input type="text" value="" id="username" placeholder="kimo@gmail.com" />
                             <input type="text" value="" id="password" placeholder="Password" />
@@ -279,6 +275,21 @@
                             <input type="submit" value="sıgn ın" id="login-button"/>
                         </form>
                         <a href="#" class="close">Close</a>
+                    </div>
+                </div>
+                <div class="signon-popup-wrapper">
+                    <div id="signon-popup">
+                    	<h2>Inscription</h2>
+                        <form method="get" action="#">
+                            <input type="text" value="" id="name" placeholder="Nom" />
+                            <input type="email" value="" id="username" placeholder="email@email.exemple" />
+                            
+                            <input type="password" value="" id="password" placeholder="Password" />
+                            <input type="password" value="" id="password" placeholder="verif Password" />
+                            
+                            <input type="submit" value="s'inscrir" id="login-button"/>
+                        </form>
+                        <a href="#" class="close2">Close</a>
                     </div>
                 </div>
 

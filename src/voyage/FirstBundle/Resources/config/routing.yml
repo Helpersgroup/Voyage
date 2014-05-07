@@ -7,3 +7,6 @@ voyage_list_annonces:
 voyage_contact:
     pattern:  /contact
     defaults: { _controller: VoyageBundle:Default:contact }
+voyage_details:
+    pattern:  /details
+    defaults: { _controller: VoyageBundle:Default:details }

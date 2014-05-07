@@ -14,11 +14,19 @@ jQuery(document).ready(function() {
 				$(this).children('#login-popup').fadeIn('fast');			
 			});
 		});
+                $('#signon-link').click(function(){
+			$('.signon-popup-wrapper').fadeIn('slow',function(){
+				$(this).children('#signon-popup').fadeIn('fast');			
+			});
+		});
 		$('.close').click(function(){
 			$(this).parents('.login-popup-wrapper').fadeOut('slow');
 			$(this).parent('#login-popup').fadeOut('slow');
 		});
-	
+	$('.close2').click(function(){
+			$(this).parents('.signon-popup-wrapper').fadeOut('slow');
+			$(this).parent('#signon-popup').fadeOut('slow');
+		});
 	//Flex Slider
 	$('.flexslider').flexslider({
 		animation: "slide"	
