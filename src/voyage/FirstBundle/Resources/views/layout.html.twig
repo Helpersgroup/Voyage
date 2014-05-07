@@ -4,114 +4,93 @@
 <!--[if IE 9]>    <html class="ie9" > <![endif]-->
 <!--[if IE 9]>    <html class="ie10" > <![endif]-->
 <!--[if (gt IE 10)|!(IE)]><!--> <html lang="en-US"> <!--<![endif]-->
-		
+        
 <head>
-				<!-- META TAGS -->
-				<meta charset="UTF-8" />
-				<meta name="viewport" content="width=device-width" />
-				
-				<!-- Title -->
-				<title>Voyage à la Carte</title>
-				
-				<!-- Style Sheet-->
-                <link rel="stylesheet" href="{{asset('bundles/voyage/css/bootstrap.css')}}">
-		<link rel="stylesheet" href="{{asset('bundles/voyage/css/style.css')}}">
-		<link rel="stylesheet" href="{{asset('bundles/voyage/css/responsive.css')}}">
+                <!-- META TAGS -->
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width" />
+                
+                <!-- Title -->
+                <title>Voyage à la Carte</title>
+                
+               <link rel="stylesheet" href="{{asset('bundles/voyage/css/bootstrap.css')}}">
+                <link rel="stylesheet" href="{{asset('bundles/voyage/css/style.css')}}">
+                <link rel="stylesheet" href="{{asset('bundles/voyage/css/responsive.css')}}">
                 <link rel="stylesheet" href="{{asset('bundles/voyage/css/flexslider.css')}}">
-				
+                
                <!-- favicon -->
-				<link rel="shortcut icon" href="{{asset('bundles/voyage/images/favicon.png')}}">
-				
-				<!--[if lt IE 9]>
-						<script src="js/html5shiv.js"></script>
-						<link rel="stylesheet" href="css/ie.css">
-				<![endif]-->
-		</head>
-		<body>				
-				<!-- HEADER TOP -->
+                <link rel="shortcut icon" href="{{asset('bundles/voyage/images/favicon.png')}}">
+                
+                <!--[if lt IE 9]>
+                        <script src="js/html5shiv.js"></script>
+                        <link rel="stylesheet" href="css/ie.css">
+                <![endif]-->
+        </head>
+        <body>
+                <!-- HEADER -->
                 <div id="top"></div>
-				<div class="header-one">
-					<div class="headertop-wrapper">
-						<div class="container">
-					    		
-					            <div class="row">
-					            	<div class="span5 clearfix">
-					                	<div class="lang pull-right">
-					                    	<span> Language:<a href="#">Français</a></span>
-                                                                </div>
-					                </div>
-					                <div class="span4 srch">
-                                        <form>
-                                            <input type="submit" value="">
-                                            <input type="text" name="search" placeholder="Search">
-                                        </form>
-					                </div>
-					                <div class="span3">
-                                        <a href="#" class="sign-in" id="login-link">Connexion</a>
-                                        <a href="#" class="sign-in" id="signon-link">Inscription</a>
-					                	<div class="social-nav">
-					                    	<a href="#" class="facebook "></a>
-					                    	<a href="#" class="twitter" ></a>
-					                    	<a href="#" class="google"></a>
-					                    	<a href="#" class="rss"></a>
-                                       
-					                    </div>       
-					                </div>
-					            </div>
-					    </div>
-					</div>
-				</div>
-				<!-- HEADER IOP -->
+                <div class="header-wrapper header_two">
+                    <div class="container">
+                        <div class="row">
 
-				<!-- HEADER -->
-                <div class="header-wrapper">
-                	<div class="container">
-                    	<div class="row">
-                        
-                        	<!-- Logo -->
-                            <div class="span4">
-                            	<div class="logo">
-                                	<a href="./"><img src="{{asset('bundles/voyage/images/logo.png')}}" alt="Logo"></a>
+                            <!-- Logo -->
+                            <div class="span2">
+                                <div class="logo">
+                                    <a href="index-2.html"><img src="{{asset('bundles/voyage/images/logo.png')}}" alt="Logo"></a>
                                 </div>
                             </div>
-                        	<!-- Logo -->
-                            
+                            <!-- Logo -->
+
                             <!--top Menu -->
-                            <div class="span8">
-                            	<div class="top-menu">
-                                	<ul>
-                                		<li><a href="#">About US</a></li>
-                                		<li><a href="#">News</a></li>
-                                		<li><a href="#">Serbice</a></li>
-                                		<li><a href="#">Recruiment</a></li>
-                                		<li><a href="#">Media</a></li>
-                                		<li><a href="#" class="last">Support</a></li>
-                                	</ul>
+                            <div class="span7">
+                                <div class="top-menu">
+                                    <ul>
+                                        <li><a href="#">About US</a></li>
+                                        <li><a href="#">News</a></li>
+                                        <li><a href="#">Serbice</a></li>
+                                        <li><a href="#">Recruiment</a></li>
+                                        <li><a href="#">Media</a></li>
+                                        <li><a href="#" class="last">Support</a></li>
+                                    </ul>
                                 </div>
+                                <form class="serch">
+                                    <input type="text" placeholder="Search"/>
+                                    <input type="submit" value=""/>
+                                </form>
                             </div>
                             <!--top Menu -->
-                        
+
+                            <div class="span3 login_btn">
+                                <div class="lan">
+                                    <p><a href="#">En</a><span>|</span><a href="#">Us</a></p>
+                                </div>
+                                <div class="btns">
+                                    <a href="#" id="login-link">Login</a>
+                                    <a href="#">Register</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
                 <!-- HEADER -->
-
                 <!-- Main Navigation -->
-                <div class="nav-wrapper">
-                	<div class="container">
-                    	<div class="row">
-                        	<div class="span12">
-                            
-                            	<nav>
+                <div class="nav-wrapper nav-two">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+
+                                <nav>
                                     <ul>
                                         <li><a href="{{path('voyage_homepage')}}">Home </a>
-                                        	<ul class="clearfix">
+                                            <ul class="clearfix">
                                                 <li><a href="index2.html">Home 2</a></li>
                                                 <li><a href="index3.html">Home 3 </a></li>
                                             </ul>
                                         </li>
+                                        
                                         <li><a href="{{path('voyage_list_annonces')}}">Travel</a>
-                                        	<ul class="clearfix">
+                                            <ul class="clearfix">
                                                 <li><a href="travel_grid.html">Travel Grid</a></li>
                                                 <li><a href="list_annonces">Travel list</a></li>
                                                 <li><a href="{{path('voyage_details')}}">Travel Detail</a></li>
@@ -134,7 +113,7 @@
                                         <li><a href="#">Guide Book</a></li>
                                         <li><a href="#">Hot Deal</a></li>
                                         <li><a href="booking.html">Booking</a>
-                                        	<ul class="clearfix">
+                                            <ul class="clearfix">
                                                 <li><a href="confirm.html">Confirmation</a></li>
                                             </ul>
                                         </li>
@@ -172,8 +151,7 @@
                     </div>
                 </div>
                 <!-- Main Navigation -->
-
-                
+                  
                 
                 
                 
