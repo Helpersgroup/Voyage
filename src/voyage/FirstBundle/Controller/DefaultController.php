@@ -15,6 +15,10 @@ class DefaultController extends Controller
     {
         return $this->render('VoyageBundle:Default:travel_grid.html.twig');
     }
+    public function annonceslAction()
+    {
+        return $this->render('VoyageBundle:Default:travel_list.html.twig');
+    }
        public function contactAction()
     {
         return $this->render('VoyageBundle:Default:contact.html.twig');

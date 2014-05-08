@@ -61,7 +61,7 @@
 
                             <div class="span3 login_btn">
                                 <div class="lan">
-                                    <p><a href="#">En</a><span>|</span><a href="#">Us</a></p>
+                                    <p><a href="#">En</a><span>|</span><a href="#">Fr</a></p>
                                 </div>
                                 <div class="btns">
                                     <a href="#" id="login-link">Login</a>
@@ -74,10 +74,6 @@
                                             <a href="#" class="google"></a>
                                             <a href="#" class="rss"></a>
                                         </div>
-
-
-
-
 
                             </div>
 
@@ -94,16 +90,15 @@
                                 <nav>
                                     <ul>
                                         <li><a href="{{path('voyage_homepage')}}">Home </a>
-                                            <ul class="clearfix">
+                                          <!--  <ul class="clearfix">
                                                 <li><a href="index2.html">Home 2</a></li>
                                                 <li><a href="index3.html">Home 3 </a></li>
-                                            </ul>
+                                            </ul>-->
                                         </li>
                                         
                                         <li><a href="{{path('voyage_list_annonces')}}">Travel</a>
                                             <ul class="clearfix">
-                                                <li><a href="travel_grid.html">Travel Grid</a></li>
-                                                <li><a href="list_annonces">Travel list</a></li>
+                                                <li><a href="{{path('voyage_list_annoncesl')}}">Travel list</a></li>
                                                 <li><a href="{{path('voyage_details')}}">Travel Detail</a></li>
                                             </ul>
                                         </li>

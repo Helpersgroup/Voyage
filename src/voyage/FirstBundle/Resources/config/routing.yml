@@ -4,6 +4,9 @@ voyage_homepage:
 voyage_list_annonces:
     pattern:  /annonces
     defaults: { _controller: VoyageBundle:Default:annonces }
+voyage_list_annoncesl:
+    pattern:  /annonces_list
+    defaults: { _controller: VoyageBundle:Default:annoncesl }
 voyage_contact:
     pattern:  /contact
     defaults: { _controller: VoyageBundle:Default:contact }

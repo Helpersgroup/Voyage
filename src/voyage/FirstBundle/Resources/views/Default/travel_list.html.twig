@@ -2,18 +2,26 @@
 
 {% block contains %}
 
-	<!-- Crum -->
+  
+
+
+
+
+
+<!-- Crum -->
                 <div class="crum-wrapper">
                 	<div class="container">
                     	<div class="row">
                         	<div class="span12">
                             	<a href="#">Home</a>
-                                <span class="crum">Grid Page</span>
+                                <span class="crum">List Page</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Crum-->
+
+
                 <!-- Grid page -->
                 <div class="content">
                     <div class="container">
@@ -131,19 +139,18 @@
                                             <li><a href="#filter" data-option-value=".rate" >Rating</a></li>
                                         </ul>
                                         
-                                        <div class="grid_btn clearfix">
-                                            <a href="{{path('voyage_list_annonces')}}" class="grid active"></a>
-                                            <a href="{{path('voyage_list_annoncesl')}}" class="list"></a>
+                                        <div class="grid_btn">
+                                            <a href="{{path('voyage_list_annonces')}}" class="grid"></a>
+                                            <a href="{{path('voyage_list_annoncesl')}}" class="list active"></a>
                                         </div>
                                         <div class="clearfix"></div>
-
                                         <span class="border"></span>
                                     </div>
                                 </div>
 
 
-                                <div class="row" id="project-container">
-                                    <div class=" span3 offer element branding">
+                                <div class="row travel_lest" id="project-container">
+                                    <div class=" span9 offer element branding">
                                         <figure>
                                             <img src="{{asset('bundles/voyage/images/offerpic-1.png')}}"  alt="Offer Image">
                                             <div class="overlay">
@@ -153,13 +160,17 @@
                                         <article>
                                             <h3>Blue beach</h3>
                                             <h4>thailand</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <span>Read 8 Reviews</span>
+                                            </div>
+                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                         </article>
                                         <div class="price">
                                             <h3>138$</h3>
@@ -167,7 +178,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="span3 offer element price star">
+                                    <div class="span9 offer element price star">
                                         <figure>
                                             <img src="{{asset('bundles/voyage/images/offerpic-2.png')}}"  alt="Offer Image">
                                             <div class="overlay">
@@ -177,13 +188,17 @@
                                         <article>
                                             <h3>Blue heaven</h3>
                                             <h4>ITALY</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <span>Read 8 Reviews</span>
+                                            </div>
+                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                         </article>
                                         <div class="price">
                                             <h3>138$</h3>
@@ -191,7 +206,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="span3 offer element rate">
+                                    <div class="span9 offer element rate">
                                         <figure>
                                             <img src="{{asset('bundles/voyage/images/offerpic-3.png')}}"  alt="Offer Image">
                                             <div class="overlay">
@@ -201,13 +216,17 @@
                                         <article>
                                             <h3>Blue heaven</h3>
                                             <h4>Greece</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <span>Read 8 Reviews</span>
+                                            </div>
+                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                         </article>
                                         <div class="price">
                                             <h3>138$</h3>
@@ -215,7 +234,7 @@
                                         </div>
                                     </div>
 
-                                    <div class=" span3 offer element branding">
+                                    <div class=" span9 offer element branding">
                                         <figure>
                                             <img src="{{asset('bundles/voyage/images/offerpic-4.png')}}"  alt="Offer Image">
                                             <div class="overlay">
@@ -225,13 +244,17 @@
                                         <article>
                                             <h3>Blue beach</h3>
                                             <h4>thailand</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <span>Read 8 Reviews</span>
+                                            </div>
+                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                         </article>
                                         <div class="price">
                                             <h3>138$</h3>
@@ -239,7 +262,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="span3 offer element price star">
+                                    <div class="span9 offer element price star">
                                         <figure>
                                             <img src="{{asset('bundles/voyage/images/offerpic-1.png')}}"  alt="Offer Image">
                                             <div class="overlay">
@@ -249,13 +272,17 @@
                                         <article>
                                             <h3>Blue heaven</h3>
                                             <h4>Italy</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <span>Read 8 Reviews</span>
+                                            </div>
+                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                         </article>
                                         <div class="price">
                                             <h3>138$</h3>
@@ -263,7 +290,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="span3 offer element rate">
+                                    <div class="span9 offer element rate">
                                         <figure>
                                             <img src="{{asset('bundles/voyage/images/offerpic-2.png')}}"  alt="Offer Image">
                                             <div class="overlay">
@@ -273,85 +300,17 @@
                                         <article>
                                             <h3>Blue heaven</h3>
                                             <h4>Greece</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
-                                        </article>
-                                        <div class="price">
-                                            <h3>138$</h3>
-                                            <a href="{{path('voyage_details')}}"></a>
-                                        </div>
-                                    </div>
-
-                                    <div class=" span3 offer element branding">
-                                        <figure>
-                                            <img src="{{asset('bundles/voyage/images/offerpic-4.png')}}"  alt="Offer Image">
-                                            <div class="overlay">
-                                                <a href="#" class="like"></a>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <span>Read 8 Reviews</span>
                                             </div>
-                                        </figure>
-                                        <article>
-                                            <h3>Blue beach</h3>
-                                            <h4>thailand</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
-                                        </article>
-                                        <div class="price">
-                                            <h3>138$</h3>
-                                            <a href="{{path('voyage_details')}}"></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="span3 offer element price star">
-                                        <figure>
-                                            <img src="{{asset('bundles/voyage/images/offerpic-1.png')}}"  alt="Offer Image">
-                                            <div class="overlay">
-                                                <a href="#" class="like"></a>
-                                            </div>
-                                        </figure>
-                                        <article>
-                                            <h3>Blue heaven</h3>
-                                            <h4>Italy</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
-                                        </article>
-                                        <div class="price">
-                                            <h3>138$</h3>
-                                            <a href="{{path('voyage_details')}}"></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="span3 offer element rate star">
-                                        <figure>
-                                            <img src="{{asset('bundles/voyage/images/offerpic-2.png')}}"  alt="Offer Image">
-                                            <div class="overlay">
-                                                <a href="#" class="like"></a>
-                                            </div>
-                                        </figure>
-                                        <article>
-                                            <h3>Blue heaven</h3>
-                                            <h4>Greece</h4>
-                                            <p><a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#" class="active"></a>
-                                                <a href="#"></a>
-                                                <a href="#"></a>
-                                            </p>
-                                            <span>Read 8 Reviews</span>
+                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                         </article>
                                         <div class="price">
                                             <h3>138$</h3>
@@ -375,9 +334,4 @@
                     </div>
                 </div>
                 <!-- Grid page -->
-
-             
-
-
-
-{% endblock %}
+             {% endblock %}
