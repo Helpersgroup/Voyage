@@ -27,4 +27,12 @@ class DefaultController extends Controller
     {
         return $this->render('VoyageBundle:Default:details.html.twig');
     }
+            public function reservationAction()
+    {
+        return $this->render('VoyageBundle:Default:confirmReservation.html.twig');
+    }
+              public function ajoutAnnonceAction()
+    {
+        return $this->render('VoyageBundle:annonces:ajout_Annonce.html.twig');
+    }
 }

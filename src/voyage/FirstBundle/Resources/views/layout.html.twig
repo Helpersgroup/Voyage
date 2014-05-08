@@ -81,7 +81,86 @@
                     </div>
                 </div>
                 <!-- HEADER -->
-                <!-- Main Navigation -->
+                
+                
+                
+                
+                
+             <script type="application/x-javascript"> 
+		 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		 <!--hatha ili bih il feyda fil design --> <link rel="stylesheet" href="{{asset('bundles/voyage/css/style.css')}}">
+		<!-- hatha  mta3 il login --> <script type="text/javascript" src="{{asset('bundles/voyage/js/login.js')}}"></script>
+		 
+			
+		</head>
+		<body>
+		<div class="wrap">
+			
+			<div class="navigations">
+			<!---start-header---->
+			<div class="frist-nav">
+				
+				<div id="navigation">
+					
+				    <nav class="nav frist-top-nav">
+				        <ul>
+				            <li><a href="#"><span class="qurter-icon1"> </span>statistique</a></li>
+				            <li><a class="mess" href="#"><span class="mess-icon1"> </span>Reservation<label>6</label></a></li>
+				            <li class="active"><a href="#"><span class="bref-icon1"> </span>Mes Annonces</a></li>
+				        </ul>
+				    </nav>
+				    <div class="top-nav-right">
+				    	<div class="profile_details">
+				    		   <div id="loginContainer">
+				                  <a id="loginButton" class=""><span>Me</span></a>   
+				                    <div id="loginBox" style="display: none;">                
+				                      <form id="loginForm">
+				                        <fieldset id="body">
+				                            <div class="user-info">
+							        			<h4>Hello,<a href="#"> Username</a></h4>
+							        			<ul>
+							        				<li class="profile active"><a href="#">Profile </a></li>
+							        				<li class="logout"><a href="#"> Logout</a></li>
+							        				<div class="clear"></div>		
+							        			</ul>
+							        		</div>			                            
+				                        </fieldset>
+				                    </form>
+				                </div>
+				            </div>
+				             <ul class="menu sub-menu profile_img">
+								<li><a class="active-icon c1" href="#"> </a>
+									<ul class="sub-menu">
+										<li>
+											<a href="#"><img src="images/supr.png" alt="" />Profile</a>
+										</li>
+										<li>
+											<a href="#"><img src="images/start.png" alt="" />Favourites</a>
+										</li>
+						
+										<li>
+											<a href="#"><img src="images/gar.png" alt="" />Settings</a>
+										</li>
+										<li>
+											<a href="#"><img src="images/logout.png" alt="" />Logout</a>
+										</li>
+									</ul>
+								</li>
+							</ul>	
+					    </div>
+				    </div>
+				</div>
+		
+			</div>
+		</div>	
+		                           
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                 <div class="nav-wrapper nav-two">
                     <div class="container">
                         <div class="row">
@@ -89,20 +168,22 @@
 
                                 <nav>
                                     <ul>
-                                        <li><a href="{{path('voyage_homepage')}}">Home </a>
+                                        <li><a href="{{path('voyage_homepage')}}">accueil </a>
                                           <!--  <ul class="clearfix">
                                                 <li><a href="index2.html">Home 2</a></li>
                                                 <li><a href="index3.html">Home 3 </a></li>
                                             </ul>-->
                                         </li>
                                         
-                                        <li><a href="{{path('voyage_list_annonces')}}">Travel</a>
+                                        <li><a href="{{path('voyage_list_annonces')}}">Annonces</a>
                                             <ul class="clearfix">
-                                                <li><a href="{{path('voyage_list_annoncesl')}}">Travel list</a></li>
-                                                <li><a href="{{path('voyage_details')}}">Travel Detail</a></li>
+                                                <li><a href="{{path('annonce_ajout')}}">Ajout Annonce</a>
+                                                <li><a href="{{path('voyage_list_annoncesl')}}">List Annonce</a></li>
+                                                <li><a href="{{path('voyage_details')}}">Detail Annonce</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Holidays</a></li>
+                                        
+                                   <!--     <li><a href="#">Holidays</a></li>
                                         <li>
                                             <a href="#">Flights</a>
                                             <ul class="clearfix">
@@ -113,15 +194,11 @@
                                                 <li><a href="#">Smart Phone </a> </li>
                                                 <li><a href="#">Projection </a> </li>
                                             </ul>
-                                        </li>
-                                        <li><a href="#">Cars</a></li>
-                                        <li><a href="#">Vacations</a></li>
-                                        <li><a href="#">Guide Book</a></li>
-                                        <li><a href="#">Hot Deal</a></li>
-                                        <li><a href="booking.html">Booking</a>
-                                            <ul class="clearfix">
-                                                <li><a href="confirm.html">Confirmation</a></li>
-                                            </ul>
+                                        </li>-->
+                                      <!--  <li><a href="#">Cars</a></li>-->
+                                        <li><a href="{{path('reservation')}}">Reservation</a></li>
+                                     <!--   <li><a href="#">Guide Book</a></li>-->
+                                         
                                         </li>
                                         <li  class="last"><a href="{{path('voyage_contact')}}">Contact</a></li>
                                     </ul>
@@ -280,8 +357,8 @@
 
 
                 <!-- Scripts -->
-				<script src="{{asset('bundles/voyage/js/jquery-1.7.1.min.js')}}"></script>
-				<script src="{{asset('bundles/voyage/js/jquery.flexslider.js')}}"></script>
+		<script src="{{asset('bundles/voyage/js/jquery-1.7.1.min.js')}}"></script>
+		<script src="{{asset('bundles/voyage/js/jquery.flexslider.js')}}"></script>
                 <script src="{{asset('bundles/voyage/js/jquery.flexslider-min.js')}}"></script>
                 <script src="{{asset('bundles/voyage/js/jquery.elastislide.js')}}"></script>
                 <script src="{{asset('bundles/voyage/js/jquery.carouFredSel-6.0.4-packed.js')}}"></script>

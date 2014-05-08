@@ -13,3 +13,9 @@ voyage_contact:
 voyage_details:
     pattern:  /details
     defaults: { _controller: VoyageBundle:Default:details }
+reservation:
+    pattern:  /reservation
+    defaults: { _controller: VoyageBundle:Default:reservation }
+annonce_ajout:
+    pattern:  /ajout
+    defaults: { _controller: VoyageBundle:Default:ajoutAnnonce }
