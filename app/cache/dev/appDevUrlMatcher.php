@@ -144,14 +144,37 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::indexAction',  '_route' => 'voyage_homepage',);
         }
 
-        // voyage_list_annonces
-        if ($pathinfo === '/annonces') {
-            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::annoncesAction',  '_route' => 'voyage_list_annonces',);
+        if (0 === strpos($pathinfo, '/annonces')) {
+            // voyage_list_annonces
+            if ($pathinfo === '/annonces') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::annoncesAction',  '_route' => 'voyage_list_annonces',);
+            }
+
+            // voyage_list_annoncesl
+            if ($pathinfo === '/annonces_list') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::annonceslAction',  '_route' => 'voyage_list_annoncesl',);
+            }
+
         }
 
         // voyage_contact
         if ($pathinfo === '/contact') {
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::contactAction',  '_route' => 'voyage_contact',);
+        }
+
+        // voyage_details
+        if ($pathinfo === '/details') {
+            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::detailsAction',  '_route' => 'voyage_details',);
+        }
+
+        // reservation
+        if ($pathinfo === '/reservation') {
+            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::reservationAction',  '_route' => 'reservation',);
+        }
+
+        // annonce_ajout
+        if ($pathinfo === '/ajout') {
+            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::ajoutAnnonceAction',  '_route' => 'annonce_ajout',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
