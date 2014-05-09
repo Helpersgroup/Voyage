@@ -215,7 +215,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 \t\t\t\t                </div>
 \t\t\t\t            
                                                         <ul class=\"menu profile_img\">
-                                                            <li><a class=\"active-icon c1\" href=\"#\" > <img src=\"";
+                                                            <li><a class=\"active-icon c1\" id=\"7ell\" href=\"#\" > <img src=\"";
         // line 149
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/profile-pic.png"), "html", null, true);
         echo "\" /></a>

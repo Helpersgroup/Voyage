@@ -1,7 +1,7 @@
 // Login Form
 
 $(function() {
-    var button = $('#loginButton');
+    var button = $('#7ell');
     var box = $('#loginBox');
     var form = $('#loginForm');
     button.removeAttr('href');
@@ -13,7 +13,7 @@ $(function() {
         return false;
     });
     $(this).mouseup(function(login) {
-        if(!($(login.target).parent('#loginButton').length > 0)) {
+        if(!($(login.target).parent('#7ell').length > 0)) {
             button.removeClass('active');
             box.hide();
         }
