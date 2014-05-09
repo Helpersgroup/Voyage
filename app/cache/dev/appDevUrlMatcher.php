@@ -177,6 +177,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::ajoutAnnonceAction',  '_route' => 'annonce_ajout',);
         }
 
+        // inscription
+        if ($pathinfo === '/inscription') {
+            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::inscriptionAction',  '_route' => 'inscription',);
+        }
+
+        // profil
+        if ($pathinfo === '/profil') {
+            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::profilAction',  '_route' => 'profil',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

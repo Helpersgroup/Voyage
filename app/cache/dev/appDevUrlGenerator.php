@@ -37,6 +37,8 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'voyage_details' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::detailsAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/details',    ),  ),  4 =>   array (  ),),
         'reservation' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::reservationAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/reservation',    ),  ),  4 =>   array (  ),),
         'annonce_ajout' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::ajoutAnnonceAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/ajout',    ),  ),  4 =>   array (  ),),
+        'inscription' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::inscriptionAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/inscription',    ),  ),  4 =>   array (  ),),
+        'profil' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::profilAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/profil',    ),  ),  4 =>   array (  ),),
     );
 
     /**

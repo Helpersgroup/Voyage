@@ -205,7 +205,10 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 \t\t\t\t                            <div class=\"user-info\">
 \t\t\t\t\t\t\t        \t\t\t<h4>Hello,<a href=\"#\"> Username</a></h4>
 \t\t\t\t\t\t\t        \t\t\t<ul>
-\t\t\t\t\t\t\t        \t\t\t\t<li class=\"profile active\"><a href=\"#\">Profile </a></li>
+\t\t\t\t\t\t\t        \t\t\t\t<li class=\"profile active\"><a href=\"";
+        // line 139
+        echo $this->env->getExtension('routing')->getPath("profil");
+        echo "\">Profile </a></li>
 \t\t\t\t\t\t\t        \t\t\t\t<li class=\"logout\"><a href=\"#\"> Logout</a></li>
 \t\t\t\t\t\t\t        \t\t\t\t<div class=\"clear\"></div>\t\t
 \t\t\t\t\t\t\t        \t\t\t</ul>
@@ -215,9 +218,11 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 \t\t\t\t                </div>
 \t\t\t\t            
                                                         <ul class=\"menu profile_img\">
-                                                            <li><a class=\"active-icon c1\" id=\"7ell\" href=\"#\" > <img src=\"";
+                                                            <li><a class=\"active-icon c1\" id=\"7ell\" href=\"";
         // line 149
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/profile-pic.png"), "html", null, true);
+        echo $this->env->getExtension('routing')->getPath("profil");
+        echo "\" > <img src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/img/profile-pic.png"), "html", null, true);
         echo "\" /></a>
 \t\t\t\t\t\t\t\t\t<ul class=\"sub-menu\">
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
@@ -404,6 +409,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                 
                 <div class=\"login-popup-wrapper\">
                     <div id=\"login-popup\">
+                         <a href=\"#\" class=\"close\">Close</a>
                     \t<h2>authentification</h2>
                         <form method=\"get\" action=\"#\">
                             <input type=\"text\" value=\"\" id=\"username\" placeholder=\"kimo@gmail.com\" />
@@ -411,22 +417,27 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                             
                             <input type=\"submit\" value=\"sıgn ın\" id=\"login-button\"/>
                         </form>
-                        <a href=\"#\" class=\"close\">Close</a>
+                       
                     </div>
                 </div>
                 <div class=\"signon-popup-wrapper\">
                     <div id=\"signon-popup\">
-                    \t<h2>Inscription</h2>
+                        <a href=\"#\" class=\"close2\">Close</a>
+                    \t<h2>Inscription Client</h2>
+                        <h5><a href=\"";
+        // line 332
+        echo $this->env->getExtension('routing')->getPath("inscription");
+        echo "\">Vous etes un Agent </a></h5>
                         <form method=\"get\" action=\"#\">
-                            <input type=\"text\" value=\"\" id=\"name\" placeholder=\"Nom\" />
+                            <input type=\"text\" value=\"\" id=\"username\" placeholder=\"Nom\" />
                             <input type=\"email\" value=\"\" id=\"username\" placeholder=\"email@email.exemple\" />
                             
                             <input type=\"password\" value=\"\" id=\"password\" placeholder=\"Password\" />
                             <input type=\"password\" value=\"\" id=\"password\" placeholder=\"verif Password\" />
                             
-                            <input type=\"submit\" value=\"s'inscrir\" id=\"login-button\"/>
+                            <input type=\"submit\" value=\"S'inscrir\" id=\"login-button\"/>
                         </form>
-                        <a href=\"#\" class=\"close2\">Close</a>
+                        
                     </div>
                 </div>
 
@@ -434,55 +445,55 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 
                 <!-- Scripts -->
 \t\t<script src=\"";
-        // line 346
+        // line 349
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-1.7.1.min.js"), "html", null, true);
         echo "\"></script>
 \t\t<script src=\"";
-        // line 347
+        // line 350
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 348
+        // line 351
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider-min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 349
+        // line 352
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.elastislide.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 350
+        // line 353
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.carouFredSel-6.0.4-packed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 351
+        // line 354
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jcarousellite_1.0.1.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 352
+        // line 355
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.zweatherfeed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 353
+        // line 356
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.simpleWeather-2.3.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 354
+        // line 357
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.cycle.all.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 355
+        // line 358
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-ui.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 356
+        // line 359
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 357
+        // line 360
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.isotope.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 358
+        // line 361
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.tinyscrollbar.min.js"), "html", null, true);
         echo "\"></script>
                 <script>
@@ -508,7 +519,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
     });
                 </script>
                 <script src=\"";
-        // line 381
+        // line 384
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/custom.js"), "html", null, true);
         echo "\"></script>\t\t
 \t\t</body>
@@ -533,6 +544,6 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 
     public function getDebugInfo()
     {
-        return array (  520 => 227,  512 => 381,  486 => 358,  482 => 357,  478 => 356,  474 => 355,  470 => 354,  466 => 353,  462 => 352,  458 => 351,  454 => 350,  450 => 349,  446 => 348,  442 => 347,  438 => 346,  333 => 244,  315 => 228,  313 => 227,  237 => 154,  233 => 153,  229 => 152,  225 => 151,  220 => 149,  198 => 130,  193 => 128,  185 => 123,  181 => 122,  177 => 121,  172 => 119,  162 => 112,  147 => 100,  143 => 99,  134 => 93,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
+        return array (  531 => 227,  523 => 384,  497 => 361,  493 => 360,  489 => 359,  485 => 358,  481 => 357,  477 => 356,  473 => 355,  469 => 354,  465 => 353,  461 => 352,  457 => 351,  453 => 350,  449 => 349,  429 => 332,  338 => 244,  320 => 228,  318 => 227,  242 => 154,  238 => 153,  234 => 152,  230 => 151,  223 => 149,  210 => 139,  198 => 130,  193 => 128,  185 => 123,  181 => 122,  177 => 121,  172 => 119,  162 => 112,  147 => 100,  143 => 99,  134 => 93,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
     }
 }

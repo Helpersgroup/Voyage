@@ -19,3 +19,9 @@ reservation:
 annonce_ajout:
     pattern:  /ajout
     defaults: { _controller: VoyageBundle:Default:ajoutAnnonce }
+inscription:
+    pattern:  /inscription
+    defaults: { _controller: VoyageBundle:Users:inscription }
+profil:
+    pattern:  /profil
+    defaults: { _controller: VoyageBundle:Users:profil }

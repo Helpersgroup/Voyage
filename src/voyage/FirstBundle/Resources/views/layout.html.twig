@@ -136,7 +136,7 @@
 				                            <div class="user-info">
 							        			<h4>Hello,<a href="#"> Username</a></h4>
 							        			<ul>
-							        				<li class="profile active"><a href="#">Profile </a></li>
+							        				<li class="profile active"><a href="{{path('profil')}}">Profile </a></li>
 							        				<li class="logout"><a href="#"> Logout</a></li>
 							        				<div class="clear"></div>		
 							        			</ul>
@@ -146,7 +146,7 @@
 				                </div>
 				            
                                                         <ul class="menu profile_img">
-                                                            <li><a class="active-icon c1" id="7ell" href="#" > <img src="{{asset('bundles/voyage/img/profile-pic.png')}}" /></a>
+                                                            <li><a class="active-icon c1" id="7ell" href="{{path('profil')}}" > <img src="{{asset('bundles/voyage/img/profile-pic.png')}}" /></a>
 									<ul class="sub-menu">
 										<li><a href="#"><img src="{{asset('bundles/voyage/images/supr.png')}}" alt="" />Profile</a></li>
 										<li><a href="#"><img src="{{asset('bundles/voyage/images/start.png')}}" alt="" />Favourites</a></li>
@@ -314,6 +314,7 @@
                 
                 <div class="login-popup-wrapper">
                     <div id="login-popup">
+                         <a href="#" class="close">Close</a>
                     	<h2>authentification</h2>
                         <form method="get" action="#">
                             <input type="text" value="" id="username" placeholder="kimo@gmail.com" />
@@ -321,22 +322,24 @@
                             
                             <input type="submit" value="sıgn ın" id="login-button"/>
                         </form>
-                        <a href="#" class="close">Close</a>
+                       
                     </div>
                 </div>
                 <div class="signon-popup-wrapper">
                     <div id="signon-popup">
-                    	<h2>Inscription</h2>
+                        <a href="#" class="close2">Close</a>
+                    	<h2>Inscription Client</h2>
+                        <h5><a href="{{path('inscription')}}">Vous etes un Agent </a></h5>
                         <form method="get" action="#">
-                            <input type="text" value="" id="name" placeholder="Nom" />
+                            <input type="text" value="" id="username" placeholder="Nom" />
                             <input type="email" value="" id="username" placeholder="email@email.exemple" />
                             
                             <input type="password" value="" id="password" placeholder="Password" />
                             <input type="password" value="" id="password" placeholder="verif Password" />
                             
-                            <input type="submit" value="s'inscrir" id="login-button"/>
+                            <input type="submit" value="S'inscrir" id="login-button"/>
                         </form>
-                        <a href="#" class="close2">Close</a>
+                        
                     </div>
                 </div>
 
