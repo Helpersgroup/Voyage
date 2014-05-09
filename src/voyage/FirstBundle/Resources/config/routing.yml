@@ -16,6 +16,9 @@ voyage_details:
 reservation:
     pattern:  /reservation
     defaults: { _controller: VoyageBundle:Default:reservation }
+proposition:
+    pattern:  /proposition
+    defaults: { _controller: VoyageBundle:proposition:proposition }
 annonce_ajout:
     pattern:  /ajout
     defaults: { _controller: VoyageBundle:Default:ajoutAnnonce }

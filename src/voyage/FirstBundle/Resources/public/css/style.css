@@ -211,7 +211,7 @@ p { font: 14px 'proxima_nova_rgregular',Times New Roman, Times, serif; color: #9
 							Login
 ****************************************************************************/
 .login-popup-wrapper { display: none; width: 100%; height: 100%; position:fixed; top: 0; left: 0; background: url(../images/bg.png) repeat; z-index: 9998; }
-#login-popup { display:none; position: fixed; top:50%; left:50%; margin: -45px 0 0 -185px; width:246px; padding: 57px 40px 26px 40px; background:#fff; border:3px solid #017eba; z-index: 9999; }
+#login-popup { display:none; position: fixed; top:40%; left:50%; margin: -45px 0 0 -185px; width:300px; padding: 57px 40px 26px 40px; background:#fff; border:3px solid #017eba; z-index: 9999; }
 #login-popup h2 { color: #342323; margin-bottom: 17px; }
 
 #login-popup form #username { font: 400 14px 'Arial', Helvetica, sans-serif; font-style:italic; color:#808181; display:block; width:88%; background:#fff; outline:none; padding:10px 20px ; border:1px solid #ebe8e3;  border-radius:0px; }
@@ -223,7 +223,7 @@ p { font: 14px 'proxima_nova_rgregular',Times New Roman, Times, serif; color: #9
 							signon
 ****************************************************************************/
 .signon-popup-wrapper { display: none; width: 100%; height: 100%; position:fixed; top: 0; left: 0; background: url(../images/bg.png) repeat; z-index: 9998; }
-#signon-popup { display:none; position: fixed; top:40%; left:50%; margin: -45px 0 0 -185px; width:246px; padding: 57px 40px 26px 40px; background:#fff; border:3px solid #017eba; z-index: 9999; }
+#signon-popup { display:none; position: fixed; top:35%; left:30%; margin: -45px 0 0 -185px; width:700px; padding: 57px 40px 26px 40px; background:#fff; border:3px solid #017eba; z-index: 9999; }
 #signon-popup h2 { color: #342323; margin-bottom: 17px; }
 
 #signon-popup form #username { font: 400 14px 'Arial', Helvetica, sans-serif; font-style:italic; color:#808181; display:block; width:88%; background:#fff; outline:none; padding:10px 20px ; border:1px solid #ebe8e3;  border-radius:0px; }

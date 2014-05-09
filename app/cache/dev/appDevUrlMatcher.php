@@ -172,6 +172,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::reservationAction',  '_route' => 'reservation',);
         }
 
+        // proposition
+        if ($pathinfo === '/proposition') {
+            return array (  '_controller' => 'VoyageBundle:proposition:proposition',  '_route' => 'proposition',);
+        }
+
         // annonce_ajout
         if ($pathinfo === '/ajout') {
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::ajoutAnnonceAction',  '_route' => 'annonce_ajout',);

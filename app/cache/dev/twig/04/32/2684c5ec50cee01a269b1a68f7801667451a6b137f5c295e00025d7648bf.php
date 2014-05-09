@@ -78,10 +78,6 @@ class __TwigTemplate_04322684c5ec50cee01a269b1a68f7801667451a6b137f5c295e00025d7
                                                     <input type=\"text\"/>
 
                                                     <h3>Credit cart infomation</h3>
-                                                    <a href=\"#\" class=\"card\"><img src=\"";
-        // line 54
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/card.png"), "html", null, true);
-        echo "\" alt=\"\"/></a>
                                                     <label>Name on Card: </label>
                                                     <input type=\"text\"/>
                                                     <label>Card Number: </label>
@@ -131,7 +127,7 @@ class __TwigTemplate_04322684c5ec50cee01a269b1a68f7801667451a6b137f5c295e00025d7
                                                         <label>Grand Total:</label>
                                                         <span>138<small>\$</small></span>
                                                         <div class=\"clearfix\"></div>
-                                                        <input type=\"submit\" value=\"book now\"/>
+                                                        <input type=\"submit\" value=\"Ajouter\"/>
                                                     </form>
                                                              </div>
                                                 </form>
@@ -168,6 +164,6 @@ class __TwigTemplate_04322684c5ec50cee01a269b1a68f7801667451a6b137f5c295e00025d7
 
     public function getDebugInfo()
     {
-        return array (  83 => 54,  31 => 4,  28 => 3,);
+        return array (  31 => 4,  28 => 3,);
     }
 }

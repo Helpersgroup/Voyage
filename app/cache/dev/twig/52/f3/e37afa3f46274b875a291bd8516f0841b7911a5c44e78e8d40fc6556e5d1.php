@@ -160,7 +160,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                                         <li><a href=\"";
         // line 112
         echo $this->env->getExtension('routing')->getPath("voyage_homepage");
-        echo "\">accueil <label>6</label></a>
+        echo "\">accueil </a>
                                           <!--  <ul class=\"clearfix\">
                                                 <li><a href=\"index2.html\">Home 2</a></li>
                                                 <li><a href=\"index3.html\">Home 3 </a></li>
@@ -191,8 +191,11 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                                         <li><a href=\"";
         // line 128
         echo $this->env->getExtension('routing')->getPath("reservation");
-        echo "\">Reservation</a></li>
-                                         
+        echo "\">Reservation<label>2</label></a></li>
+                                         <li><a href=\"";
+        // line 129
+        echo $this->env->getExtension('routing')->getPath("proposition");
+        echo "\">Proposition<label>6</label></a></li>
                                         <li  class=\"last\"><a href=\"";
         // line 130
         echo $this->env->getExtension('routing')->getPath("voyage_contact");
@@ -544,6 +547,6 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 
     public function getDebugInfo()
     {
-        return array (  531 => 227,  523 => 384,  497 => 361,  493 => 360,  489 => 359,  485 => 358,  481 => 357,  477 => 356,  473 => 355,  469 => 354,  465 => 353,  461 => 352,  457 => 351,  453 => 350,  449 => 349,  429 => 332,  338 => 244,  320 => 228,  318 => 227,  242 => 154,  238 => 153,  234 => 152,  230 => 151,  223 => 149,  210 => 139,  198 => 130,  193 => 128,  185 => 123,  181 => 122,  177 => 121,  172 => 119,  162 => 112,  147 => 100,  143 => 99,  134 => 93,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
+        return array (  534 => 227,  526 => 384,  500 => 361,  496 => 360,  492 => 359,  488 => 358,  484 => 357,  480 => 356,  476 => 355,  472 => 354,  468 => 353,  464 => 352,  460 => 351,  456 => 350,  452 => 349,  432 => 332,  341 => 244,  323 => 228,  321 => 227,  245 => 154,  241 => 153,  237 => 152,  233 => 151,  226 => 149,  213 => 139,  201 => 130,  197 => 129,  193 => 128,  185 => 123,  181 => 122,  177 => 121,  172 => 119,  162 => 112,  147 => 100,  143 => 99,  134 => 93,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
     }
 }

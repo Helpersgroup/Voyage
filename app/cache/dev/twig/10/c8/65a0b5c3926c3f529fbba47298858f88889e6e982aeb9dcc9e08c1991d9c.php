@@ -53,8 +53,8 @@ class __TwigTemplate_10c865a0b5c3926c3f529fbba47298858f88889e6e982aeb9dcc9e08c19
                         <div class=\"row\">
                             <div class=\"span12 booking clearfix\">
                                 <div class=\"top\">
-                                    <h2>Kavin hotel</h2>
-                                    <h3>Greece</h3>
+                                    <h2>Nom Prenom </h2>
+                                    <h3>age</h3>
                                     <div class=\"stars\">
                                         <a href=\"#\" class=\"active\"></a>
                                         <a href=\"#\" class=\"active\"></a>
@@ -159,7 +159,7 @@ class __TwigTemplate_10c865a0b5c3926c3f529fbba47298858f88889e6e982aeb9dcc9e08c19
                                                         <label>Grand Total:</label>
                                                         <span>138<small>\$</small></span>
                                                         <div class=\"clearfix\"></div>
-                                                        <input type=\"submit\" value=\"book now\"/>
+                                                        <input type=\"submit\" value=\"modifier\"/>
                                                     </form>
                                                 </div>
                                             </div>
