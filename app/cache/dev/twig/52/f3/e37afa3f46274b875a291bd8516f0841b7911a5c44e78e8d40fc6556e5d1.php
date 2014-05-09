@@ -499,11 +499,11 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                     
                     
                     \$(window).scroll(function () {  
-                        \$('#fixed').css({\"position\":\"fixed\", \"top\":\"160px\", \"left\":\"0px\"});
+                        \$('#fixed').css({\"position\":\"fixed\", \"top\":\"160px\", \"left\":\"0px\", \"right\":\"0px\"});
 
                         if (\$(window).scrollTop() > 1)
                         {
-                            \$('#fixed').css({\"position\":\"fixed\", \"top\":\"0px\", \"left\":\"0px\"});
+                            \$('#fixed').css({\"position\":\"fixed\", \"top\":\"0px\", \"left\":\"0px\", \"right\":\"0px\"});
                         }
     });
                 </script>
