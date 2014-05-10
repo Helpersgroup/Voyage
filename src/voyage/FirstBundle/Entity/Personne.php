@@ -15,15 +15,6 @@ class Personne
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_Personne", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idPersonne;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="cin", type="integer", nullable=true)
      */
     private $cin;
@@ -61,7 +52,7 @@ class Personne
      *
      * @ORM\Column(name="etat", type="string", length=45, nullable=true)
      */
-    private $etat = '0';
+    private $etat;
 
     /**
      * @var integer
@@ -77,17 +68,30 @@ class Personne
      */
     private $mdp;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="text", nullable=false)
+     */
+    private $salt;
 
     /**
-     * Get idPersonne
+     * @var string
      *
-     * @return integer 
+     * @ORM\Column(name="logo", type="text", nullable=false)
      */
-    public function getIdPersonne()
-    {
-        return $this->idPersonne;
-    }
+    private $logo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_Personne", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idPersonne;
+
+
 
     /**
      * Set cin
@@ -271,5 +275,61 @@ class Personne
     public function getMdp()
     {
         return $this->mdp;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return Personne
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     * @return Personne
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string 
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Get idPersonne
+     *
+     * @return integer 
+     */
+    public function getIdPersonne()
+    {
+        return $this->idPersonne;
     }
 }

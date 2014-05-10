@@ -1,3 +1,7 @@
+voyage_users:
+    resource: "@voyageUsersBundle/Resources/config/routing.yml"
+    prefix:   /
+
 voyage:
     resource: "@VoyageBundle/Resources/config/routing.yml"
     prefix:   /

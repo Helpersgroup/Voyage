@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="voyage\FirstBundle\Entity\Personne" table="personne">
+    <id name="idPersonne" type="integer" column="id_Personne">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cin" type="integer" column="cin" nullable="true"/>
+    <field name="nom" type="string" column="nom" length="30" nullable="false"/>
+    <field name="prenom" type="string" column="prenom" length="30" nullable="false"/>
+    <field name="email" type="string" column="email" length="30" nullable="false"/>
+    <field name="tel" type="integer" column="tel" nullable="false"/>
+    <field name="etat" type="string" column="etat" length="45" nullable="true"/>
+    <field name="idRs" type="bigint" column="id_RS" nullable="true"/>
+    <field name="mdp" type="string" column="mdp" length="45" nullable="true"/>
+    <field name="salt" type="text" column="salt" nullable="false"/>
+    <field name="logo" type="text" column="logo" nullable="false"/>
+  </entity>
+</doctrine-mapping>

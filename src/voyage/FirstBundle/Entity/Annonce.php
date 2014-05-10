@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Annonce
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_Annonce", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idAnnonce;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=45, nullable=false)
@@ -96,7 +87,7 @@ class Annonce
      *
      * @ORM\Column(name="note", type="integer", nullable=true)
      */
-    private $note = '0';
+    private $note;
 
     /**
      * @var integer
@@ -120,40 +111,25 @@ class Annonce
     private $signalisation;
 
     /**
-     * @var \Personne
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Personne")
+     * @ORM\Column(name="id_Annonce", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAnnonce;
+
+    /**
+     * @var \voyage\FirstBundle\Entity\Personne
+     *
+     * @ORM\ManyToOne(targetEntity="voyage\FirstBundle\Entity\Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Annonceur", referencedColumnName="id_Personne")
      * })
      */
     private $idAnnonceur;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Client", mappedBy="idAnnonce")
-     */
-    private $idClient;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idClient = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-
-    /**
-     * Get idAnnonce
-     *
-     * @return integer 
-     */
-    public function getIdAnnonce()
-    {
-        return $this->idAnnonce;
-    }
 
     /**
      * Set nom
@@ -478,6 +454,16 @@ class Annonce
     }
 
     /**
+     * Get idAnnonce
+     *
+     * @return integer 
+     */
+    public function getIdAnnonce()
+    {
+        return $this->idAnnonce;
+    }
+
+    /**
      * Set idAnnonceur
      *
      * @param \voyage\FirstBundle\Entity\Personne $idAnnonceur
@@ -498,38 +484,5 @@ class Annonce
     public function getIdAnnonceur()
     {
         return $this->idAnnonceur;
-    }
-
-    /**
-     * Add idClient
-     *
-     * @param \voyage\FirstBundle\Entity\Client $idClient
-     * @return Annonce
-     */
-    public function addIdClient(\voyage\FirstBundle\Entity\Client $idClient)
-    {
-        $this->idClient[] = $idClient;
-
-        return $this;
-    }
-
-    /**
-     * Remove idClient
-     *
-     * @param \voyage\FirstBundle\Entity\Client $idClient
-     */
-    public function removeIdClient(\voyage\FirstBundle\Entity\Client $idClient)
-    {
-        $this->idClient->removeElement($idClient);
-    }
-
-    /**
-     * Get idClient
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdClient()
-    {
-        return $this->idClient;
     }
 }

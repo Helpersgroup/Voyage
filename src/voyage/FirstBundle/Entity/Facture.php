@@ -15,15 +15,6 @@ class Facture
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_Facture", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idFacture;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="nombre_personnes", type="integer", nullable=false)
      */
     private $nombrePersonnes;
@@ -43,9 +34,18 @@ class Facture
     private $date;
 
     /**
-     * @var \Annonce
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Annonce")
+     * @ORM\Column(name="id_Facture", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idFacture;
+
+    /**
+     * @var \voyage\FirstBundle\Entity\Annonce
+     *
+     * @ORM\ManyToOne(targetEntity="voyage\FirstBundle\Entity\Annonce")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Annonce", referencedColumnName="id_Annonce")
      * })
@@ -53,16 +53,6 @@ class Facture
     private $idAnnonce;
 
 
-
-    /**
-     * Get idFacture
-     *
-     * @return integer 
-     */
-    public function getIdFacture()
-    {
-        return $this->idFacture;
-    }
 
     /**
      * Set nombrePersonnes
@@ -131,6 +121,16 @@ class Facture
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Get idFacture
+     *
+     * @return integer 
+     */
+    public function getIdFacture()
+    {
+        return $this->idFacture;
     }
 
     /**

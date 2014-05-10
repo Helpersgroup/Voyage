@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="voyage\FirstBundle\Entity\Agence" table="agence">
+    <id name="idAgence" type="integer" column="Id_Agence">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nom" type="string" column="nom" length="20" nullable="false"/>
+    <field name="adresse" type="string" column="adresse" length="20" nullable="false"/>
+    <field name="telephone" type="integer" column="telephone" nullable="false"/>
+    <field name="ville" type="string" column="ville" length="45" nullable="false"/>
+    <field name="logo" type="text" column="logo" nullable="false"/>
+  </entity>
+</doctrine-mapping>

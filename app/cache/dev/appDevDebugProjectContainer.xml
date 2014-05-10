@@ -17,6 +17,7 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="VoyageBundle">voyage\FirstBundle\VoyageBundle</parameter>
+      <parameter key="voyageUsersBundle">voyage\UsersBundle\voyageUsersBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -2332,11 +2333,13 @@
               <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
                 <call method="addDriver">
                   <argument type="service">
-                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
-                      <argument type="service" id="annotation_reader"/>
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
                       <argument type="collection">
-                        <argument>/var/www/voyage/src/voyage/FirstBundle/Entity</argument>
+                        <argument key="/var/www/voyage/src/voyage/FirstBundle/Resources/config/doctrine">voyage\FirstBundle\Entity</argument>
                       </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
                     </service>
                   </argument>
                   <argument>voyage\FirstBundle\Entity</argument>
@@ -2712,6 +2715,10 @@
       <call method="addPath">
         <argument>/var/www/voyage/src/voyage/FirstBundle/Resources/views</argument>
         <argument>Voyage</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/voyage/src/voyage/UsersBundle/Resources/views</argument>
+        <argument>voyageUsers</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/voyage/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>

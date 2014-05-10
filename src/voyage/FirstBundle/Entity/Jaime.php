@@ -15,31 +15,31 @@ class Jaime
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_Jaime", type="integer", nullable=false)
+     * @ORM\Column(name="id_Jaime", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idJaime;
 
     /**
-     * @var \Annonce
+     * @var \voyage\FirstBundle\Entity\Personne
      *
-     * @ORM\ManyToOne(targetEntity="Annonce")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Annonce", referencedColumnName="id_Annonce")
-     * })
-     */
-    private $idAnnonce;
-
-    /**
-     * @var \Personne
-     *
-     * @ORM\ManyToOne(targetEntity="Personne")
+     * @ORM\ManyToOne(targetEntity="voyage\FirstBundle\Entity\Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Personne", referencedColumnName="id_Personne")
      * })
      */
     private $idPersonne;
+
+    /**
+     * @var \voyage\FirstBundle\Entity\Annonce
+     *
+     * @ORM\ManyToOne(targetEntity="voyage\FirstBundle\Entity\Annonce")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_Annonce", referencedColumnName="id_Annonce")
+     * })
+     */
+    private $idAnnonce;
 
 
 
@@ -51,29 +51,6 @@ class Jaime
     public function getIdJaime()
     {
         return $this->idJaime;
-    }
-
-    /**
-     * Set idAnnonce
-     *
-     * @param \voyage\FirstBundle\Entity\Annonce $idAnnonce
-     * @return Jaime
-     */
-    public function setIdAnnonce(\voyage\FirstBundle\Entity\Annonce $idAnnonce = null)
-    {
-        $this->idAnnonce = $idAnnonce;
-
-        return $this;
-    }
-
-    /**
-     * Get idAnnonce
-     *
-     * @return \voyage\FirstBundle\Entity\Annonce 
-     */
-    public function getIdAnnonce()
-    {
-        return $this->idAnnonce;
     }
 
     /**
@@ -97,5 +74,28 @@ class Jaime
     public function getIdPersonne()
     {
         return $this->idPersonne;
+    }
+
+    /**
+     * Set idAnnonce
+     *
+     * @param \voyage\FirstBundle\Entity\Annonce $idAnnonce
+     * @return Jaime
+     */
+    public function setIdAnnonce(\voyage\FirstBundle\Entity\Annonce $idAnnonce = null)
+    {
+        $this->idAnnonce = $idAnnonce;
+
+        return $this;
+    }
+
+    /**
+     * Get idAnnonce
+     *
+     * @return \voyage\FirstBundle\Entity\Annonce 
+     */
+    public function getIdAnnonce()
+    {
+        return $this->idAnnonce;
     }
 }

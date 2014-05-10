@@ -13,51 +13,28 @@ use Doctrine\ORM\Mapping as ORM;
 class Responsableagence
 {
     /**
-     * @var \Agence
-     *
-     * @ORM\ManyToOne(targetEntity="Agence")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Agence", referencedColumnName="Id_Agence")
-     * })
-     */
-    private $idAgence;
-
-    /**
-     * @var \Personne
+     * @var \voyage\FirstBundle\Entity\Personne
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Personne")
+     * @ORM\OneToOne(targetEntity="voyage\FirstBundle\Entity\Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Responsable", referencedColumnName="id_Personne")
      * })
      */
     private $idResponsable;
 
-
-
     /**
-     * Set idAgence
+     * @var \voyage\FirstBundle\Entity\Agence
      *
-     * @param \voyage\FirstBundle\Entity\Agence $idAgence
-     * @return Responsableagence
+     * @ORM\ManyToOne(targetEntity="voyage\FirstBundle\Entity\Agence")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_Agence", referencedColumnName="Id_Agence")
+     * })
      */
-    public function setIdAgence(\voyage\FirstBundle\Entity\Agence $idAgence = null)
-    {
-        $this->idAgence = $idAgence;
+    private $idAgence;
 
-        return $this;
-    }
 
-    /**
-     * Get idAgence
-     *
-     * @return \voyage\FirstBundle\Entity\Agence 
-     */
-    public function getIdAgence()
-    {
-        return $this->idAgence;
-    }
 
     /**
      * Set idResponsable
@@ -80,5 +57,28 @@ class Responsableagence
     public function getIdResponsable()
     {
         return $this->idResponsable;
+    }
+
+    /**
+     * Set idAgence
+     *
+     * @param \voyage\FirstBundle\Entity\Agence $idAgence
+     * @return Responsableagence
+     */
+    public function setIdAgence(\voyage\FirstBundle\Entity\Agence $idAgence = null)
+    {
+        $this->idAgence = $idAgence;
+
+        return $this;
+    }
+
+    /**
+     * Get idAgence
+     *
+     * @return \voyage\FirstBundle\Entity\Agence 
+     */
+    public function getIdAgence()
+    {
+        return $this->idAgence;
     }
 }

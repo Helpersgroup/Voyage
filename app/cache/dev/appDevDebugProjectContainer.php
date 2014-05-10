@@ -596,23 +596,26 @@ class appDevDebugProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_425b6bfdadd3379857deaf5d6d02dff3c98a6a3fa71008c9fd748132cfc68ed7');
 
-        $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
-        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => '/var/www/voyage/src/voyage/FirstBundle/Entity')), 'voyage\\FirstBundle\\Entity');
+        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('/var/www/voyage/src/voyage/FirstBundle/Resources/config/doctrine' => 'voyage\\FirstBundle\\Entity'));
+        $d->setGlobalBasename('mapping');
 
-        $e = new \Doctrine\ORM\Configuration();
-        $e->setEntityNamespaces(array('VoyageBundle' => 'voyage\\FirstBundle\\Entity'));
-        $e->setMetadataCacheImpl($a);
-        $e->setQueryCacheImpl($b);
-        $e->setResultCacheImpl($c);
-        $e->setMetadataDriverImpl($d);
-        $e->setProxyDir('/var/www/voyage/app/cache/dev/doctrine/orm/Proxies');
-        $e->setProxyNamespace('Proxies');
-        $e->setAutoGenerateProxyClasses(true);
-        $e->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $e->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $e->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $e->addDriver($d, 'voyage\\FirstBundle\\Entity');
 
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
+        $f = new \Doctrine\ORM\Configuration();
+        $f->setEntityNamespaces(array('VoyageBundle' => 'voyage\\FirstBundle\\Entity'));
+        $f->setMetadataCacheImpl($a);
+        $f->setQueryCacheImpl($b);
+        $f->setResultCacheImpl($c);
+        $f->setMetadataDriverImpl($e);
+        $f->setProxyDir('/var/www/voyage/app/cache/dev/doctrine/orm/Proxies');
+        $f->setProxyNamespace('Proxies');
+        $f->setAutoGenerateProxyClasses(true);
+        $f->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $f->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $f->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $f);
 
         $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
 
@@ -2934,6 +2937,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/var/www/voyage/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('/var/www/voyage/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/var/www/voyage/src/voyage/FirstBundle/Resources/views', 'Voyage');
+        $instance->addPath('/var/www/voyage/src/voyage/UsersBundle/Resources/views', 'voyageUsers');
         $instance->addPath('/var/www/voyage/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/var/www/voyage/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('/var/www/voyage/app/Resources/views');
@@ -3401,6 +3405,7 @@ class appDevDebugProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'VoyageBundle' => 'voyage\\FirstBundle\\VoyageBundle',
+                'voyageUsersBundle' => 'voyage\\UsersBundle\\voyageUsersBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

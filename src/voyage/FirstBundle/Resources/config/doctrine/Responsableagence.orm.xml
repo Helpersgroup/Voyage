@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="voyage\FirstBundle\Entity\Responsableagence" table="responsableagence">
+    <indexes>
+      <index name="id_agence_idx" columns="id_Agence"/>
+    </indexes>
+    <id name="idResponsable" association-key="true"/>
+    <one-to-one field="idResponsable" target-entity="Personne">
+      <join-columns>
+        <join-column name="id_Responsable" referenced-column-name="id_Personne"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="idAgence" target-entity="Agence">
+      <join-columns>
+        <join-column name="id_Agence" referenced-column-name="Id_Agence"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

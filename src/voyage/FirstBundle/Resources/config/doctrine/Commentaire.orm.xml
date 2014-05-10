@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="voyage\FirstBundle\Entity\Commentaire" table="commentaire">
+    <indexes>
+      <index name="perso_idx" columns="id_Personne"/>
+      <index name="ann_idx" columns="id_Annonce"/>
+    </indexes>
+    <id name="idCommentaire" type="integer" column="id_Commentaire">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="message" type="text" column="message" nullable="false"/>
+    <many-to-one field="idPersonne" target-entity="Personne">
+      <join-columns>
+        <join-column name="id_Personne" referenced-column-name="id_Personne"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idAnnonce" target-entity="Annonce">
+      <join-columns>
+        <join-column name="id_Annonce" referenced-column-name="id_Annonce"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

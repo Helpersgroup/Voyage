@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Commentaire
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_Commentaire", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idCommentaire;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="message", type="text", nullable=false)
@@ -29,36 +20,35 @@ class Commentaire
     private $message;
 
     /**
-     * @var \Annonce
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Annonce")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Annonce", referencedColumnName="id_Annonce")
-     * })
+     * @ORM\Column(name="id_Commentaire", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idAnnonce;
+    private $idCommentaire;
 
     /**
-     * @var \Personne
+     * @var \voyage\FirstBundle\Entity\Personne
      *
-     * @ORM\ManyToOne(targetEntity="Personne")
+     * @ORM\ManyToOne(targetEntity="voyage\FirstBundle\Entity\Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Personne", referencedColumnName="id_Personne")
      * })
      */
     private $idPersonne;
 
-
-
     /**
-     * Get idCommentaire
+     * @var \voyage\FirstBundle\Entity\Annonce
      *
-     * @return integer 
+     * @ORM\ManyToOne(targetEntity="voyage\FirstBundle\Entity\Annonce")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_Annonce", referencedColumnName="id_Annonce")
+     * })
      */
-    public function getIdCommentaire()
-    {
-        return $this->idCommentaire;
-    }
+    private $idAnnonce;
+
+
 
     /**
      * Set message
@@ -84,26 +74,13 @@ class Commentaire
     }
 
     /**
-     * Set idAnnonce
+     * Get idCommentaire
      *
-     * @param \voyage\FirstBundle\Entity\Annonce $idAnnonce
-     * @return Commentaire
+     * @return integer 
      */
-    public function setIdAnnonce(\voyage\FirstBundle\Entity\Annonce $idAnnonce = null)
+    public function getIdCommentaire()
     {
-        $this->idAnnonce = $idAnnonce;
-
-        return $this;
-    }
-
-    /**
-     * Get idAnnonce
-     *
-     * @return \voyage\FirstBundle\Entity\Annonce 
-     */
-    public function getIdAnnonce()
-    {
-        return $this->idAnnonce;
+        return $this->idCommentaire;
     }
 
     /**
@@ -127,5 +104,28 @@ class Commentaire
     public function getIdPersonne()
     {
         return $this->idPersonne;
+    }
+
+    /**
+     * Set idAnnonce
+     *
+     * @param \voyage\FirstBundle\Entity\Annonce $idAnnonce
+     * @return Commentaire
+     */
+    public function setIdAnnonce(\voyage\FirstBundle\Entity\Annonce $idAnnonce = null)
+    {
+        $this->idAnnonce = $idAnnonce;
+
+        return $this;
+    }
+
+    /**
+     * Get idAnnonce
+     *
+     * @return \voyage\FirstBundle\Entity\Annonce 
+     */
+    public function getIdAnnonce()
+    {
+        return $this->idAnnonce;
     }
 }

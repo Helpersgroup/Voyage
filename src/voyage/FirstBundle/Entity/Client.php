@@ -13,39 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Client
 {
     /**
-     * @var \Personne
+     * @var \voyage\FirstBundle\Entity\Personne
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Personne")
+     * @ORM\OneToOne(targetEntity="voyage\FirstBundle\Entity\Personne")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_Client", referencedColumnName="id_Personne")
      * })
      */
     private $idClient;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Annonce", inversedBy="idClient")
-     * @ORM\JoinTable(name="reservation",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_Client", referencedColumnName="id_Client")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_Annonce", referencedColumnName="id_Annonce")
-     *   }
-     * )
-     */
-    private $idAnnonce;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idAnnonce = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -69,38 +47,5 @@ class Client
     public function getIdClient()
     {
         return $this->idClient;
-    }
-
-    /**
-     * Add idAnnonce
-     *
-     * @param \voyage\FirstBundle\Entity\Annonce $idAnnonce
-     * @return Client
-     */
-    public function addIdAnnonce(\voyage\FirstBundle\Entity\Annonce $idAnnonce)
-    {
-        $this->idAnnonce[] = $idAnnonce;
-
-        return $this;
-    }
-
-    /**
-     * Remove idAnnonce
-     *
-     * @param \voyage\FirstBundle\Entity\Annonce $idAnnonce
-     */
-    public function removeIdAnnonce(\voyage\FirstBundle\Entity\Annonce $idAnnonce)
-    {
-        $this->idAnnonce->removeElement($idAnnonce);
-    }
-
-    /**
-     * Get idAnnonce
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdAnnonce()
-    {
-        return $this->idAnnonce;
     }
 }

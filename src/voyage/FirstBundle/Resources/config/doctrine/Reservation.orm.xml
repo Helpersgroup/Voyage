@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="voyage\FirstBundle\Entity\Reservation" table="reservation">
+    <indexes>
+      <index name="Id_Client" columns="id_Client"/>
+      <index name="Id_Annonce" columns="id_Annonce"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="id" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="etat" type="integer" column="etat" nullable="false"/>
+    <field name="date" type="date" column="date" nullable="false"/>
+    <field name="nbEnfant" type="integer" column="nb_enfant" nullable="false"/>
+    <field name="nbAdultes" type="integer" column="nb_adultes" nullable="false"/>
+    <field name="total" type="integer" column="total" nullable="false"/>
+    <many-to-one field="idAnnonce" target-entity="Annonce">
+      <join-columns>
+        <join-column name="id_Annonce" referenced-column-name="id_Annonce"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idClient" target-entity="Client">
+      <join-columns>
+        <join-column name="id_Client" referenced-column-name="id_Client"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

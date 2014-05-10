@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Agence
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="Id_Agence", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idAgence;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=20, nullable=false)
@@ -49,17 +40,23 @@ class Agence
      */
     private $ville;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="text", nullable=false)
+     */
+    private $logo;
 
     /**
-     * Get idAgence
+     * @var integer
      *
-     * @return integer 
+     * @ORM\Column(name="Id_Agence", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function getIdAgence()
-    {
-        return $this->idAgence;
-    }
+    private $idAgence;
+
+
 
     /**
      * Set nom
@@ -151,5 +148,38 @@ class Agence
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     * @return Agence
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string 
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Get idAgence
+     *
+     * @return integer 
+     */
+    public function getIdAgence()
+    {
+        return $this->idAgence;
     }
 }

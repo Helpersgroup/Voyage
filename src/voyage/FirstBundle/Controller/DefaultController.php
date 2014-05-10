@@ -33,6 +33,6 @@ class DefaultController extends Controller
     }
               public function ajoutAnnonceAction()
     {
-        return $this->render('VoyageBundle:annonces:ajout_Annonce.html.twig');
+        return $this->render('VoyageBundle:Annonces:ajout_Annonce.html.twig');
     }
 }
