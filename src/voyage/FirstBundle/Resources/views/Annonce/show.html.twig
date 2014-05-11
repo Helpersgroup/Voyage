@@ -144,8 +144,8 @@
                                 <div id="tabs_two">
                                     <ul class="clearfix">
                                         <li><a href="#tabs-1" class="one">Description</a></li>
-                                        <li><a href="#tabs-2" class="two">Details</a></li>
-                                        <li><a href="#tabs-4" class="three">Commeantaire</a></li>
+                                        <li><a href="#tabs-4" class="two">Commeantaire</a></li>
+                                        <li><a href="#tabs-2" class="three">Details</a></li>
                                     </ul>
                                     <div id="tabs-1" class="tab clearfix" >
                                         <div class="detail clearfix">
@@ -161,15 +161,12 @@
                                     </div>
                                     <div id="tabs-2" class="tab clearfix" >
                                         <div class="detail">
-                                            <h2>Transport</h2>
+                                           
+                                             <h2>Transport</h2>
                                             <ul>
                                                 <li>{{entity.transport}}</li>
                                                
                                             </ul>
-
-
-                                        </div>
-                                    </div>
                                     <div id="tabs-3" class="tab clearfix" >
                                         <div class="detail">
                                             <div class="map">
@@ -180,28 +177,20 @@
                                             <p> {{entity.TypeHebergement}}</p>
                                         </div>
                                     </div>
+                                        </div>
+                                    </div>
+                                    
                                     <div id="tabs-4" class="tab clearfix" >
                                         <div class="detail">
                                             <div class="row">
 
                                                 <div class="span4 our_rating">
-                                                    <h2>Your Rating</h2>
-                                                    <ul>
-                                                        <li class="first">Clear</li>
-                                                        <li><a href="#" class="blue_star">aaa</a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="star"></a></li>
-                                                    </ul>
+                                                    <h2>Comment</h2>
 
                                                     <ul>
-                                                        <li class="first">CLocation</li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="star"></a></li>
-                                                        <li><a href="#" class="star"></a></li>
+                                                        <li class="first">Nom : </li>
+                                                        <li><a href="#" class="blue_star">{{username}}</a></li>
+                                                        
                                                     </ul>
 
                                                     <ul>
@@ -223,12 +212,7 @@
                                                     </ul>
 
                                                     <ul class="last">
-                                                        <li class="first">Comfort</li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="blue_star"></a></li>
-                                                        <li><a href="#" class="star"></a></li>
+                                                        <input type=button value=comment>
                                                     </ul>
                                                     <p><span>4.5/5</span> Rating based on 5 verified Reviews</p>
                                                 </div>
@@ -240,48 +224,20 @@
                                                             <h3>Comments</h3>
                                                         </div>
 
-                                                        <div id="vcarousel">
+                                                        <div id="">
                                                             <ul>
+                                                                {% for comment in comments %}
                                                                 <li>
-                                                                    <figure class="pull-left"><img src="{{asset('bundles/voyage/images/hotdeal-pic.png')}}" alt="Pic"></figure>
+                                                                    <figure class="pull-left"><img src="{{asset(comment.logo)}}" alt="Pic"></figure>
                                                                     <article class=" clearfix">
                                                                         <div class="hot pull-left">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
+                                                                            <h5>{{comment.nom}}</h5>
+                                                                            <span>{{comment.date}}</span>
+                                                                            <p>{{comment.message}}</p>
                                                                         </div>
                                                                     </article>
                                                                 </li>
-                                                                <li>
-                                                                    <figure class="pull-left"><img src="{{asset('bundles/voyage/images/hotdeal-pic.png')}}" alt="Pic"></figure>
-                                                                    <article class=" clearfix">
-                                                                        <div class="hot pull-left">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <figure class="pull-left"><img src="{{asset('bundles/voyage/images/hotdeal-pic.png')}}" alt="Pic"></figure>
-                                                                    <article class=" clearfix">
-                                                                        <div class="hot pull-left">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <figure class="pull-left"><img src="{{asset('bundles/voyage/images/hotdeal-pic.png')}}" alt="Pic"></figure>
-                                                                    <article class=" clearfix">
-                                                                        <div class="hot pull-left">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
+                                                               {% endfor %}
                                                             </ul>
                                                         </div>
                                                         <div class="pull-right">
@@ -303,5 +259,6 @@
                 </div>
                 <!-- Grid page -->
 
+  
                 
                 {% endblock %}

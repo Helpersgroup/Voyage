@@ -25,7 +25,7 @@ class AnnonceController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function commentAction()
     {
         $em = $this->getDoctrine()->getManager();
 

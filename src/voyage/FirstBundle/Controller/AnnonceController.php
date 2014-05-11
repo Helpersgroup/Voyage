@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use voyage\FirstBundle\Entity\Annonce;
 use voyage\FirstBundle\Form\AnnonceType;
-
+use voyage\FirstBundle\Controller\EvalController;
 /**
  * Annonce controller.
  *
@@ -184,13 +184,15 @@ class AnnonceController extends Controller
             throw $this->createNotFoundException('Unable to find Annonce entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
+        $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select * from commentaire c, personne p where ((c.id_Annonce='.$id.') and (p.id_Personne=c.id_Personne))');
+        $stmt->execute();
+        $comments = $stmt->fetchAll();
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-            'username'  => 'admin'
-            
+            'username'  => 'admin',
+            'comments'=>$comments
         );
     }
 

@@ -237,8 +237,8 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                 <div id=\"tabs_two\">
                                     <ul class=\"clearfix\">
                                         <li><a href=\"#tabs-1\" class=\"one\">Description</a></li>
-                                        <li><a href=\"#tabs-2\" class=\"two\">Details</a></li>
-                                        <li><a href=\"#tabs-4\" class=\"three\">Commeantaire</a></li>
+                                        <li><a href=\"#tabs-4\" class=\"two\">Commeantaire</a></li>
+                                        <li><a href=\"#tabs-2\" class=\"three\">Details</a></li>
                                     </ul>
                                     <div id=\"tabs-1\" class=\"tab clearfix\" >
                                         <div class=\"detail clearfix\">
@@ -257,18 +257,15 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                     </div>
                                     <div id=\"tabs-2\" class=\"tab clearfix\" >
                                         <div class=\"detail\">
-                                            <h2>Transport</h2>
+                                           
+                                             <h2>Transport</h2>
                                             <ul>
                                                 <li>";
-        // line 166
+        // line 167
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "transport"), "html", null, true);
         echo "</li>
                                                
                                             </ul>
-
-
-                                        </div>
-                                    </div>
                                     <div id=\"tabs-3\" class=\"tab clearfix\" >
                                         <div class=\"detail\">
                                             <div class=\"map\">
@@ -277,33 +274,28 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
 
                                             <h2>Hotel Location</h2>
                                             <p> ";
-        // line 180
+        // line 177
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "TypeHebergement"), "html", null, true);
         echo "</p>
                                         </div>
                                     </div>
+                                        </div>
+                                    </div>
+                                    
                                     <div id=\"tabs-4\" class=\"tab clearfix\" >
                                         <div class=\"detail\">
                                             <div class=\"row\">
 
                                                 <div class=\"span4 our_rating\">
-                                                    <h2>Your Rating</h2>
-                                                    <ul>
-                                                        <li class=\"first\">Clear</li>
-                                                        <li><a href=\"#\" class=\"blue_star\">aaa</a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"star\"></a></li>
-                                                    </ul>
+                                                    <h2>Comment</h2>
 
                                                     <ul>
-                                                        <li class=\"first\">CLocation</li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"star\"></a></li>
-                                                        <li><a href=\"#\" class=\"star\"></a></li>
+                                                        <li class=\"first\">Nom : </li>
+                                                        <li><a href=\"#\" class=\"blue_star\">";
+        // line 192
+        echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username")), "html", null, true);
+        echo "</a></li>
+                                                        
                                                     </ul>
 
                                                     <ul>
@@ -325,12 +317,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                     </ul>
 
                                                     <ul class=\"last\">
-                                                        <li class=\"first\">Comfort</li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"star\"></a></li>
+                                                        <input type=button value=comment>
                                                     </ul>
                                                     <p><span>4.5/5</span> Rating based on 5 verified Reviews</p>
                                                 </div>
@@ -342,61 +329,43 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                             <h3>Comments</h3>
                                                         </div>
 
-                                                        <div id=\"vcarousel\">
+                                                        <div id=\"\">
                                                             <ul>
-                                                                <li>
+                                                                ";
+        // line 229
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) ? $context["comments"] : $this->getContext($context, "comments")));
+        foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
+            // line 230
+            echo "                                                                <li>
                                                                     <figure class=\"pull-left\"><img src=\"";
-        // line 246
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/hotdeal-pic.png"), "html", null, true);
-        echo "\" alt=\"Pic\"></figure>
+            // line 231
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "logo")), "html", null, true);
+            echo "\" alt=\"Pic\"></figure>
                                                                     <article class=\" clearfix\">
                                                                         <div class=\"hot pull-left\">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
+                                                                            <h5>";
+            // line 234
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "nom"), "html", null, true);
+            echo "</h5>
+                                                                            <span>";
+            // line 235
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "date"), "html", null, true);
+            echo "</span>
+                                                                            <p>";
+            // line 236
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "message"), "html", null, true);
+            echo "</p>
                                                                         </div>
                                                                     </article>
                                                                 </li>
-                                                                <li>
-                                                                    <figure class=\"pull-left\"><img src=\"";
-        // line 256
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/hotdeal-pic.png"), "html", null, true);
-        echo "\" alt=\"Pic\"></figure>
-                                                                    <article class=\" clearfix\">
-                                                                        <div class=\"hot pull-left\">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <figure class=\"pull-left\"><img src=\"";
-        // line 266
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/hotdeal-pic.png"), "html", null, true);
-        echo "\" alt=\"Pic\"></figure>
-                                                                    <article class=\" clearfix\">
-                                                                        <div class=\"hot pull-left\">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <figure class=\"pull-left\"><img src=\"";
-        // line 276
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/hotdeal-pic.png"), "html", null, true);
-        echo "\" alt=\"Pic\"></figure>
-                                                                    <article class=\" clearfix\">
-                                                                        <div class=\"hot pull-left\">
-                                                                            <h5>Emma Thomson</h5>
-                                                                            <span>12 minutes ago.</span>
-                                                                            <p>Lorem ipsum venenatis donec sociosqu porta </p>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                            </ul>
+                                                               ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 241
+        echo "                                                            </ul>
                                                         </div>
                                                         <div class=\"pull-right\">
                                                             <a href=\"#\" class=\"d-down\"></a>
@@ -417,6 +386,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                 </div>
                 <!-- Grid page -->
 
+  
                 
                 ";
     }
@@ -433,6 +403,6 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
 
     public function getDebugInfo()
     {
-        return array (  389 => 276,  376 => 266,  363 => 256,  350 => 246,  281 => 180,  264 => 166,  249 => 154,  226 => 134,  222 => 133,  218 => 132,  214 => 131,  210 => 130,  206 => 129,  194 => 120,  190 => 119,  186 => 118,  182 => 117,  178 => 116,  174 => 115,  170 => 114,  166 => 113,  146 => 96,  137 => 90,  101 => 57,  97 => 56,  88 => 50,  81 => 46,  63 => 31,  59 => 30,  31 => 4,  28 => 3,);
+        return array (  368 => 241,  357 => 236,  353 => 235,  349 => 234,  343 => 231,  340 => 230,  336 => 229,  296 => 192,  278 => 177,  265 => 167,  249 => 154,  226 => 134,  222 => 133,  218 => 132,  214 => 131,  210 => 130,  206 => 129,  194 => 120,  190 => 119,  186 => 118,  182 => 117,  178 => 116,  174 => 115,  170 => 114,  166 => 113,  146 => 96,  137 => 90,  101 => 57,  97 => 56,  88 => 50,  81 => 46,  63 => 31,  59 => 30,  31 => 4,  28 => 3,);
     }
 }
