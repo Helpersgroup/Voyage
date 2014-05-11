@@ -35,52 +35,66 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                 <!-- Slider -->
 \t\t\t\t<div class=\"flexslider\">
                 \t<ul class=\"slides\">
+                            
+                            
+                            
+                         ";
+        // line 14
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["annonces"]) ? $context["annonces"] : $this->getContext($context, "annonces")));
+        foreach ($context['_seq'] as $context["_key"] => $context["annonce"]) {
+            echo "    
                         <li>
                           <img src=\"";
-        // line 12
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/USA_Street_Chicago.png"), "html", null, true);
-        echo "\" alt=\"Slider Image\">
+            // line 16
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/USA_Street_Chicago.png"), "html", null, true);
+            echo "\" alt=\"Slider Image\">
                           <div class=\"detail-one\">
-                            <h3>USA</h3>
-                            <h2>Chicago Night street</h2>
-                           \t<span>\$ 2.400</span>
-                          \t<a href=\"#\"></a> \t
+                            <h3>";
+            // line 18
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "nom"), "html", null, true);
+            echo "</h3>
+                            <h2>";
+            // line 19
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "Destination"), "html", null, true);
+            echo "</h2>
+                           \t<span>\$ ";
+            // line 20
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "prix"), "html", null, true);
+            echo "</span>
+                          \t<a href=\"";
+            // line 21
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("annonce_show", array("id" => $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "idAnnonce"))), "html", null, true);
+            echo "\"></a> \t
                           </div>
                         </li>
-                        <li>
-                          <img src=\"";
-        // line 21
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/Brazil-citybeach.png"), "html", null, true);
-        echo "\" alt=\"Slider Image\">
-                          <div class=\"detail-one\">
-                            <h3>Brazil</h3>
-                            <h2>Brazil Night City Beach</h2>
-                           \t<span>\$ 1.400</span>
-                          \t<a href=\"#\"></a> \t
-                          </div>
-                        </li>
-                    </ul>
+                       
+                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 26
+        echo "                    </ul>
                     
                     
                     <!-- Reservation box -->
                     <div id=\"accordion\">
 
-                      <h3> <span class=\"flight\">Flights</span> <a href=\"#\"></a> </h3>
+                      <h3> <span class=\"flight\">Voyage</span> <a href=\"#\"></a> </h3>
+                      <form action=\"#\" method=\"post\">
                       <div class=\"detail\">
-                         <form action=\"#\" method=\"post\">
-                            <div class=\"trip\">
-                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>Roud-Trip</span>
-                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>One-way</span>
-                            </div>
+                         
+                            
 
                             <div class=\"location clearfix\">
                                 <div class=\"pull-left\">
-                                    <label>Your Locatıon</label>
-                                    <input type=\"input\" name=\"Location\" value=\"England\">
+                                    <label>Depart</label>
+                                    <input type=\"input\" name=\"Location\" placeholder=\"Depart\">
                                 </div>
                                 <div class=\"pull-right\">
                                     <label class=\"dst\">Destination</label>
-                                    <input type=\"text\" name=\"Destination\" value=\"Turkey\">
+                                    <input type=\"text\" name=\"Destination\" placeholder=\"Destination\">
                                 </div>
                             </div>
 
@@ -90,11 +104,11 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                                     <div class=\"date clearfix\">
                                         <div class=\"Depart-Date\">
                                             <label>Depart Date</label>
-                                            <input type=\"text\" name=\"Location\" value=\"30.01.2013\" id=\"datepicker\">
+                                            <input type=\"text\" name=\"Location\" value=\"30.01.2014\" id=\"datepicker\">
                                         </div>
                                         <div>
                                             <label>Return Date</label>
-                                            <input type=\"text\" name=\"Location\" value=\"30.01.2013\" id=\"clender\">
+                                            <input type=\"text\" name=\"Location\" value=\"30.01.2014\" id=\"clender\">
                                         </div>
                                     </div>
                                 </div>
@@ -102,54 +116,41 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                                     <div class=\"persons\">
                                         <div class=\"ad\">
                                             <label>Adults</label>
-                                            <input type=\"text\" name=\"Location\" value=\"1\" id=\"spinner\">
+                                            <input type=\"text\" name=\"Location\" value=\"0\" id=\"spinner\">
                                         </div>
                                         <div class=\"ad\">
                                             <label>Children</label>
-                                            <input type=\"text\" name=\"Location\" value=\"1\" id=\"spinner-two\">
+                                            <input type=\"text\" name=\"Location\" value=\"0\" id=\"spinner-two\">
                                         </div>
-                                        <div>
-                                            <label>Senior</label>
-                                            <input type=\"text\" name=\"Location\" value=\"1\" id=\"spinner-three\">
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
 
-                            <div class=\"search\">
-                                <input type=\"submit\" name=\"search\" value=\"SEARCH\" >
-                            </div>
-                        </form>
+                            
                       </div>
                       
                       <h3> <span class=\"hotel\">Hotel</span> <a href=\"#\"></a></h3>
                       <div class=\"detail\">
-                         <form action=\"#\" method=\"post\">
                             <div class=\"trip\">
-                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>Roud-Trip</span>
-                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>One-way</span>
+                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>Residance</span>
+                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>2*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>3*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>4*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>5*</span>
+                                <br>
+                                <br>
+
+                                    <label class=\"dst\">Hotel</label>
+                                    <input type=\"text\" name=\"nom_hotel\" placeholder=\"Nom Hotel\">
                             </div>
-                         </form>
                       </div>
 
-                      <h3> <span class=\"car\">CAR</span> <a href=\"#\"></a></h3>
-                      <div class=\"detail\">
-                         <form action=\"#\" method=\"post\">
-                            <div class=\"trip\">
-                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>Roud-Trip</span>
-                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>One-way</span>
+                      <div class=\"search\">
+                                <input type=\"submit\" name=\"search\" value=\"SEARCH\" >
                             </div>
-                         </form>
-                      </div>
-                      <h3> <span class=\"vacation\">Vacation</span> <a href=\"#\"></a></h3>
-                      <div class=\"detail\">
-                         <form action=\"#\" method=\"post\">
-                            <div class=\"trip\">
-                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>Roud-Trip</span>
-                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>One-way</span>
-                            </div>
-                         </form>
-                      </div>
+                      </form>
                    </div>
                     <!-- Reservation box -->
                     
@@ -164,7 +165,7 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                         <div class=\"row\">
                         \t<div class=\"span12\">
                             \t<div class=\"heading\">
-                                \t<h2>special <span>offer</span></h2>
+                                \t<h2>Offre <span>Special</span></h2>
                                 </div>
                             </div>
                         </div>
@@ -172,21 +173,32 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                          
                         <div class=\"row offer-sec\">
                         <ul class=\"elastislide-list clearfix\" id=\"carousel\">
-
+                ";
+        // line 124
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["annonces"]) ? $context["annonces"] : $this->getContext($context, "annonces")));
+        foreach ($context['_seq'] as $context["_key"] => $context["annonce"]) {
+            echo " 
                             <li class=\"span3\">
                             \t<div class=\"offer\">
                                 \t<figure>
                                 \t\t<img src=\"";
-        // line 146
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-1.png"), "html", null, true);
-        echo "\"  alt=\"Offer Image\">
+            // line 128
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-1.png"), "html", null, true);
+            echo "\"  alt=\"Offer Image\">
                                 \t\t<div class=\"overlay\">
                                 \t\t\t<a href=\"#\" class=\"like\"></a>
                                 \t\t</div>
                                     </figure>
                                     <article>
-                                    \t<h3>Blue beach</h3>
-                                        <h4>thailand</h4>
+                                    \t<h3>";
+            // line 134
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "nom"), "html", null, true);
+            echo "</h3>
+                                        <h4>";
+            // line 135
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "Destination"), "html", null, true);
+            echo "</h4>
                                         <p><a href=\"#\" class=\"active\"></a>
                                             <a href=\"#\" class=\"active\"></a>
                                             <a href=\"#\" class=\"active\"></a>
@@ -196,126 +208,30 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                                         <span>Read 8 Reviews</span>
                                     </article>
                                     <div class=\"price\">
-                                    \t<h3>138\$</h3>
-                                        <a href=\"#\"></a>
+                                    \t<h3>";
+            // line 145
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "prix"), "html", null, true);
+            echo "\$</h3>
+                                        <a href=\"";
+            // line 146
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("annonce_show", array("id" => $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "idAnnonce"))), "html", null, true);
+            echo "\"></a>
                                     </div>
                                 </div>
                             </li>
+                          ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 150
+        echo "  
+                           
                             
-                            <li class=\"span3\">
-                            \t<div class=\"offer\">
-                                \t<figure>
-                                \t\t<img src=\"";
-        // line 172
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-2.png"), "html", null, true);
-        echo "\"  alt=\"Offer Image\">
-                                \t\t<div class=\"overlay\">
-                                \t\t\t<a href=\"#\" class=\"like\"></a>
-                                \t\t</div>
-                                    </figure>
-                                    <article>
-                                    \t<h3>Blue heaven</h3>
-                                        <h4>Greece</h4>
-                                        <p><a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\"></a>
-                                            <a href=\"#\"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class=\"price\">
-                                    \t<h3>138\$</h3>
-                                        <a href=\"#\"></a>
-                                    </div>
-                                </div>
-                            </li> 
+                             
                             
-                             <li class=\"span3\">
-                            \t<div class=\"offer\">
-                                \t<figure>
-                                \t\t<img src=\"";
-        // line 198
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-3.png"), "html", null, true);
-        echo "\"  alt=\"Offer Image\">
-                                \t\t<div class=\"overlay\">
-                                \t\t\t<a href=\"#\" class=\"like\"></a>
-                                \t\t</div>
-                                    </figure>
-                                    <article>
-                                    \t<h3>Venice Canal</h3>
-                                        <h4>italy</h4>
-                                        <p><a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\"></a>
-                                            <a href=\"#\"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class=\"price\">
-                                    \t<h3>138\$</h3>
-                                        <a href=\"#\"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                             <li class=\"span3\">
-                            \t<div class=\"offer\">
-                                \t<figure>
-                                \t\t<img src=\"";
-        // line 224
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-4.png"), "html", null, true);
-        echo "\"  alt=\"Offer Image\">
-                                \t\t<div class=\"overlay\">
-                                        \t<a href=\"#\" class=\"like\"></a>
-                                        </div>
-                                    </figure>
-                                    <article>
-                                    \t<h3>Monte Rosa</h3>
-                                        <h4>italy</h4>
-                                        <p><a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\"></a>
-                                            <a href=\"#\"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class=\"price\">
-                                    \t<h3>138\$</h3>
-                                        <a href=\"#\"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class=\"span3\">
-                            \t<div class=\"offer\">
-                                \t<figure>
-                                \t\t<img src=\"";
-        // line 249
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-4.png"), "html", null, true);
-        echo "\"  alt=\"Offer Image\">
-                                \t\t<div class=\"overlay\">
-                                        \t<a href=\"#\" class=\"like\"></a>
-                                        </div>
-                                    </figure>
-                                    <article>
-                                    \t<h3>Monte Rosa</h3>
-                                        <h4>italy</h4>
-                                        <p><a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\" class=\"active\"></a>
-                                            <a href=\"#\"></a>
-                                            <a href=\"#\"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class=\"price\">
-                                    \t<h3>138\$</h3>
-                                        <a href=\"#\"></a>
-                                    </div>
-                                </div>
-                            </li> 
+                      
+                           
                             
                         </ul>
                         <div class=\"crousal-btn\">
@@ -347,6 +263,6 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
 
     public function getDebugInfo()
     {
-        return array (  296 => 249,  268 => 224,  239 => 198,  210 => 172,  181 => 146,  53 => 21,  41 => 12,  31 => 4,  28 => 3,);
+        return array (  228 => 150,  217 => 146,  213 => 145,  200 => 135,  196 => 134,  187 => 128,  178 => 124,  78 => 26,  67 => 21,  63 => 20,  59 => 19,  55 => 18,  50 => 16,  43 => 14,  31 => 4,  28 => 3,);
     }
 }

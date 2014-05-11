@@ -111,9 +111,9 @@
 #loginButton span {
     color:#FFF; 
     font-size:1em; 
-    background:url(../images/loginArrow.png) no-repeat 26px 8px;
+    background:url(../images/loginArrow.png) no-repeat 50px 8px;
     display:block;
-    padding: 3 30px 0 0;
+    padding: 15px;
     font-family: 'Open Sans', sans-serif;
 
 }

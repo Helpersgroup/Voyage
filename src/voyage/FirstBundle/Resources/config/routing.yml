@@ -1,30 +1,50 @@
 voyage_homepage:
     pattern:  /
     defaults: { _controller: VoyageBundle:Default:index }
-voyage_list_annonces:
-    pattern:  /annonces
-    defaults: { _controller: VoyageBundle:Default:annonces }
-voyage_list_annoncesl:
-    pattern:  /annonces_list
-    defaults: { _controller: VoyageBundle:Default:annoncesl }
 voyage_contact:
     pattern:  /contact
     defaults: { _controller: VoyageBundle:Default:contact }
-voyage_details:
-    pattern:  /details
-    defaults: { _controller: VoyageBundle:Default:details }
-reservation:
-    pattern:  /reservation
-    defaults: { _controller: VoyageBundle:Default:reservation }
+    
+    
 proposition:
     pattern:  /proposition
     defaults: { _controller: VoyageBundle:proposition:proposition }
-annonce_ajout:
-    pattern:  /ajout
-    defaults: { _controller: VoyageBundle:Default:ajoutAnnonce }
+
+    
 inscription:
     pattern:  /inscription
     defaults: { _controller: VoyageBundle:Users:inscription }
 profil:
     pattern:  /profil
     defaults: { _controller: VoyageBundle:Users:profil }
+
+
+
+
+
+
+
+annonce:
+    pattern:  /annonce
+    defaults: { _controller: VoyageBundle:Annonce:index }
+annonce2:
+    pattern:  /annonce/index2
+    defaults: { _controller: VoyageBundle:Annonce:index2 }
+annonce_show:
+    pattern:  /annonce/show/{id}
+    defaults: { _controller: VoyageBundle:Annonce:show }
+annonce_edit:
+    pattern:  /annonce/edit/{id}
+    defaults: { _controller: VoyageBundle:Annonce:edit }
+annonce_new:
+    pattern:  /annonce/new
+    defaults: { _controller: VoyageBundle:Annonce:new }
+annonce_create:
+    pattern:  /annonce/create
+    defaults: { _controller: VoyageBundle:Annonce:create }
+annonce_delete:
+    pattern:  /annonce/delete/{id}
+    defaults: { _controller: VoyageBundle:Annonce:delete }
+annonce_update:
+    pattern:  /annonce/update/{id}
+    defaults: { _controller: VoyageBundle:Annonce:update }

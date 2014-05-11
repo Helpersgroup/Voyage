@@ -121,16 +121,9 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                 </div>
                 <!-- HEADER -->
                 
-                
-                
-                
-                
-                
-                
-                
-                
+ 
               <script src=\"";
-        // line 93
+        // line 86
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
   
@@ -139,11 +132,11 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 \t\t addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 \t\t</script>
 \t\t <!--hatha ili bih il feyda fil design --> <link rel=\"stylesheet\" href=\"";
-        // line 99
+        // line 92
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/css2/style.css"), "html", null, true);
         echo "\">
 \t\t<!-- hatha  mta3 il login --> <script type=\"text/javascript\" src=\"";
-        // line 100
+        // line 93
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/login.js"), "html", null, true);
         echo "\"></script>
 \t\t 
@@ -158,7 +151,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                                 <nav class=\"nav frist-top-nav\"  >
                                     <ul>
                                         <li><a href=\"";
-        // line 112
+        // line 105
         echo $this->env->getExtension('routing')->getPath("voyage_homepage");
         echo "\">accueil </a>
                                           <!--  <ul class=\"clearfix\">
@@ -168,48 +161,51 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                                         </li>
                                         
                                         <li><a href=\"";
-        // line 119
-        echo $this->env->getExtension('routing')->getPath("voyage_list_annonces");
+        // line 112
+        echo $this->env->getExtension('routing')->getPath("annonce");
         echo "\">Annonces</a>
                                             <ul class=\"clearfix\">
                                                 <li><a href=\"";
-        // line 121
-        echo $this->env->getExtension('routing')->getPath("annonce_ajout");
+        // line 114
+        echo $this->env->getExtension('routing')->getPath("annonce_create");
         echo "\">Ajout Annonce</a>
                                                 <li><a href=\"";
-        // line 122
-        echo $this->env->getExtension('routing')->getPath("voyage_list_annoncesl");
+        // line 115
+        echo $this->env->getExtension('routing')->getPath("annonce2");
         echo "\">List Annonce</a></li>
                                                 <li><a href=\"";
-        // line 123
-        echo $this->env->getExtension('routing')->getPath("voyage_details");
+        // line 116
+        echo $this->env->getExtension('routing')->getPath("annonce_show", array("id" => 1));
         echo "\">Detail Annonce</a></li>
                                             </ul>
                                         </li>
                                         
                                    
                                         <li><a href=\"";
-        // line 128
-        echo $this->env->getExtension('routing')->getPath("reservation");
+        // line 121
+        echo $this->env->getExtension('routing')->getPath("annonce");
         echo "\">Reservation<label>2</label></a></li>
                                          <li><a href=\"";
-        // line 129
+        // line 122
         echo $this->env->getExtension('routing')->getPath("proposition");
         echo "\">Proposition<label>6</label></a></li>
                                         <li  class=\"last\"><a href=\"";
-        // line 130
+        // line 123
         echo $this->env->getExtension('routing')->getPath("voyage_contact");
         echo "\">Contact</a></li>
                                    
-                                          <a id=\"loginButton\" class=\"\"><span>Me</span></a>   
+                                            
 \t\t\t\t                    <div id=\"loginBox\" style=\"display: none;\">                
 \t\t\t\t                      <form id=\"loginForm\">
 \t\t\t\t                        <fieldset id=\"body\">
 \t\t\t\t                            <div class=\"user-info\">
-\t\t\t\t\t\t\t        \t\t\t<h4>Hello,<a href=\"#\"> Username</a></h4>
+\t\t\t\t\t\t\t        \t\t\t<h4>Hello,<a href=\"#\"> ";
+        // line 130
+        echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username")), "html", null, true);
+        echo "</a></h4>
 \t\t\t\t\t\t\t        \t\t\t<ul>
 \t\t\t\t\t\t\t        \t\t\t\t<li class=\"profile active\"><a href=\"";
-        // line 139
+        // line 132
         echo $this->env->getExtension('routing')->getPath("profil");
         echo "\">Profile </a></li>
 \t\t\t\t\t\t\t        \t\t\t\t<li class=\"logout\"><a href=\"#\"> Logout</a></li>
@@ -219,34 +215,38 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 \t\t\t\t                        </fieldset>
 \t\t\t\t                    </form>
 \t\t\t\t                </div>
-\t\t\t\t            
+                                                
                                                         <ul class=\"menu profile_img\">
                                                             <li><a class=\"active-icon c1\" id=\"7ell\" href=\"";
-        // line 149
+        // line 142
         echo $this->env->getExtension('routing')->getPath("profil");
         echo "\" > <img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/img/profile-pic.png"), "html", null, true);
         echo "\" /></a>
 \t\t\t\t\t\t\t\t\t<ul class=\"sub-menu\">
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 151
+        // line 144
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/supr.png"), "html", null, true);
         echo "\" alt=\"\" />Profile</a></li>
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 152
+        // line 145
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/start.png"), "html", null, true);
         echo "\" alt=\"\" />Favourites</a></li>
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 153
+        // line 146
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/gar.png"), "html", null, true);
         echo "\" alt=\"\" />Settings</a></li>
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 154
+        // line 147
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/logout.png"), "html", null, true);
         echo "\" alt=\"\" />Logout</a></li>
 \t\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t</ul>
+                                         <a id=\"loginButton\" class=\"\"><span> ";
+        // line 151
+        echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username")), "html", null, true);
+        echo " </span></a>
                                                     
                                          </ul>
                                 </nav>
@@ -317,9 +317,9 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                 
                 
 ";
-        // line 227
+        // line 221
         $this->displayBlock('contains', $context, $blocks);
-        // line 228
+        // line 222
         echo "                
                 
                 
@@ -337,7 +337,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                         \t
                             <div class=\"span3 f-widget copy-right\">
                             \t<a href=\"#\" class=\"f-logo\"><img src=\"";
-        // line 244
+        // line 238
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/logo.png"), "html", null, true);
         echo "\" alt=\"Logo\"></a>
                             \t<p>© 2014 <a href=\"#\">Helpers-Team</a>. All rights reserved</p>
@@ -428,7 +428,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                         <a href=\"#\" class=\"close2\">Close</a>
                     \t<h2>Inscription Client</h2>
                         <h5><a href=\"";
-        // line 332
+        // line 326
         echo $this->env->getExtension('routing')->getPath("inscription");
         echo "\">Vous etes un Agent </a></h5>
                         <form method=\"get\" action=\"#\">
@@ -448,55 +448,55 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 
                 <!-- Scripts -->
 \t\t<script src=\"";
-        // line 349
+        // line 343
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-1.7.1.min.js"), "html", null, true);
         echo "\"></script>
 \t\t<script src=\"";
-        // line 350
+        // line 344
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 351
+        // line 345
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider-min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 352
+        // line 346
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.elastislide.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 353
+        // line 347
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.carouFredSel-6.0.4-packed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 354
+        // line 348
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jcarousellite_1.0.1.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 355
+        // line 349
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.zweatherfeed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 356
+        // line 350
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.simpleWeather-2.3.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 357
+        // line 351
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.cycle.all.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 358
+        // line 352
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-ui.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 359
+        // line 353
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 360
+        // line 354
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.isotope.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 361
+        // line 355
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.tinyscrollbar.min.js"), "html", null, true);
         echo "\"></script>
                 <script>
@@ -522,7 +522,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
     });
                 </script>
                 <script src=\"";
-        // line 384
+        // line 378
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/custom.js"), "html", null, true);
         echo "\"></script>\t\t
 \t\t</body>
@@ -530,7 +530,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 </html>";
     }
 
-    // line 227
+    // line 221
     public function block_contains($context, array $blocks = array())
     {
     }
@@ -547,6 +547,6 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 
     public function getDebugInfo()
     {
-        return array (  534 => 227,  526 => 384,  500 => 361,  496 => 360,  492 => 359,  488 => 358,  484 => 357,  480 => 356,  476 => 355,  472 => 354,  468 => 353,  464 => 352,  460 => 351,  456 => 350,  452 => 349,  432 => 332,  341 => 244,  323 => 228,  321 => 227,  245 => 154,  241 => 153,  237 => 152,  233 => 151,  226 => 149,  213 => 139,  201 => 130,  197 => 129,  193 => 128,  185 => 123,  181 => 122,  177 => 121,  172 => 119,  162 => 112,  147 => 100,  143 => 99,  134 => 93,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
+        return array (  534 => 221,  526 => 378,  500 => 355,  496 => 354,  492 => 353,  488 => 352,  484 => 351,  480 => 350,  476 => 349,  472 => 348,  468 => 347,  464 => 346,  460 => 345,  456 => 344,  452 => 343,  432 => 326,  341 => 238,  323 => 222,  321 => 221,  248 => 151,  241 => 147,  237 => 146,  233 => 145,  229 => 144,  222 => 142,  209 => 132,  204 => 130,  194 => 123,  190 => 122,  186 => 121,  178 => 116,  174 => 115,  170 => 114,  165 => 112,  155 => 105,  140 => 93,  136 => 92,  127 => 86,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
     }
 }

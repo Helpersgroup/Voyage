@@ -149,42 +149,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::indexAction',  '_route' => 'voyage_homepage',);
         }
 
-        if (0 === strpos($pathinfo, '/annonces')) {
-            // voyage_list_annonces
-            if ($pathinfo === '/annonces') {
-                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::annoncesAction',  '_route' => 'voyage_list_annonces',);
-            }
-
-            // voyage_list_annoncesl
-            if ($pathinfo === '/annonces_list') {
-                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::annonceslAction',  '_route' => 'voyage_list_annoncesl',);
-            }
-
-        }
-
         // voyage_contact
         if ($pathinfo === '/contact') {
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::contactAction',  '_route' => 'voyage_contact',);
         }
 
-        // voyage_details
-        if ($pathinfo === '/details') {
-            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::detailsAction',  '_route' => 'voyage_details',);
-        }
-
-        // reservation
-        if ($pathinfo === '/reservation') {
-            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::reservationAction',  '_route' => 'reservation',);
-        }
-
         // proposition
         if ($pathinfo === '/proposition') {
             return array (  '_controller' => 'VoyageBundle:proposition:proposition',  '_route' => 'proposition',);
-        }
-
-        // annonce_ajout
-        if ($pathinfo === '/ajout') {
-            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::ajoutAnnonceAction',  '_route' => 'annonce_ajout',);
         }
 
         // inscription
@@ -195,6 +167,49 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // profil
         if ($pathinfo === '/profil') {
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::profilAction',  '_route' => 'profil',);
+        }
+
+        if (0 === strpos($pathinfo, '/annonce')) {
+            // annonce
+            if ($pathinfo === '/annonce') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::indexAction',  '_route' => 'annonce',);
+            }
+
+            // annonce2
+            if ($pathinfo === '/annonce/index2') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::index2Action',  '_route' => 'annonce2',);
+            }
+
+            // annonce_show
+            if (0 === strpos($pathinfo, '/annonce/show') && preg_match('#^/annonce/show/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'annonce_show')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::showAction',));
+            }
+
+            // annonce_edit
+            if (0 === strpos($pathinfo, '/annonce/edit') && preg_match('#^/annonce/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'annonce_edit')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::editAction',));
+            }
+
+            // annonce_new
+            if ($pathinfo === '/annonce/new') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::newAction',  '_route' => 'annonce_new',);
+            }
+
+            // annonce_create
+            if ($pathinfo === '/annonce/create') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::createAction',  '_route' => 'annonce_create',);
+            }
+
+            // annonce_delete
+            if (0 === strpos($pathinfo, '/annonce/delete') && preg_match('#^/annonce/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'annonce_delete')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::deleteAction',));
+            }
+
+            // annonce_update
+            if (0 === strpos($pathinfo, '/annonce/update') && preg_match('#^/annonce/update/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'annonce_update')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::updateAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

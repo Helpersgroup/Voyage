@@ -8,46 +8,41 @@
                 <!-- Slider -->
 				<div class="flexslider">
                 	<ul class="slides">
+                            
+                            
+                            
+                         {% for annonce in annonces %}    
                         <li>
                           <img src="{{asset('bundles/voyage/images/USA_Street_Chicago.png')}}" alt="Slider Image">
                           <div class="detail-one">
-                            <h3>USA</h3>
-                            <h2>Chicago Night street</h2>
-                           	<span>$ 2.400</span>
-                          	<a href="#"></a> 	
+                            <h3>{{annonce.nom}}</h3>
+                            <h2>{{annonce.Destination}}</h2>
+                           	<span>$ {{annonce.prix}}</span>
+                          	<a href="{{ path('annonce_show', { 'id': annonce.idAnnonce }) }}"></a> 	
                           </div>
                         </li>
-                        <li>
-                          <img src="{{asset('bundles/voyage/images/Brazil-citybeach.png')}}" alt="Slider Image">
-                          <div class="detail-one">
-                            <h3>Brazil</h3>
-                            <h2>Brazil Night City Beach</h2>
-                           	<span>$ 1.400</span>
-                          	<a href="#"></a> 	
-                          </div>
-                        </li>
+                       
+                        {% endfor %}
                     </ul>
                     
                     
                     <!-- Reservation box -->
                     <div id="accordion">
 
-                      <h3> <span class="flight">Flights</span> <a href="#"></a> </h3>
+                      <h3> <span class="flight">Voyage</span> <a href="#"></a> </h3>
+                      <form action="#" method="post">
                       <div class="detail">
-                         <form action="#" method="post">
-                            <div class="trip">
-                                <input type="radio" name="trip" value="Round-trip"><span>Roud-Trip</span>
-                                <input type="radio" name="trip" value="onw-way"><span>One-way</span>
-                            </div>
+                         
+                            
 
                             <div class="location clearfix">
                                 <div class="pull-left">
-                                    <label>Your Locatıon</label>
-                                    <input type="input" name="Location" value="England">
+                                    <label>Depart</label>
+                                    <input type="input" name="Location" placeholder="Depart">
                                 </div>
                                 <div class="pull-right">
                                     <label class="dst">Destination</label>
-                                    <input type="text" name="Destination" value="Turkey">
+                                    <input type="text" name="Destination" placeholder="Destination">
                                 </div>
                             </div>
 
@@ -57,11 +52,11 @@
                                     <div class="date clearfix">
                                         <div class="Depart-Date">
                                             <label>Depart Date</label>
-                                            <input type="text" name="Location" value="30.01.2013" id="datepicker">
+                                            <input type="text" name="Location" value="30.01.2014" id="datepicker">
                                         </div>
                                         <div>
                                             <label>Return Date</label>
-                                            <input type="text" name="Location" value="30.01.2013" id="clender">
+                                            <input type="text" name="Location" value="30.01.2014" id="clender">
                                         </div>
                                     </div>
                                 </div>
@@ -69,54 +64,41 @@
                                     <div class="persons">
                                         <div class="ad">
                                             <label>Adults</label>
-                                            <input type="text" name="Location" value="1" id="spinner">
+                                            <input type="text" name="Location" value="0" id="spinner">
                                         </div>
                                         <div class="ad">
                                             <label>Children</label>
-                                            <input type="text" name="Location" value="1" id="spinner-two">
+                                            <input type="text" name="Location" value="0" id="spinner-two">
                                         </div>
-                                        <div>
-                                            <label>Senior</label>
-                                            <input type="text" name="Location" value="1" id="spinner-three">
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="search">
-                                <input type="submit" name="search" value="SEARCH" >
-                            </div>
-                        </form>
+                            
                       </div>
                       
                       <h3> <span class="hotel">Hotel</span> <a href="#"></a></h3>
                       <div class="detail">
-                         <form action="#" method="post">
                             <div class="trip">
-                                <input type="radio" name="trip" value="Round-trip"><span>Roud-Trip</span>
-                                <input type="radio" name="trip" value="onw-way"><span>One-way</span>
+                                <input type="radio" name="trip" value="Round-trip"><span>Residance</span>
+                                <input type="radio" name="trip" value="onw-way"><span>*</span>
+                                <input type="radio" name="trip" value="Round-trip"><span>2*</span>
+                                <input type="radio" name="trip" value="onw-way"><span>3*</span>
+                                <input type="radio" name="trip" value="Round-trip"><span>4*</span>
+                                <input type="radio" name="trip" value="onw-way"><span>5*</span>
+                                <br>
+                                <br>
+
+                                    <label class="dst">Hotel</label>
+                                    <input type="text" name="nom_hotel" placeholder="Nom Hotel">
                             </div>
-                         </form>
                       </div>
 
-                      <h3> <span class="car">CAR</span> <a href="#"></a></h3>
-                      <div class="detail">
-                         <form action="#" method="post">
-                            <div class="trip">
-                                <input type="radio" name="trip" value="Round-trip"><span>Roud-Trip</span>
-                                <input type="radio" name="trip" value="onw-way"><span>One-way</span>
+                      <div class="search">
+                                <input type="submit" name="search" value="SEARCH" >
                             </div>
-                         </form>
-                      </div>
-                      <h3> <span class="vacation">Vacation</span> <a href="#"></a></h3>
-                      <div class="detail">
-                         <form action="#" method="post">
-                            <div class="trip">
-                                <input type="radio" name="trip" value="Round-trip"><span>Roud-Trip</span>
-                                <input type="radio" name="trip" value="onw-way"><span>One-way</span>
-                            </div>
-                         </form>
-                      </div>
+                      </form>
                    </div>
                     <!-- Reservation box -->
                     
@@ -131,7 +113,7 @@
                         <div class="row">
                         	<div class="span12">
                             	<div class="heading">
-                                	<h2>special <span>offer</span></h2>
+                                	<h2>Offre <span>Special</span></h2>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +121,7 @@
                          
                         <div class="row offer-sec">
                         <ul class="elastislide-list clearfix" id="carousel">
-
+                {% for annonce in annonces %} 
                             <li class="span3">
                             	<div class="offer">
                                 	<figure>
@@ -149,8 +131,8 @@
                                 		</div>
                                     </figure>
                                     <article>
-                                    	<h3>Blue beach</h3>
-                                        <h4>thailand</h4>
+                                    	<h3>{{annonce.nom}}</h3>
+                                        <h4>{{annonce.Destination}}</h4>
                                         <p><a href="#" class="active"></a>
                                             <a href="#" class="active"></a>
                                             <a href="#" class="active"></a>
@@ -160,114 +142,18 @@
                                         <span>Read 8 Reviews</span>
                                     </article>
                                     <div class="price">
-                                    	<h3>138$</h3>
-                                        <a href="#"></a>
+                                    	<h3>{{annonce.prix}}$</h3>
+                                        <a href="{{ path('annonce_show', { 'id': annonce.idAnnonce }) }}"></a>
                                     </div>
                                 </div>
                             </li>
+                          {% endfor %}  
+                           
                             
-                            <li class="span3">
-                            	<div class="offer">
-                                	<figure>
-                                		<img src="{{asset('bundles/voyage/images/offerpic-2.png')}}"  alt="Offer Image">
-                                		<div class="overlay">
-                                			<a href="#" class="like"></a>
-                                		</div>
-                                    </figure>
-                                    <article>
-                                    	<h3>Blue heaven</h3>
-                                        <h4>Greece</h4>
-                                        <p><a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#"></a>
-                                            <a href="#"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class="price">
-                                    	<h3>138$</h3>
-                                        <a href="#"></a>
-                                    </div>
-                                </div>
-                            </li> 
+                             
                             
-                             <li class="span3">
-                            	<div class="offer">
-                                	<figure>
-                                		<img src="{{asset('bundles/voyage/images/offerpic-3.png')}}"  alt="Offer Image">
-                                		<div class="overlay">
-                                			<a href="#" class="like"></a>
-                                		</div>
-                                    </figure>
-                                    <article>
-                                    	<h3>Venice Canal</h3>
-                                        <h4>italy</h4>
-                                        <p><a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#"></a>
-                                            <a href="#"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class="price">
-                                    	<h3>138$</h3>
-                                        <a href="#"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                             <li class="span3">
-                            	<div class="offer">
-                                	<figure>
-                                		<img src="{{asset('bundles/voyage/images/offerpic-4.png')}}"  alt="Offer Image">
-                                		<div class="overlay">
-                                        	<a href="#" class="like"></a>
-                                        </div>
-                                    </figure>
-                                    <article>
-                                    	<h3>Monte Rosa</h3>
-                                        <h4>italy</h4>
-                                        <p><a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#"></a>
-                                            <a href="#"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class="price">
-                                    	<h3>138$</h3>
-                                        <a href="#"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="span3">
-                            	<div class="offer">
-                                	<figure>
-                                		<img src="{{asset('bundles/voyage/images/offerpic-4.png')}}"  alt="Offer Image">
-                                		<div class="overlay">
-                                        	<a href="#" class="like"></a>
-                                        </div>
-                                    </figure>
-                                    <article>
-                                    	<h3>Monte Rosa</h3>
-                                        <h4>italy</h4>
-                                        <p><a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#" class="active"></a>
-                                            <a href="#"></a>
-                                            <a href="#"></a>
-                                        </p>
-                                        <span>Read 8 Reviews</span>
-                                    </article>
-                                    <div class="price">
-                                    	<h3>138$</h3>
-                                        <a href="#"></a>
-                                    </div>
-                                </div>
-                            </li> 
+                      
+                           
                             
                         </ul>
                         <div class="crousal-btn">

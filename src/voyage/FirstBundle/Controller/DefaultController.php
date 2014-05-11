@@ -8,31 +8,20 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('VoyageBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
+        
+        
+        return $this->render('VoyageBundle:Default:index.html.twig',array(
+            'annonces' => $annonces,'username'=>"admin"
+        ));
     }
     
-      public function annoncesAction()
-    {
-        return $this->render('VoyageBundle:Default:travel_grid.html.twig');
-    }
-    public function annonceslAction()
-    {
-        return $this->render('VoyageBundle:Default:travel_list.html.twig');
-    }
+      
        public function contactAction()
     {
-        return $this->render('VoyageBundle:Default:contact.html.twig');
+        return $this->render('VoyageBundle:Default:contact.html.twig',array('username'=>"admin"));
     }
-        public function detailsAction()
-    {
-        return $this->render('VoyageBundle:Default:details.html.twig');
-    }
-            public function reservationAction()
-    {
-        return $this->render('VoyageBundle:Default:confirmReservation.html.twig');
-    }
-              public function ajoutAnnonceAction()
-    {
-        return $this->render('VoyageBundle:Annonces:ajout_Annonce.html.twig');
-    }
+      
 }

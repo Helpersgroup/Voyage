@@ -82,14 +82,7 @@
                 </div>
                 <!-- HEADER -->
                 
-                
-                
-                
-                
-                
-                
-                
-                
+ 
               <script src="{{asset('bundles/voyage/js/jquery.min.js')}}"></script>
   
                 
@@ -116,25 +109,25 @@
                                             </ul>-->
                                         </li>
                                         
-                                        <li><a href="{{path('voyage_list_annonces')}}">Annonces</a>
+                                        <li><a href="{{path('annonce')}}">Annonces</a>
                                             <ul class="clearfix">
-                                                <li><a href="{{path('annonce_ajout')}}">Ajout Annonce</a>
-                                                <li><a href="{{path('voyage_list_annoncesl')}}">List Annonce</a></li>
-                                                <li><a href="{{path('voyage_details')}}">Detail Annonce</a></li>
+                                                <li><a href="{{path('annonce_create')}}">Ajout Annonce</a>
+                                                <li><a href="{{path('annonce2')}}">List Annonce</a></li>
+                                                <li><a href="{{ path('annonce_show', { 'id': 1 }) }}">Detail Annonce</a></li>
                                             </ul>
                                         </li>
                                         
                                    
-                                        <li><a href="{{path('reservation')}}">Reservation<label>2</label></a></li>
+                                        <li><a href="{{path('annonce')}}">Reservation<label>2</label></a></li>
                                          <li><a href="{{path('proposition')}}">Proposition<label>6</label></a></li>
                                         <li  class="last"><a href="{{path('voyage_contact')}}">Contact</a></li>
                                    
-                                          <a id="loginButton" class=""><span>Me</span></a>   
+                                            
 				                    <div id="loginBox" style="display: none;">                
 				                      <form id="loginForm">
 				                        <fieldset id="body">
 				                            <div class="user-info">
-							        			<h4>Hello,<a href="#"> Username</a></h4>
+							        			<h4>Hello,<a href="#"> {{username}}</a></h4>
 							        			<ul>
 							        				<li class="profile active"><a href="{{path('profil')}}">Profile </a></li>
 							        				<li class="logout"><a href="#"> Logout</a></li>
@@ -144,7 +137,7 @@
 				                        </fieldset>
 				                    </form>
 				                </div>
-				            
+                                                
                                                         <ul class="menu profile_img">
                                                             <li><a class="active-icon c1" id="7ell" href="{{path('profil')}}" > <img src="{{asset('bundles/voyage/img/profile-pic.png')}}" /></a>
 									<ul class="sub-menu">
@@ -155,6 +148,7 @@
 									</ul>
 								</li>
 							</ul>
+                                         <a id="loginButton" class=""><span> {{ username }} </span></a>
                                                     
                                          </ul>
                                 </nav>
