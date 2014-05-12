@@ -17,7 +17,10 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new voyage\FirstBundle\VoyageBundle(),
-            new voyage\UsersBundle\voyageUsersBundle(),
+            new voyage\UserBundle\UserBundle(),
+            
+            new FOS\UserBundle\FOSUserBundle(),
+            new FOS\FacebookBundle\FOSFacebookBundle()
             
 
         );
