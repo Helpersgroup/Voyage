@@ -106,8 +106,14 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                                     <p><a href=\"#\">En</a><span>|</span><a href=\"#\">Fr</a></p>
                                 </div>
                                 <div class=\"btns\">
-                                    <a href=\"#\" id=\"login-link\">Login</a>
-                                    <a href=\"#\" id=\"signon-link\">Inscription</a>
+                                    <a href=\"";
+        // line 67
+        echo $this->env->getExtension('routing')->getPath("voyage_homepage");
+        echo "login\" id=\"login-link\">Login</a>
+                                    <a href=\"";
+        // line 68
+        echo $this->env->getExtension('routing')->getPath("voyage_homepage");
+        echo "register\" id=\"signon-link\">Inscription</a>
                                 </div>
 
                                         <div class=\"social-nav\">
@@ -407,7 +413,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                 </div>
                 <!-- Footer -->
                 
-                <div class=\"login-popup-wrapper\">
+               <!-- <div class=\"login-popup-wrapper\">
                     <div id=\"login-popup\">
                          <a href=\"#\" class=\"close\">Close</a>
                     \t<h2>authentification</h2>
@@ -440,60 +446,61 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                         
                     </div>
                 </div>
+                 -->
 
 
 
                 <!-- Scripts -->
 \t\t<script src=\"";
-        // line 343
+        // line 344
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-1.7.1.min.js"), "html", null, true);
         echo "\"></script>
 \t\t<script src=\"";
-        // line 344
+        // line 345
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 345
+        // line 346
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider-min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 346
+        // line 347
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.elastislide.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 347
+        // line 348
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.carouFredSel-6.0.4-packed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 348
+        // line 349
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jcarousellite_1.0.1.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 349
+        // line 350
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.zweatherfeed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 350
+        // line 351
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.simpleWeather-2.3.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 351
+        // line 352
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.cycle.all.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 352
+        // line 353
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-ui.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 353
+        // line 354
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 354
+        // line 355
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.isotope.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 355
+        // line 356
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.tinyscrollbar.min.js"), "html", null, true);
         echo "\"></script>
                 <script>
@@ -519,7 +526,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
     });
                 </script>
                 <script src=\"";
-        // line 378
+        // line 379
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/custom.js"), "html", null, true);
         echo "\"></script>\t\t
 \t\t</body>
@@ -544,6 +551,6 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
 
     public function getDebugInfo()
     {
-        return array (  531 => 221,  523 => 378,  497 => 355,  493 => 354,  489 => 353,  485 => 352,  481 => 351,  477 => 350,  473 => 349,  469 => 348,  465 => 347,  461 => 346,  457 => 345,  453 => 344,  449 => 343,  429 => 326,  338 => 238,  320 => 222,  318 => 221,  241 => 147,  237 => 146,  233 => 145,  229 => 144,  222 => 142,  209 => 132,  197 => 123,  193 => 122,  189 => 121,  181 => 116,  177 => 115,  173 => 114,  168 => 112,  158 => 105,  143 => 93,  139 => 92,  130 => 86,  96 => 55,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
+        return array (  538 => 221,  530 => 379,  504 => 356,  500 => 355,  496 => 354,  492 => 353,  488 => 352,  484 => 351,  480 => 350,  476 => 349,  472 => 348,  468 => 347,  464 => 346,  460 => 345,  456 => 344,  435 => 326,  344 => 238,  326 => 222,  324 => 221,  247 => 147,  243 => 146,  239 => 145,  235 => 144,  228 => 142,  215 => 132,  203 => 123,  199 => 122,  195 => 121,  187 => 116,  183 => 115,  179 => 114,  174 => 112,  164 => 105,  149 => 93,  145 => 92,  136 => 86,  115 => 68,  111 => 67,  96 => 55,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,  78 => 29,  68 => 22,  62 => 19,  58 => 18,  52 => 15,  48 => 13,  42 => 11,  40 => 10,  31 => 5,  28 => 4,);
     }
 }
