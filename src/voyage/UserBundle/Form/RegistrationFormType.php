@@ -1,6 +1,6 @@
 <?php
 
-namespace WorkShopFOS\UserBundle\Form;
+namespace voyage\UserBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
