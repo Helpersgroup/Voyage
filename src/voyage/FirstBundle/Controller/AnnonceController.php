@@ -189,6 +189,19 @@ class AnnonceController extends Controller
      */
     public function showAction($id)
     {
+         $em= $this-> container->get('doctrine')->getEntityManager();
+    
+  
+         $modele = $em-> getRepository('VoyageBundle:Annonce')->find($id);
+         $request=$this->get('request');
+       $latitude = $request->get('lat');
+        $longitude = $request->get('lon');
+        
+        
+        
+        
+        
+        
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
@@ -205,7 +218,9 @@ class AnnonceController extends Controller
         return array(
             'entity'      => $entity,
             'username'  => 'admin',
-            'comments'=>$comments
+            'comments'=>$comments,
+             'att'=>$latitude,
+            'long '=>$longitude
         );
     }
 

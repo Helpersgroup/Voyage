@@ -30,6 +30,73 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
         // line 4
         echo "
 
+
+<head><script
+src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false\">
+</script>
+    <script>
+            function initialize()
+            {
+                var lat = document.getElementById('lat').value;
+                var lon = document.getElementById('lon').value;
+                var myCenter = new google.maps.LatLng(lat, lon);
+                var mapProp = {
+                    center: new google.maps.LatLng(lat, lon),
+                    zoom: 14,
+                    panControl: true,
+                    zoomControl: true,
+                    mapTypeControl: true,
+                    scaleControl: true,
+                    streetViewControl: true,
+                    overviewMapControl: true,
+                    rotateControl: true,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById(\"googleMap\")
+                        , mapProp);
+
+
+
+                marker = new google.maps.Marker({
+                    position: myCenter,
+                    animation: google.maps.Animation.BOUNCE
+                });
+
+                marker.setMap(map);
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    map.setZoom(9);
+                    map.setCenter(marker.getPosition());
+                });
+                var infowindow = new google.maps.InfoWindow({
+                    content: \"Le Medecin à chercher!\"
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+  
+        </script>
+</head>
+
+
+
+
+   
+
+
+
+             
+                           
+
+
+
+
+
+
+
 <!-- Crum -->
                 <div class=\"crum-wrapper\">
                 \t<div class=\"container\">
@@ -55,11 +122,11 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
 
                                         <div class=\"check_detail\">
                                             <h4>";
-        // line 30
+        // line 97
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nom"), "html", null, true);
         echo "</h4>
                                             <h5>";
-        // line 31
+        // line 98
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "depart"), "html", null, true);
         echo "</h5>
                                             <div class=\"stars\">
@@ -77,14 +144,14 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                     <div class=\"Depart-Date\">
                                                         <label>Check in</label>
                                                         <input type=\"text\" name=\"Location\" value=\"";
-        // line 46
+        // line 113
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "dateDeb"), "Y-m-d"), "html", null, true);
         echo "\" id=\"datepicker\" readonly>
                                                     </div>
                                                     <div>
                                                         <label>Check Out</label>
                                                         <input type=\"text\" name=\"Location\" value=\"";
-        // line 50
+        // line 117
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "dateFin"), "Y-m-d"), "html", null, true);
         echo "\" id=\"clender\" readonly>
                                                     </div>
@@ -93,11 +160,11 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                             <div class=\"clearfix\"></div>
                                             <div class=\"check_detail clearfix\" >
                                                 <p class=\"first\">Chambre Simple <span id=p1>";
-        // line 56
+        // line 123
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "prix"), "html", null, true);
         echo "</span></p>
                                                 <p class=\"two\">Double Room <span id=p2>";
-        // line 57
+        // line 124
         echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "prix") / 100) * 70), "html", null, true);
         echo "</span></p>
                                             </div>
@@ -133,7 +200,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                           <div class=\"search\">
                                               <div class=\"search\">
                                                   <form action=";
-        // line 90
+        // line 157
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("annonce_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idAnnonce"))), "html", null, true);
         echo ">
                                             <input type=\"submit\" name=\"search\" value=\"Modifier \" >
@@ -142,7 +209,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                   <br>
                                                   <br>
                                                   <form action=";
-        // line 96
+        // line 163
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("annonce_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idAnnonce"))), "html", null, true);
         echo ">
                                             <input type=\"submit\" name=\"search\" value=\"Supprimer\" >
@@ -162,35 +229,35 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                     <div id=\"carousel-wrapper\">
                                         <div id=\"carousel_two\" class=\"cool-carousel\">
                                             <span id=\"image1\"><img src=\"";
-        // line 113
+        // line 180
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img.png"), "html", null, true);
         echo "\" alt=\"\"/></span>
                                             <span id=\"image2\"><img src=\"";
-        // line 114
+        // line 181
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img2.png"), "html", null, true);
         echo "\" alt=\"\" /></span>
                                             <span id=\"image3\"><img src=\"";
-        // line 115
+        // line 182
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img3.png"), "html", null, true);
         echo "\" alt=\"\" /></span>
                                             <span id=\"image4\"><img src=\"";
-        // line 116
+        // line 183
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img4.png"), "html", null, true);
         echo "\" alt=\"\"/></span>
                                             <span id=\"image5\"><img src=\"";
-        // line 117
+        // line 184
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img5.png"), "html", null, true);
         echo "\" alt=\"\"/></span>
                                             <span id=\"image6\"><img src=\"";
-        // line 118
+        // line 185
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img6.png"), "html", null, true);
         echo "\" alt=\"\" /></span>
                                             <span id=\"image7\"><img src=\"";
-        // line 119
+        // line 186
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img7.png"), "html", null, true);
         echo "\" alt=\"\" /></span>
                                             <span id=\"image8\"><img src=\"";
-        // line 120
+        // line 187
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img.png"), "html", null, true);
         echo "\" alt=\"\"/></span>
                                         </div>
@@ -202,27 +269,27 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                             <div id=\"thumbs\">
                                                 <a href=\"#image1\" class=\"selected\"><img src=\"images/crosal-img.png\"  alt=\"\" /></a>
                                                 <a href=\"#image2\"><img src=\"";
-        // line 129
+        // line 196
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img4.png"), "html", null, true);
         echo "\" alt=\"\" /></a>
                                                 <a href=\"#image3\"><img src=\"";
-        // line 130
+        // line 197
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img3.png"), "html", null, true);
         echo "\" alt=\"\"/></a>
                                                 <a href=\"#image5\"><img src=\"";
-        // line 131
+        // line 198
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img5.png"), "html", null, true);
         echo "\"  alt=\"\"/></a>
                                                 <a href=\"#image6\"><img src=\"";
-        // line 132
+        // line 199
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img6.png"), "html", null, true);
         echo "\"  alt=\"\"/></a>
                                                 <a href=\"#image7\"><img src=\"";
-        // line 133
+        // line 200
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img7.png"), "html", null, true);
         echo "\" alt=\"\"/></a>
                                                 <a href=\"#image8\"><img src=\"";
-        // line 134
+        // line 201
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/crosal-img.png"), "html", null, true);
         echo "\" alt=\"\"/></a>
                                             </div>
@@ -245,13 +312,24 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                             <h2> Description</h2>
                                             <ul>
                                                 <li>";
-        // line 154
+        // line 221
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "description"), "html", null, true);
         echo "</li>
 
                                             </ul>
 
-                                           
+                                            <input id=\"lat\" name=\"lat\" type=\"hidden\" value=\"";
+        // line 225
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "att"), "html", null, true);
+        echo "\"/>
+                            <input id=\"lon\" name=\"lon\" type=\"hidden\" value=\"";
+        // line 226
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "long"), "html", null, true);
+        echo "\"/>
+           
+                           
+                            
+                            <div id=\"googleMap\" style=\"width:650px;height:340px;\"></div>
 
                                         </div>
                                     </div>
@@ -261,7 +339,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                              <h2>Transport</h2>
                                             <ul>
                                                 <li>";
-        // line 167
+        // line 239
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "transport"), "html", null, true);
         echo "</li>
                                                
@@ -269,12 +347,12 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                     <div id=\"tabs-3\" class=\"tab clearfix\" >
                                         <div class=\"detail\">
                                             <div class=\"map\">
-                                                <iframe width=\"100%\" height=\"360\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Envato+Pty+Ltd,+13%2F2+Elizabeth+Street,+Melbourne+VIC,+Australia&amp;aq=0&amp;oq=envato&amp;sll=37.0625,-95.677068&amp;sspn=39.371738,86.572266&amp;ie=UTF8&amp;hq=Envato+Pty+Ltd,+13%2F2+Elizabeth+Street,&amp;hnear=Melbourne+Victoria,+Australia&amp;t=p&amp;ll=-37.817209,144.961681&amp;spn=0.010849,0.04107&amp;z=15&amp;output=embed\"></iframe>
+                                                
                                             </div>
 
                                             <h2>Hotel Location</h2>
                                             <p> ";
-        // line 177
+        // line 249
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "TypeHebergement"), "html", null, true);
         echo "</p>
                                         </div>
@@ -292,7 +370,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                     <ul>
                                                         <li class=\"first\">Nom : </li>
                                                         <li><a href=\"#\" class=\"blue_star\">";
-        // line 192
+        // line 264
         echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username")), "html", null, true);
         echo "</a></li>
                                                         
@@ -320,28 +398,28 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                         <div id=\"\">
                                                             <ul>
                                                                 ";
-        // line 217
+        // line 289
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) ? $context["comments"] : $this->getContext($context, "comments")));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 218
+            // line 290
             echo "                                                                <li>
                                                                     <figure class=\"pull-left\"><img src=\"";
-            // line 219
+            // line 291
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "logo")), "html", null, true);
             echo "\" alt=\"Pic\"></figure>
                                                                     <article class=\" clearfix\">
                                                                         <div class=\"hot pull-left\">
                                                                             <h5>";
-            // line 222
+            // line 294
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "nom"), "html", null, true);
             echo "</h5>
                                                                             <span>";
-            // line 223
+            // line 295
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "date"), "html", null, true);
             echo "</span>
                                                                             <p>";
-            // line 224
+            // line 296
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "message"), "html", null, true);
             echo "</p>
                                                                         </div>
@@ -352,7 +430,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 229
+        // line 301
         echo "                                                            </ul>
                                                         </div>
                                                         <div class=\"pull-right\">
@@ -391,6 +469,6 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
 
     public function getDebugInfo()
     {
-        return array (  356 => 229,  345 => 224,  341 => 223,  337 => 222,  331 => 219,  328 => 218,  324 => 217,  296 => 192,  278 => 177,  265 => 167,  249 => 154,  226 => 134,  222 => 133,  218 => 132,  214 => 131,  210 => 130,  206 => 129,  194 => 120,  190 => 119,  186 => 118,  182 => 117,  178 => 116,  174 => 115,  170 => 114,  166 => 113,  146 => 96,  137 => 90,  101 => 57,  97 => 56,  88 => 50,  81 => 46,  63 => 31,  59 => 30,  31 => 4,  28 => 3,);
+        return array (  434 => 301,  423 => 296,  419 => 295,  415 => 294,  409 => 291,  406 => 290,  402 => 289,  374 => 264,  356 => 249,  343 => 239,  327 => 226,  323 => 225,  316 => 221,  293 => 201,  289 => 200,  285 => 199,  281 => 198,  277 => 197,  273 => 196,  261 => 187,  257 => 186,  253 => 185,  249 => 184,  245 => 183,  241 => 182,  237 => 181,  233 => 180,  213 => 163,  204 => 157,  168 => 124,  164 => 123,  155 => 117,  148 => 113,  130 => 98,  126 => 97,  31 => 4,  28 => 3,);
     }
 }

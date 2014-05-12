@@ -3,6 +3,73 @@
 {% block contains %}
 
 
+
+<head><script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script>
+    <script>
+            function initialize()
+            {
+                var lat = document.getElementById('lat').value;
+                var lon = document.getElementById('lon').value;
+                var myCenter = new google.maps.LatLng(lat, lon);
+                var mapProp = {
+                    center: new google.maps.LatLng(lat, lon),
+                    zoom: 14,
+                    panControl: true,
+                    zoomControl: true,
+                    mapTypeControl: true,
+                    scaleControl: true,
+                    streetViewControl: true,
+                    overviewMapControl: true,
+                    rotateControl: true,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap")
+                        , mapProp);
+
+
+
+                marker = new google.maps.Marker({
+                    position: myCenter,
+                    animation: google.maps.Animation.BOUNCE
+                });
+
+                marker.setMap(map);
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    map.setZoom(9);
+                    map.setCenter(marker.getPosition());
+                });
+                var infowindow = new google.maps.InfoWindow({
+                    content: "Le Medecin à chercher!"
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+  
+        </script>
+</head>
+
+
+
+
+   
+
+
+
+             
+                           
+
+
+
+
+
+
+
 <!-- Crum -->
                 <div class="crum-wrapper">
                 	<div class="container">
@@ -155,7 +222,12 @@
 
                                             </ul>
 
-                                           
+                                            <input id="lat" name="lat" type="hidden" value="{{entity.att}}"/>
+                            <input id="lon" name="lon" type="hidden" value="{{entity.long}}"/>
+           
+                           
+                            
+                            <div id="googleMap" style="width:650px;height:340px;"></div>
 
                                         </div>
                                     </div>
@@ -170,7 +242,7 @@
                                     <div id="tabs-3" class="tab clearfix" >
                                         <div class="detail">
                                             <div class="map">
-                                                <iframe width="100%" height="360" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Envato+Pty+Ltd,+13%2F2+Elizabeth+Street,+Melbourne+VIC,+Australia&amp;aq=0&amp;oq=envato&amp;sll=37.0625,-95.677068&amp;sspn=39.371738,86.572266&amp;ie=UTF8&amp;hq=Envato+Pty+Ltd,+13%2F2+Elizabeth+Street,&amp;hnear=Melbourne+Victoria,+Australia&amp;t=p&amp;ll=-37.817209,144.961681&amp;spn=0.010849,0.04107&amp;z=15&amp;output=embed"></iframe>
+                                                
                                             </div>
 
                                             <h2>Hotel Location</h2>
