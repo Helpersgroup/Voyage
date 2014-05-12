@@ -1,9 +1,19 @@
 voyage_homepage:
     pattern:  /
     defaults: { _controller: VoyageBundle:Default:index }
+
 voyage_contact:
     pattern:  /contact
     defaults: { _controller: VoyageBundle:Default:contact }
+    
+
+recherche:
+    pattern:  /recherche
+    defaults: { _controller: VoyageBundle:Recherche:recherche }
+recherche2:
+    pattern:  /recherche2
+    defaults: { _controller: VoyageBundle:Recherche:recherche2 }
+       
     
     
 proposition:
@@ -48,3 +58,9 @@ annonce_delete:
 annonce_update:
     pattern:  /annonce/update/{id}
     defaults: { _controller: VoyageBundle:Annonce:update }
+    
+    
+add_comment:
+    pattern:  /annonce/addComment/{id}
+    defaults: { _controller: VoyageBundle:Eval:update }
+   

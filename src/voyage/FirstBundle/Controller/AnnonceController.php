@@ -26,12 +26,25 @@ class AnnonceController extends Controller
      * @Template()
      */
     public function indexAction()
-    {
-         $stmt = $this->getDoctrine()->getEntityManager()
-             ->getConnection()
-                ->prepare('select * from annonce where etat=1 ');
-    $stmt->execute();
-    $annonce = $stmt->fetchAll();
+    {$em=$this -> container -> get('Doctrine')-> getEntityManager();
+        $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
+        $request=$this->getRequest();
+            
+          //  echo" suit a un post";
+        
+              $qb = $em->createQueryBuilder();
+
+               $qb->select('a')
+                  ->from('VoyageBundle:Annonce:Annonce', 'a')
+                  ->where("a.etat=1");
+
+               $query = $qb->getQuery();               
+            
+  
+
+
+
+           $annonces = $query->getResult();
     
     
     $stmt = $this->getDoctrine()->getEntityManager()
@@ -60,7 +73,7 @@ class AnnonceController extends Controller
     $n = $stmt->fetchAll();
         
         return array(
-            'entities' => $annonce,'username'=>"admin",'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
+            'entities' => $annonces,'username'=>"admin",'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
         );
     }
     public function index2Action()
@@ -186,7 +199,7 @@ class AnnonceController extends Controller
 
         $stmt = $this->getDoctrine()->getEntityManager()
              ->getConnection()
-                ->prepare('select * from commentaire c, personne p where ((c.id_Annonce='.$id.') and (p.id_Personne=c.id_Personne))');
+                ->prepare('select * from commentaire c, personne p where ((c.id_Annonce='.$id.') and (p.id_Personne=c.id_Personne)) order by id_Commentaire DESC');
         $stmt->execute();
         $comments = $stmt->fetchAll();
         return array(

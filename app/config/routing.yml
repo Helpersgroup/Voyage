@@ -5,4 +5,3 @@ voyage_users:
 voyage:
     resource: "@VoyageBundle/Resources/config/routing.yml"
     prefix:   /
-

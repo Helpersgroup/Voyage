@@ -513,4 +513,60 @@ class Annonce
     {
         return $this->image;
     }
+    /**
+     * @var string
+     */
+    private $att;
+
+    /**
+     * @var string
+     */
+    private $long;
+
+
+    /**
+     * Set att
+     *
+     * @param string $att
+     * @return Annonce
+     */
+    public function setAtt($att)
+    {
+        $this->att = $att;
+
+        return $this;
+    }
+
+    /**
+     * Get att
+     *
+     * @return string 
+     */
+    public function getAtt()
+    {
+        return $this->att;
+    }
+
+    /**
+     * Set long
+     *
+     * @param string $long
+     * @return Annonce
+     */
+    public function setLong($long)
+    {
+        $this->long = $long;
+
+        return $this;
+    }
+
+    /**
+     * Get long
+     *
+     * @return string 
+     */
+    public function getLong()
+    {
+        return $this->long;
+    }
 }

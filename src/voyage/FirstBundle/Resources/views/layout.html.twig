@@ -52,9 +52,9 @@
                                         <li><a href="#" class="last">aide</a></li>
                                     </ul>
                                 </div>
-                                <form class="serch">
-                                    <input type="text" placeholder="Search"/>
-                                    <input type="submit" value=""/>
+                                <form class="serch" action="{{path('recherche')}}" method=POST >
+                                    <input type="text" placeholder="search" name="search" />
+                                    <input type="submit" value="" onkeyup=""/>
                                 </form>
                             </div>
                             <!--top Menu -->
@@ -127,7 +127,7 @@
 				                      <form id="loginForm">
 				                        <fieldset id="body">
 				                            <div class="user-info">
-							        			<h4>Hello,<a href="#"> {{username}}</a></h4>
+							        			<h4>Hello,<a href="#"> admin</a></h4>
 							        			<ul>
 							        				<li class="profile active"><a href="{{path('profil')}}">Profile </a></li>
 							        				<li class="logout"><a href="#"> Logout</a></li>
@@ -148,7 +148,7 @@
 									</ul>
 								</li>
 							</ul>
-                                         <a id="loginButton" class=""><span> {{ username }} </span></a>
+                                         <a id="loginButton" class=""><span> admin </span></a>
                                                     
                                          </ul>
                                 </nav>

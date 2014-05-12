@@ -50,14 +50,14 @@
                                      {% set verif = 0 %}
                                     {% for hh in h %}
                                         
-                                        {%  if  entity.id_Annonce==hh.id_Annonce %}
+                                        {%  if  entity.idAnnonce==hh.id_Annonce %}
                                         <div class="span3 offer element branding">
                                             {% set verif = 1 %}
                                         {% endif%}
                                     {% endfor %}
                                                 
                                     {% for pp in p %}
-                                        {%  if  entity.id_Annonce==pp.id_Annonce and verif!=1 %}
+                                        {%  if  entity.idAnnonce==pp.id_Annonce and verif!=1 %}
                                         <div class="span3 offer element price"> 
                                             {% set verif = 1 %}
                                                 
@@ -65,14 +65,14 @@
                                     {% endfor %}
                                      {% for nn in n %}
                                         
-                                        {%  if  entity.id_Annonce==nn.id_Annonce and verif!=1 %}
+                                        {%  if  entity.idAnnonce==nn.id_Annonce and verif!=1 %}
                                         <div class="span3 offer element star"> 
                                             {% set verif = 1 %}
                                         {% endif%}
                                     {% endfor %}
                                     {% for cc in c %}
                                         
-                                        {%  if  entity.id_Annonce==cc.id_Annonce and verif!=1%}
+                                        {%  if  entity.idAnnonce==cc.id_Annonce and verif!=1%}
                                         <div class="span3 offer element rate">
                                             {% set verif = 1 %}
                                         {% endif%}
@@ -103,7 +103,7 @@
                                         </article>
                                         <div class="price">
                                             <h3>{{entity.prix}}</h3>
-                                            <a href="{{ path('annonce_show', { 'id': entity.id_Annonce }) }}"></a>
+                                            <a href="{{ path('annonce_show', { 'id': entity.idAnnonce }) }}"></a>
                                         </div>
                                     </div>
 

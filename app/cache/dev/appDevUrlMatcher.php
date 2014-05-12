@@ -140,6 +140,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'voyage_users_homepage')), array (  '_controller' => 'voyage\\UsersBundle\\Controller\\DefaultController::indexAction',));
         }
 
+        // login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'voyage\\UsersBundle\\Controller\\DefaultController::loginAction',  '_route' => 'login',);
+        }
+
+        // register
+        if ($pathinfo === '/register') {
+            return array (  '_controller' => 'voyage\\UsersBundle\\Controller\\DefaultController::registerAction',  '_route' => 'register',);
+        }
+
+        if (0 === strpos($pathinfo, '/log')) {
+            // login_check
+            if ($pathinfo === '/login_check') {
+                return array('_route' => 'login_check');
+            }
+
+            // logout
+            if ($pathinfo === '/logout') {
+                return array('_route' => 'logout');
+            }
+
+        }
+
         // voyage_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
@@ -152,6 +175,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // voyage_contact
         if ($pathinfo === '/contact') {
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::contactAction',  '_route' => 'voyage_contact',);
+        }
+
+        if (0 === strpos($pathinfo, '/recherche')) {
+            // recherche
+            if ($pathinfo === '/recherche') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\RechercheController::rechercheAction',  '_route' => 'recherche',);
+            }
+
+            // recherche2
+            if ($pathinfo === '/recherche2') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\RechercheController::recherche2Action',  '_route' => 'recherche2',);
+            }
+
         }
 
         // proposition
@@ -208,6 +244,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // annonce_update
             if (0 === strpos($pathinfo, '/annonce/update') && preg_match('#^/annonce/update/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'annonce_update')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\AnnonceController::updateAction',));
+            }
+
+            // add_comment
+            if (0 === strpos($pathinfo, '/annonce/addComment') && preg_match('#^/annonce/addComment/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_comment')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\EvalController::updateAction',));
             }
 
         }

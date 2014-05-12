@@ -15,7 +15,7 @@ use voyage\FirstBundle\Form\AnnonceType;
  *
  * @Route("/annonce")
  */
-class AnnonceController extends Controller
+class EvalController extends Controller
 {
 
     /**
@@ -25,15 +25,51 @@ class AnnonceController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function commentAction()
+    public function addAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
-        
-        return array(
-            'entities' => $annonces,'username'=>"admin"
-        );
+        //l'objet $coment
+    	$coment = new Commentaire();
+    	//appel de service
+    	$encoder = $this->container->get('security.encoder_factory')->getEncoder($coment);
+    	//setting up the $coment
+    	$coment->setIdPersonne(3)
+    	->setIdAnnonce(83)
+    	->setDate(new \DateTime("NOW"));
+    	//creation du formulaire
+    	$formBuilder = $this->createFormBuilder($coment);
+    	//ajout des champs voulu
+    	//génération du formulaire
+    	$form = $formBuilder->getForm();
+    	// On récupère la requête
+    	$request = $this->get('request');
+    	// On vérifie qu'elle est de type POST
+    	if ($request->getMethod() == 'POST') {
+    		// On fait le lien Requête <-> Formulaire
+    		// À partir de maintenant, la variable $coment contient les valeurs entrées dans le formulaire par le visiteur
+    		$form->bind($request);
+    		// On vérifie que les valeurs entrées sont correctes
+    		 
+    		if ($form->isValid()) {
+    			// On l'enregistre notre objet $coment dans la base de données
+    			$em = $this->getDoctrine()->getManager();
+    			 
+    			$pass = $coment->getPassword();
+    			 
+    			$coment->setPassword($encoder->encodePassword($pass,$coment->getSalt()));
+    			try {
+    				$em->persist($coment);
+    				$em->flush();
+    				return $this->redirect($this->generateUrl('login'));
+    			} catch (\Exception $e) {
+    
+    			}
+    			 
+    			 
+    		}
+    	}
+    
+    	return $this->render('SecurinetsUsersBundle:Default:register.html.twig', array());
+    
     }
     public function index2Action()
     {

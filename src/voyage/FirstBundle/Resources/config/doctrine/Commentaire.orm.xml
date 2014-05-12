@@ -9,6 +9,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="message" type="text" column="message" nullable="false"/>
+    <field name="date" type="datetime" column="date" nullable="false"/>
     <many-to-one field="idPersonne" target-entity="Personne">
       <join-columns>
         <join-column name="id_Personne" referenced-column-name="id_Personne"/>

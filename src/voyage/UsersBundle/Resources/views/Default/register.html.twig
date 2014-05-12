@@ -1,0 +1,25 @@
+
+{% block contains %}
+      <div class="crum-wrapper">
+                	<div class="container">
+                    	<div class="row">
+                        	<div class="span12">
+                            	<a href="#">Accueil</a>
+                                <span class="crum">List Annonce</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+
+<center><form method="post" {{ form_enctype(form) }}>
+
+ {{ form_widget(form) }}
+
+<center><input  type="submit" value="Register"/>
+</center>
+    </form></center>
+                    
+                </div>
+
+{% endblock %}

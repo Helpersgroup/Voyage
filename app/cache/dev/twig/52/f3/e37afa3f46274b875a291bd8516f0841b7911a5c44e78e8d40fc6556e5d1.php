@@ -91,9 +91,12 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
                                         <li><a href=\"#\" class=\"last\">aide</a></li>
                                     </ul>
                                 </div>
-                                <form class=\"serch\">
-                                    <input type=\"text\" placeholder=\"Search\"/>
-                                    <input type=\"submit\" value=\"\"/>
+                                <form class=\"serch\" action=\"";
+        // line 55
+        echo $this->env->getExtension('routing')->getPath("recherche");
+        echo "\" method=POST >
+                                    <input type=\"text\" placeholder=\"search\" name=\"search\" />
+                                    <input type=\"submit\" value=\"\" onkeyup=\"\"/>
                                 </form>
                             </div>
                             <!--top Menu -->
@@ -199,10 +202,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 \t\t\t\t                      <form id=\"loginForm\">
 \t\t\t\t                        <fieldset id=\"body\">
 \t\t\t\t                            <div class=\"user-info\">
-\t\t\t\t\t\t\t        \t\t\t<h4>Hello,<a href=\"#\"> ";
-        // line 130
-        echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username")), "html", null, true);
-        echo "</a></h4>
+\t\t\t\t\t\t\t        \t\t\t<h4>Hello,<a href=\"#\"> admin</a></h4>
 \t\t\t\t\t\t\t        \t\t\t<ul>
 \t\t\t\t\t\t\t        \t\t\t\t<li class=\"profile active\"><a href=\"";
         // line 132
@@ -243,10 +243,7 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 \t\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t</ul>
-                                         <a id=\"loginButton\" class=\"\"><span> ";
-        // line 151
-        echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username")), "html", null, true);
-        echo " </span></a>
+                                         <a id=\"loginButton\" class=\"\"><span> admin </span></a>
                                                     
                                          </ul>
                                 </nav>
@@ -547,6 +544,6 @@ class __TwigTemplate_52f3e37afa3f46274b875a291bd8516f0841b7911a5c44e78e8d40fc655
 
     public function getDebugInfo()
     {
-        return array (  534 => 221,  526 => 378,  500 => 355,  496 => 354,  492 => 353,  488 => 352,  484 => 351,  480 => 350,  476 => 349,  472 => 348,  468 => 347,  464 => 346,  460 => 345,  456 => 344,  452 => 343,  432 => 326,  341 => 238,  323 => 222,  321 => 221,  248 => 151,  241 => 147,  237 => 146,  233 => 145,  229 => 144,  222 => 142,  209 => 132,  204 => 130,  194 => 123,  190 => 122,  186 => 121,  178 => 116,  174 => 115,  170 => 114,  165 => 112,  155 => 105,  140 => 93,  136 => 92,  127 => 86,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
+        return array (  531 => 221,  523 => 378,  497 => 355,  493 => 354,  489 => 353,  485 => 352,  481 => 351,  477 => 350,  473 => 349,  469 => 348,  465 => 347,  461 => 346,  457 => 345,  453 => 344,  449 => 343,  429 => 326,  338 => 238,  320 => 222,  318 => 221,  241 => 147,  237 => 146,  233 => 145,  229 => 144,  222 => 142,  209 => 132,  197 => 123,  193 => 122,  189 => 121,  181 => 116,  177 => 115,  173 => 114,  168 => 112,  158 => 105,  143 => 93,  139 => 92,  130 => 86,  96 => 55,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
     }
 }

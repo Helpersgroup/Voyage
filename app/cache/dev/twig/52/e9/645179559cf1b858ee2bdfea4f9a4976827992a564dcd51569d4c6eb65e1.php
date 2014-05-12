@@ -78,11 +78,17 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
         echo "                    </ul>
                     
                     
-                    <!-- Reservation box -->
+                   
+                                        
+                                        
+                                        <!-- Reservation box -->
                     <div id=\"accordion\">
 
                       <h3> <span class=\"flight\">Voyage</span> <a href=\"#\"></a> </h3>
-                      <form action=\"#\" method=\"post\">
+                      <form method=\"post\" action=\"";
+        // line 36
+        echo $this->env->getExtension('routing')->getPath("recherche2");
+        echo "\">
                       <div class=\"detail\">
                          
                             
@@ -90,11 +96,11 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                             <div class=\"location clearfix\">
                                 <div class=\"pull-left\">
                                     <label>Depart</label>
-                                    <input type=\"input\" name=\"Location\" placeholder=\"Depart\">
+                                    <input type=\"text\" name=\"depart\" placeholder=\"Depart\">
                                 </div>
                                 <div class=\"pull-right\">
                                     <label class=\"dst\">Destination</label>
-                                    <input type=\"text\" name=\"Destination\" placeholder=\"Destination\">
+                                        <input type=\"text\" name=\"destination\" placeholder=\"Destination\">
                                 </div>
                             </div>
 
@@ -103,25 +109,22 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                                 <div class=\"pull-left\">
                                     <div class=\"date clearfix\">
                                         <div class=\"Depart-Date\">
-                                            <label>Depart Date</label>
-                                            <input type=\"text\" name=\"Location\" value=\"30.01.2014\" id=\"datepicker\">
+                                            <label>Date Depart</label>
+                                            <input type=\"text\" name=\"datedep\" value=\"30.01.2014\" id=\"datepicker\">
                                         </div>
                                         <div>
-                                            <label>Return Date</label>
-                                            <input type=\"text\" name=\"Location\" value=\"30.01.2014\" id=\"clender\">
+                                            <label>Date Retour</label>
+                                            <input type=\"text\" name=\"datefin\" value=\"30.01.2014\" id=\"clender\">
                                         </div>
                                     </div>
                                 </div>
                                 <div class=\"pull-right\">
                                     <div class=\"persons\">
                                         <div class=\"ad\">
-                                            <label>Adults</label>
-                                            <input type=\"text\" name=\"Location\" value=\"0\" id=\"spinner\">
+                                            <label>Prix</label>
+                                            <input type=\"number\" name=\"prix\" value=\"100\" id=\"spinner\" min=0>
                                         </div>
-                                        <div class=\"ad\">
-                                            <label>Children</label>
-                                            <input type=\"text\" name=\"Location\" value=\"0\" id=\"spinner-two\">
-                                        </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -133,17 +136,17 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
                       <h3> <span class=\"hotel\">Hotel</span> <a href=\"#\"></a></h3>
                       <div class=\"detail\">
                             <div class=\"trip\">
-                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>Residance</span>
-                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>*</span>
-                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>2*</span>
-                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>3*</span>
-                                <input type=\"radio\" name=\"trip\" value=\"Round-trip\"><span>4*</span>
-                                <input type=\"radio\" name=\"trip\" value=\"onw-way\"><span>5*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"Residance\"><span>Residance</span>
+                                <input type=\"radio\" name=\"trip\" value=\"hotel\"><span>*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"hotel 2 *\"><span>2*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"hotel 3 *\"><span>3*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"hotel 4 *\"><span>4*</span>
+                                <input type=\"radio\" name=\"trip\" value=\"hotel 5 *\"><span>5*</span>
                                 <br>
                                 <br>
 
                                     <label class=\"dst\">Hotel</label>
-                                    <input type=\"text\" name=\"nom_hotel\" placeholder=\"Nom Hotel\">
+                                    <input type=\"text\" name=\"nomhotel\" placeholder=\"Nom Hotel\">
                             </div>
                       </div>
 
@@ -263,6 +266,6 @@ class __TwigTemplate_52e9645179559cf1b858ee2bdfea4f9a4976827992a564dcd51569d4c6e
 
     public function getDebugInfo()
     {
-        return array (  228 => 150,  217 => 146,  213 => 145,  200 => 135,  196 => 134,  187 => 128,  178 => 124,  78 => 26,  67 => 21,  63 => 20,  59 => 19,  55 => 18,  50 => 16,  43 => 14,  31 => 4,  28 => 3,);
+        return array (  231 => 150,  220 => 146,  216 => 145,  203 => 135,  199 => 134,  190 => 128,  181 => 124,  90 => 36,  78 => 26,  67 => 21,  63 => 20,  59 => 19,  55 => 18,  50 => 16,  43 => 14,  31 => 4,  28 => 3,);
     }
 }

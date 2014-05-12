@@ -237,7 +237,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                 <div id=\"tabs_two\">
                                     <ul class=\"clearfix\">
                                         <li><a href=\"#tabs-1\" class=\"one\">Description</a></li>
-                                        <li><a href=\"#tabs-4\" class=\"two\">Commeantaire</a></li>
+                                        <li><a href=\"#tabs-4\" class=\"two\">Commentaire</a></li>
                                         <li><a href=\"#tabs-2\" class=\"three\">Details</a></li>
                                     </ul>
                                     <div id=\"tabs-1\" class=\"tab clearfix\" >
@@ -248,7 +248,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
         // line 154
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "description"), "html", null, true);
         echo "</li>
-                                                
+
                                             </ul>
 
                                            
@@ -299,27 +299,15 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                     </ul>
 
                                                     <ul>
-                                                        <li class=\"first\">Staff</li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
+                                                        <li class=\"first\">Message</li>
+                                                        <textarea name=\"message\" id=\"comment\" cols=\"50%\" rows=\"10\" tabindex=\"4\"></textarea>
                                                     </ul>
 
-                                                    <ul>
-                                                        <li class=\"first\">Service</li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                        <li><a href=\"#\" class=\"blue_star\"></a></li>
-                                                    </ul>
+                                                  
 
                                                     <ul class=\"last\">
-                                                        <input type=button value=comment>
+                                                        <input name=\"submit\" type=\"submit\" id=\"submit\" tabindex=\"5\" value=\"Publiez le commentaire\">
                                                     </ul>
-                                                    <p><span>4.5/5</span> Rating based on 5 verified Reviews</p>
                                                 </div>
 
 
@@ -332,28 +320,28 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
                                                         <div id=\"\">
                                                             <ul>
                                                                 ";
-        // line 229
+        // line 217
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) ? $context["comments"] : $this->getContext($context, "comments")));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 230
+            // line 218
             echo "                                                                <li>
                                                                     <figure class=\"pull-left\"><img src=\"";
-            // line 231
+            // line 219
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "logo")), "html", null, true);
             echo "\" alt=\"Pic\"></figure>
                                                                     <article class=\" clearfix\">
                                                                         <div class=\"hot pull-left\">
                                                                             <h5>";
-            // line 234
+            // line 222
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "nom"), "html", null, true);
             echo "</h5>
                                                                             <span>";
-            // line 235
+            // line 223
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "date"), "html", null, true);
             echo "</span>
                                                                             <p>";
-            // line 236
+            // line 224
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "message"), "html", null, true);
             echo "</p>
                                                                         </div>
@@ -364,7 +352,7 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 241
+        // line 229
         echo "                                                            </ul>
                                                         </div>
                                                         <div class=\"pull-right\">
@@ -403,6 +391,6 @@ class __TwigTemplate_a7ddd1dbd83fac85d5af676a1859ce7610c8a3ad4391d09ce6c020312f8
 
     public function getDebugInfo()
     {
-        return array (  368 => 241,  357 => 236,  353 => 235,  349 => 234,  343 => 231,  340 => 230,  336 => 229,  296 => 192,  278 => 177,  265 => 167,  249 => 154,  226 => 134,  222 => 133,  218 => 132,  214 => 131,  210 => 130,  206 => 129,  194 => 120,  190 => 119,  186 => 118,  182 => 117,  178 => 116,  174 => 115,  170 => 114,  166 => 113,  146 => 96,  137 => 90,  101 => 57,  97 => 56,  88 => 50,  81 => 46,  63 => 31,  59 => 30,  31 => 4,  28 => 3,);
+        return array (  356 => 229,  345 => 224,  341 => 223,  337 => 222,  331 => 219,  328 => 218,  324 => 217,  296 => 192,  278 => 177,  265 => 167,  249 => 154,  226 => 134,  222 => 133,  218 => 132,  214 => 131,  210 => 130,  206 => 129,  194 => 120,  190 => 119,  186 => 118,  182 => 117,  178 => 116,  174 => 115,  170 => 114,  166 => 113,  146 => 96,  137 => 90,  101 => 57,  97 => 56,  88 => 50,  81 => 46,  63 => 31,  59 => 30,  31 => 4,  28 => 3,);
     }
 }

@@ -21,7 +21,9 @@
     <field name="etat" type="integer" column="etat" nullable="false"/>
     <field name="prix" type="string" column="prix" length="20" nullable="true"/>
     <field name="signalisation" type="integer" column="signalisation" nullable="false"/>
-    <field name="image" type="text" column="image" nullable="false"/>
+    <field name="image" type="string" column="image" length="110" nullable="false"/>
+    <field name="att" type="string" column="att" length="30" nullable="false"/>
+    <field name="long" type="string" column="long" length="30" nullable="false"/>
     <many-to-one field="idAnnonceur" target-entity="Personne">
       <join-columns>
         <join-column name="id_Annonceur" referenced-column-name="id_Personne"/>

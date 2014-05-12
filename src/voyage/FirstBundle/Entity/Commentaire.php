@@ -128,4 +128,32 @@ class Commentaire
     {
         return $this->idAnnonce;
     }
+    /**
+     * @var \DateTime
+     */
+    private $date;
+
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Commentaire
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
 }

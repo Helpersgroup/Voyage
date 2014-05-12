@@ -1,0 +1,8 @@
+<form action="{{ path('login_check') }}" method="post">
+<label for="username">Username :</label>
+<input type="text" id="username"  name="nom" value="{{ last_username }}" />
+<label for="password">Password :</label>
+<input type="password" id="password" name="mdp" />
+<input style="width:100px; position:relative ; right:38%;"  type="submit" value="Log In"/>
+</form>
+{% if register == "1" %} <a href="{{ path('register') }}">Register here </a> {% endif %}
