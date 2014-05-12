@@ -365,12 +365,16 @@ src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH
                                             <div class=\"row\">
 
                                                 <div class=\"span4 our_rating\">
+                                                    <form action=\"";
+        // line 260
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("add_comment", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idAnnonce"))), "html", null, true);
+        echo "\" method=post >
                                                     <h2>Comment</h2>
 
                                                     <ul>
                                                         <li class=\"first\">Nom : </li>
                                                         <li><a href=\"#\" class=\"blue_star\">";
-        // line 264
+        // line 265
         echo twig_escape_filter($this->env, (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username")), "html", null, true);
         echo "</a></li>
                                                         
@@ -386,6 +390,7 @@ src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH
                                                     <ul class=\"last\">
                                                         <input name=\"submit\" type=\"submit\" id=\"submit\" tabindex=\"5\" value=\"Publiez le commentaire\">
                                                     </ul>
+                                                    </form>
                                                 </div>
 
 
@@ -398,28 +403,28 @@ src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH
                                                         <div id=\"\">
                                                             <ul>
                                                                 ";
-        // line 289
+        // line 291
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) ? $context["comments"] : $this->getContext($context, "comments")));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 290
+            // line 292
             echo "                                                                <li>
                                                                     <figure class=\"pull-left\"><img src=\"";
-            // line 291
+            // line 293
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "logo")), "html", null, true);
             echo "\" alt=\"Pic\"></figure>
                                                                     <article class=\" clearfix\">
                                                                         <div class=\"hot pull-left\">
                                                                             <h5>";
-            // line 294
+            // line 296
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "nom"), "html", null, true);
             echo "</h5>
                                                                             <span>";
-            // line 295
+            // line 297
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "date"), "html", null, true);
             echo "</span>
                                                                             <p>";
-            // line 296
+            // line 298
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "message"), "html", null, true);
             echo "</p>
                                                                         </div>
@@ -430,7 +435,7 @@ src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 301
+        // line 303
         echo "                                                            </ul>
                                                         </div>
                                                         <div class=\"pull-right\">
@@ -469,6 +474,6 @@ src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH
 
     public function getDebugInfo()
     {
-        return array (  434 => 301,  423 => 296,  419 => 295,  415 => 294,  409 => 291,  406 => 290,  402 => 289,  374 => 264,  356 => 249,  343 => 239,  327 => 226,  323 => 225,  316 => 221,  293 => 201,  289 => 200,  285 => 199,  281 => 198,  277 => 197,  273 => 196,  261 => 187,  257 => 186,  253 => 185,  249 => 184,  245 => 183,  241 => 182,  237 => 181,  233 => 180,  213 => 163,  204 => 157,  168 => 124,  164 => 123,  155 => 117,  148 => 113,  130 => 98,  126 => 97,  31 => 4,  28 => 3,);
+        return array (  439 => 303,  428 => 298,  424 => 297,  420 => 296,  414 => 293,  411 => 292,  407 => 291,  378 => 265,  370 => 260,  356 => 249,  343 => 239,  327 => 226,  323 => 225,  316 => 221,  293 => 201,  289 => 200,  285 => 199,  281 => 198,  277 => 197,  273 => 196,  261 => 187,  257 => 186,  253 => 185,  249 => 184,  245 => 183,  241 => 182,  237 => 181,  233 => 180,  213 => 163,  204 => 157,  168 => 124,  164 => 123,  155 => 117,  148 => 113,  130 => 98,  126 => 97,  31 => 4,  28 => 3,);
     }
 }

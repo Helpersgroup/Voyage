@@ -62,5 +62,5 @@ annonce_update:
     
 add_comment:
     pattern:  /annonce/addComment/{id}
-    defaults: { _controller: VoyageBundle:Eval:update }
+    defaults: { _controller: VoyageBundle:Eval:add }
    

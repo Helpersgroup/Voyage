@@ -257,6 +257,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
                                             <div class="row">
 
                                                 <div class="span4 our_rating">
+                                                    <form action="{{path('add_comment', { 'id': entity.idAnnonce })}}" method=post >
                                                     <h2>Comment</h2>
 
                                                     <ul>
@@ -275,6 +276,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
                                                     <ul class="last">
                                                         <input name="submit" type="submit" id="submit" tabindex="5" value="Publiez le commentaire">
                                                     </ul>
+                                                    </form>
                                                 </div>
 
 

@@ -8,6 +8,15 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $session = $this->getRequest()->getSession();
+
+// We store an attribute
+                $session->set('nom',sha1( 'admin'));
+
+// in another controller for another request, we retrieve the value of this attribute
+       
+        
+        
         $em = $this->getDoctrine()->getManager();
 
         $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();

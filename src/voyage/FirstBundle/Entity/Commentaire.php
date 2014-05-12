@@ -89,7 +89,7 @@ class Commentaire
      * @param \voyage\FirstBundle\Entity\Personne $idPersonne
      * @return Commentaire
      */
-    public function setIdPersonne(\voyage\FirstBundle\Entity\Personne $idPersonne = null)
+    public function setIdPersonne( $idPersonne)
     {
         $this->idPersonne = $idPersonne;
 
@@ -112,7 +112,7 @@ class Commentaire
      * @param \voyage\FirstBundle\Entity\Annonce $idAnnonce
      * @return Commentaire
      */
-    public function setIdAnnonce(\voyage\FirstBundle\Entity\Annonce $idAnnonce = null)
+    public function setIdAnnonce( $idAnnonce)
     {
         $this->idAnnonce = $idAnnonce;
 

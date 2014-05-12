@@ -77,7 +77,6 @@ class RechercheController extends Controller
        // return $this->render('PidevHomeBundle:home:map.html.twig',array());
          $em= $this-> container->get('doctrine')->getEntityManager();
     
-  
          $modele = $em-> getRepository('VoyageBundle:Annonce')->find($id);
          $request=$this->get('request');
        $latitude = $request->get('lat');
