@@ -14,7 +14,9 @@ recherche2:
     pattern:  /recherche2
     defaults: { _controller: VoyageBundle:Recherche:recherche2 }
        
-    
+stat:
+    pattern:  /inscription
+    defaults: { _controller: VoyageBundle:Default:stat }    
 
     
 inscription:

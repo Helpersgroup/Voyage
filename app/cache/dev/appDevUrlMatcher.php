@@ -185,9 +185,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // inscription
-        if ($pathinfo === '/inscription') {
-            return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::inscriptionAction',  '_route' => 'inscription',);
+        if (0 === strpos($pathinfo, '/inscription')) {
+            // stat
+            if ($pathinfo === '/inscription') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\DefaultController::statAction',  '_route' => 'stat',);
+            }
+
+            // inscription
+            if ($pathinfo === '/inscription') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::inscriptionAction',  '_route' => 'inscription',);
+            }
+
         }
 
         // profil

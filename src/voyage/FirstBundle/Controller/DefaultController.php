@@ -6,6 +6,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
+   
+    public function statAction()
+    {
+        return $this->render('VoyageBundle:Default:stat.html.twig',array('username'=>$this->get('security.context')->getToken()->getUser()));
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public function indexAction()
     {
         
