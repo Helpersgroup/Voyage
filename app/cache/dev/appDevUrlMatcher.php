@@ -185,11 +185,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // proposition
-        if ($pathinfo === '/proposition') {
-            return array (  '_controller' => 'VoyageBundle:proposition:proposition',  '_route' => 'proposition',);
-        }
-
         // inscription
         if ($pathinfo === '/inscription') {
             return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\UsersController::inscriptionAction',  '_route' => 'inscription',);
@@ -244,6 +239,44 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // add_comment
             if (0 === strpos($pathinfo, '/annonce/add') && preg_match('#^/annonce/add/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_comment')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\EvalController::addAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/Proposition')) {
+            // proposition
+            if ($pathinfo === '/Proposition') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\PropositionController::indexAction',  '_route' => 'proposition',);
+            }
+
+            // proposition_show
+            if (0 === strpos($pathinfo, '/Proposition/show') && preg_match('#^/Proposition/show/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'proposition_show')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\PropositionController::showAction',));
+            }
+
+            // proposition_edit
+            if (0 === strpos($pathinfo, '/Proposition/edit') && preg_match('#^/Proposition/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'proposition_edit')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\PropositionController::editAction',));
+            }
+
+            // proposition_new
+            if ($pathinfo === '/Proposition/new') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\PropositionController::newAction',  '_route' => 'proposition_new',);
+            }
+
+            // proposition_create
+            if ($pathinfo === '/Proposition/create') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\PropositionController::createAction',  '_route' => 'proposition_create',);
+            }
+
+            // proposition_delete
+            if (0 === strpos($pathinfo, '/Proposition/delete') && preg_match('#^/Proposition/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'proposition_delete')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\PropositionController::deleteAction',));
+            }
+
+            // proposition_update
+            if (0 === strpos($pathinfo, '/Proposition/update') && preg_match('#^/Proposition/update/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'proposition_update')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\PropositionController::updateAction',));
             }
 
         }

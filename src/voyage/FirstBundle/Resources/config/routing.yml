@@ -15,10 +15,6 @@ recherche2:
     defaults: { _controller: VoyageBundle:Recherche:recherche2 }
        
     
-    
-proposition:
-    pattern:  /proposition
-    defaults: { _controller: VoyageBundle:proposition:proposition }
 
     
 inscription:
@@ -64,6 +60,30 @@ add_comment:
     pattern:  /annonce/add/{id}
     defaults: { _controller: VoyageBundle:Eval:add }
 
+proposition:
+    pattern:  /Proposition
+    defaults: { _controller: VoyageBundle:Proposition:index }
+proposition_show:
+    pattern:  /Proposition/show/{id}
+    defaults: { _controller: VoyageBundle:Proposition:show }
+proposition_edit:
+    pattern:  /Proposition/edit/{id}
+    defaults: { _controller: VoyageBundle:Proposition:edit }
+proposition_new:
+    pattern:  /Proposition/new
+    defaults: { _controller: VoyageBundle:Proposition:new }
+proposition_create:
+    pattern:  /Proposition/create
+    defaults: { _controller: VoyageBundle:Proposition:create }
+proposition_delete:
+    pattern:  /Proposition/delete/{id}
+    defaults: { _controller: VoyageBundle:Proposition:delete }
+proposition_update:
+    pattern:  /Proposition/update/{id}
+    defaults: { _controller: VoyageBundle:Proposition:update }
+       
+   
+   
  
    
 confirmer_reservation: 

@@ -1,44 +1,106 @@
 {% extends "VoyageBundle::layout.html.twig"%}
 
 {% block contains %}
-<table border="1">
-    <thead>
-        <tr>
-            <th>Nom d'utilisateur</th>
-            <th>date debut</th>
-            <th> prix</th>
-            <th>Nb adultes</th>
-            <th>Nb enfants</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in reservations %}
-            <tr>
-                <td>
-                    {{item.nom}}
-                </td>
-                <td>
-                    {{item.date_Deb}}
-                </td>
-              
-                <td>
-                    {{ item.prix }}
-                </td>
-                <td>
-                    {{ item.nb_adultes }}
-                    </td>
-            <td>
-                {{ item.nb_enfant }}
-                </td>
-                <td>
-                    {% if item.etat==0 %}
-                    <a title="confirmer" href="{{ path('confirmer_reservation', { 'email': email1 ,'id':item.id_Annonceur,'idannonce': item.id_Annonce}) }}">confirmer</a>
-                    
+
+<!-- Crum -->
+                <div class="crum-wrapper">
+                	<div class="container">
+                    	<div class="row">
+                        	<div class="span12">
+                            	<a href="#">Accueil</a>
+                                <span class="crum">List Annonce</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Crum-->
+
+
+                <!-- Grid page -->
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="span3" id="sidebar">
+                            <div class="span9 right_content">
+                                <div class="row">
+                                    <div class="portfolio-nav span9 clearfix">                                    
+                                        
+                                        <div class="grid_btn">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <span class="border"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row travel_lest" id="project-container">
+                                   
+                                    {% for item in reservations %} 
+                                        
+                                        <div class="span9 offer element branding">
+                               
+                                             
+                                        <figure>
+                                            <img src="{{asset('bundles/voyage/images/offerpic-1.png')}}"  alt="Offer Image">
+                                            <div class="overlay">
+                                                <a href="#" class="like"></a>
+                                            </div>
+                                        </figure>
+                                        <article>
+                                            <h3> Nom {{item.nom}}</h3>
+                                            <h4>Date depart :  {{item.date_Deb}}</h4>
+                                            <p></p>
+                                            <p></p>
+                                            <p></p>
+                                            <p></p>
+                                            <p></p>
+                                            <p></p>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <p>Nombre d'adultes : {{ item.nb_adultes }}</p>
+                  <p>Nombre d'enfants : {{ item.nb_enfant }}</p>
+
+                                            </div>
+                                            </article>
+                                        <div class="price">
+                                            <h3>{{ item.prix }}</h3>
+                                             {% if item.etat==0 %}
+                                                                <a href="{{ path('confirmer_reservation', { 'email': email1 ,'id':item.id_Annonceur,'idannonce': item.id_Annonce}) }}"><b>confirmer</b></a>
+
                     {% elseif item.etat==1 %}
-                    <a title="annuler" href="{{ path('annuler_reservation', { 'email': email1 ,'id':item.id_Annonceur,'idannonce': item.id_Annonce}) }}">annuller</a>
+                    <a href="{{ path('annuler_reservation', { 'email': email1 ,'id':item.id_Annonceur,'idannonce': item.id_Annonce}) }}"><b>annuler</b></a>
+
                     {% endif%}
-                </td>
-            </tr>
-        {% endfor %}
-</table>
+                                        </div>
+                                    </div>
+
+                                     {% endfor %}
+
+                                            </div>
+                                <span class="border"></span>
+                            
+                                <div class="pagination clearfix">
+                                    <p>Showing<a href="#"> 1 </a>page   <a href="#">10</a></p>
+                                    <div class="errows">
+                                        <a href="#" class="left_errow"></a>
+                                        <a href="#" class="right_errow"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid page -->
+
+
+
+
+
 {% endblock %}
