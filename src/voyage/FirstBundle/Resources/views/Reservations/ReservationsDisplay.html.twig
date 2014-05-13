@@ -1,0 +1,44 @@
+{% extends "VoyageBundle::layout.html.twig"%}
+
+{% block contains %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nom d'utilisateur</th>
+            <th>date debut</th>
+            <th> prix</th>
+            <th>Nb adultes</th>
+            <th>Nb enfants</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in reservations %}
+            <tr>
+                <td>
+                    {{item.nom}}
+                </td>
+                <td>
+                    {{item.date_Deb}}
+                </td>
+              
+                <td>
+                    {{ item.prix }}
+                </td>
+                <td>
+                    {{ item.nb_adultes }}
+                    </td>
+            <td>
+                {{ item.nb_enfant }}
+                </td>
+                <td>
+                    {% if item.etat==0 %}
+                    <a title="confirmer" href="{{ path('confirmer_reservation', { 'email': email1 ,'id':item.id_Annonceur,'idannonce': item.id_Annonce}) }}">confirmer</a>
+                    
+                    {% elseif item.etat==1 %}
+                    <a title="annuler" href="{{ path('annuler_reservation', { 'email': email1 ,'id':item.id_Annonceur,'idannonce': item.id_Annonce}) }}">annuller</a>
+                    {% endif%}
+                </td>
+            </tr>
+        {% endfor %}
+</table>
+{% endblock %}

@@ -64,11 +64,12 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport: smtp
+    host:      smtp.gmail.com
+    encryption: ssl   
+    auth_mode: login
+    username:  houbadota@gmail.com
+    password:  narakrarch
     
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'

@@ -61,6 +61,17 @@ annonce_update:
     
     
 add_comment:
-    pattern:  /annonce/addComment/{id}
+    pattern:  /annonce/add/{id}
     defaults: { _controller: VoyageBundle:Eval:add }
+
+ 
    
+confirmer_reservation: 
+    pattern: /reservationsC 
+    defaults: { _controller: VoyageBundle:Reservation:email }
+reservationsShow: 
+    pattern: /reservations/all 
+    defaults: { _controller: VoyageBundle:Reservation:ShowReservations }
+annuler_reservation: 
+    pattern: /reservationsA 
+    defaults: { _controller: VoyageBundle:Reservation:emaila }   

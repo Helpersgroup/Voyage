@@ -7,21 +7,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use voyage\FirstBundle\Entity\Annonce;
-use voyage\FirstBundle\Form\AnnonceType;
+use voyage\FirstBundle\Entity\Reservation;
+use voyage\FirstBundle\Form\ReservationType;
 
 /**
- * Annonce controller.
+ * Reservation controller.
  *
- * @Route("/annonce")
+ * @Route("/reservation")
  */
-class AnnonceController extends Controller
+class ReservationController extends Controller
 {
 
     /**
-     * Lists all Annonce entities.
+     * Lists all Reservation entities.
      *
-     * @Route("/", name="annonce")
+     * @Route("/", name="reservation")
      * @Method("GET")
      * @Template()
      */
@@ -29,30 +29,23 @@ class AnnonceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
+        $reservations = $em->getRepository('VoyageBundle:Reservation')->findAll();
         
         return array(
-            'entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()
+            'entities' => $reservations,'username'=>"admin"
         );
     }
-    public function index2Action()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
-        
-        return $this->render('VoyageBundle:Annonce:index2.html.twig',array('entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()));
-    }
+   
     /**
-     * Creates a new Annonce entity.
+     * Creates a new Reservation entity.
      *
-     * @Route("/", name="annonce_create")
+     * @Route("/", name="reservation_create")
      * @Method("POST")
-     * @Template("VoyageBundle:Annonces:new.html.twig")
+     * @Template("VoyageBundle:Default:ReservationsDisplay.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new Annonce();
+        $entity = new Reservation();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -61,26 +54,26 @@ class AnnonceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('annonce_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('reservation_show', array('id' => $entity->getId())));
         }
 
         return array(
             'entity' => $entity,
-            'username'=>$this->get('security.context')->getToken()->getUser()
+            'username'=>"admin"
         );
     }
 
     /**
-    * Creates a form to create a Annonce entity.
+    * Creates a form to create a Reservation entity.
     *
-    * @param Annonce $entity The entity
+    * @param Reservation $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(Annonce $entity)
+    private function createCreateForm(Reservation $entity)
     {
-        $form = $this->createForm(new AnnonceType(), $entity, array(
-            'action' => $this->generateUrl('annonce_create'),
+        $form = $this->createForm(new ReservationType(), $entity, array(
+            'action' => $this->generateUrl('reservation_create'),
             'method' => 'POST',
         ));
 
@@ -90,28 +83,28 @@ class AnnonceController extends Controller
     }
 
     /**
-     * Displays a form to create a new Annonce entity.
+     * Displays a form to create a new Reservation entity.
      *
-     * @Route("/new", name="annonce_new")
+     * @Route("/new", name="reservation_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new Annonce();
+        $entity = new Reservation();
         $form   = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-            'username'=>$this->get('security.context')->getToken()->getUser()
+            'username'=>"admin"
         );
     }
 
     /**
-     * Finds and displays a Annonce entity.
+     * Finds and displays a Reservation entity.
      *
-     * @Route("/{id}", name="annonce_show")
+     * @Route("/{id}", name="reservation_show")
      * @Method("GET")
      * @Template()
      */
@@ -119,10 +112,10 @@ class AnnonceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
+        $entity = $em->getRepository('VoyageBundle:Reservation')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Annonce entity.');
+            throw $this->createNotFoundException('Unable to find Reservation entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -130,15 +123,15 @@ class AnnonceController extends Controller
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-            'username'  => $this->get('security.context')->getToken()->getUser()
+            'username'  => 'admin'
             
         );
     }
 
     /**
-     * Displays a form to edit an existing Annonce entity.
+     * Displays a form to edit an existing Reservation entity.
      *
-     * @Route("/{id}/edit", name="annonce_edit")
+     * @Route("/{id}/edit", name="reservation_edit")
      * @Method("GET")
      * @Template()
      */
@@ -146,10 +139,10 @@ class AnnonceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
+        $entity = $em->getRepository('VoyageBundle:Reservation')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Annonce entity.');
+            throw $this->createNotFoundException('Unable to find Reservation entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -163,16 +156,16 @@ class AnnonceController extends Controller
     }
 
     /**
-    * Creates a form to edit a Annonce entity.
+    * Creates a form to edit a Reservation entity.
     *
-    * @param Annonce $entity The entity
+    * @param Reservation $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Annonce $entity)
+    private function createEditForm(Reservation $entity)
     {
-        $form = $this->createForm(new AnnonceType(), $entity, array(
-            'action' => $this->generateUrl('annonce_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new ReservationType(), $entity, array(
+            'action' => $this->generateUrl('reservation_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -181,20 +174,20 @@ class AnnonceController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Annonce entity.
+     * Edits an existing Reservation entity.
      *
-     * @Route("/{id}", name="annonce_update")
+     * @Route("/{id}", name="reservation_update")
      * @Method("PUT")
-     * @Template("VoyageBundle:Annonces:edit.html.twig")
+     * @Template("VoyageBundle:Reservations:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
+        $entity = $em->getRepository('VoyageBundle:Reservation')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Annonce entity.');
+            throw $this->createNotFoundException('Unable to find Reservation entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -204,7 +197,7 @@ class AnnonceController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('annonce_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('reservation_edit', array('id' => $id)));
         }
 
         return array(
@@ -214,9 +207,9 @@ class AnnonceController extends Controller
         );
     }
     /**
-     * Deletes a Annonce entity.
+     * Deletes a Reservation entity.
      *
-     * @Route("/{id}", name="annonce_delete")
+     * @Route("/{id}", name="reservation_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -226,21 +219,21 @@ class AnnonceController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
+            $entity = $em->getRepository('VoyageBundle:Reservation')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Annonce entity.');
+                throw $this->createNotFoundException('Unable to find Reservation entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('annonce'));
+        return $this->redirect($this->generateUrl('reservation'));
     }
 
     /**
-     * Creates a form to delete a Annonce entity by id.
+     * Creates a form to delete a Reservation entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -249,10 +242,78 @@ class AnnonceController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('annonce_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('reservation_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
     }
+    
+    public function emailAction() {
+        $Request = $this->getRequest();
+        if ($Request->getMethod() == 'GET') {
+            $email = $Request->get("email");
+            $id = $Request->get("id");
+            $idannonce = $Request->get("idannonce");
+            $subject = "confirmation";
+            $contenu = "ce client a confirmé";
+            $message = \Swift_Message::newInstance()
+                    ->setSubject($subject)
+                    ->setFrom('houbadota@gmail.com')
+                    ->setTo($email)
+                    ->setBody($contenu);
+            $this->get('mailer')->send($message);
+            $stmt = $this->getDoctrine()->getManager()
+                        ->getConnection()
+                          ->prepare("UPDATE reservation SET etat=1
+                                     where id_Client=".$id." and id_Annonce=".$idannonce);
+                    $stmt->execute();      
+            
+              return $this->redirect($this->generateUrl('reservationsShow'));
+          
+        }
+        return $this->render('VoyageBundle:Reservations:ReservationsDisplay.html.twig');
+    }
+    
+    
+    public function ShowReservationsAction() {
+        $em = $this->getDoctrine()->getManager()
+                    ->getConnection()
+                    ->prepare('SELECT r.id_Annonce,r.id_Client as id_Annonceur,a.nom,a.date_Deb, r.date, a.prix, r.nb_adultes, r.nb_enfant ,r.etat FROM reservation r, annonce a WHERE ( r.id_Client =93 AND ( r.id_Annonce = a.id_Annonce )) LIMIT 0 , 30');
+        $em->execute();
+        $reservations = $em->fetchAll();
+        $email1="abdelaziz.benyahia@esprit.tn";
+                $Request = $this->getRequest();
+
+       
+        return $this->render('VoyageBundle:Reservations:ReservationsDisplay.html.twig', array('reservations' => $reservations,'username'=>'admin','email1'=>$email1));
+    }
+    
+    
+public function emailaAction() {
+        $Request = $this->getRequest();
+        if ($Request->getMethod() == 'GET') {
+            $email = $Request->get("email");
+            $id = $Request->get("id");
+            $idannonce = $Request->get("idannonce");
+            $subject ="annulation";
+            $contenu =" ce client a annulé";
+            $message = \Swift_Message::newInstance()
+                    ->setSubject($subject)
+                    ->setFrom('houbadota@gmail.com')
+                    ->setTo($email)
+                    ->setBody($contenu);
+            $this->get('mailer')->send($message);
+            $stmt = $this->getDoctrine()->getManager()
+                        ->getConnection()
+                          ->prepare("UPDATE reservation SET etat=0
+                                     where id_Client=".$id." and id_Annonce=".$idannonce);
+                    $stmt->execute();
+            
+            
+            return $this->redirect($this->generateUrl('reservationsShow'));
+            
+        }
+        return $this->render('VoyageBundle:Reservations:ReservationsDisplay.html.twig');
+    }    
 }

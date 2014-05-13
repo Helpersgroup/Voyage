@@ -9,66 +9,200 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use voyage\FirstBundle\Entity\Annonce;
 use voyage\FirstBundle\Form\AnnonceType;
-
+use voyage\FirstBundle\Controller\EvalController;
 /**
- * Annonce controller.
+ * Proposition controller.
  *
- * @Route("/annonce")
+ * @Route("/proposition")
  */
-class AnnonceController extends Controller
+class PropositionController extends Controller
 {
 
     /**
      * Lists all Annonce entities.
      *
-     * @Route("/", name="annonce")
+     * @Route("/", name="proposition")
      * @Method("GET")
      * @Template()
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+                $session = $this->getRequest()->getSession();
 
+                $value = $session->get('nom');
+                    $s=sha1('kimo'.'symfony');
+              //  if($value==$s)
+             //     die("hello");
+             //   else
+              //      die("nooo");
+                
+        
+        $em=$this -> container -> get('Doctrine')-> getEntityManager();
         $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
+        $request=$this->getRequest();
+            
+          //  echo" suit a un post";
+        
+              $qb = $em->createQueryBuilder();
+
+               $qb->select('a')
+                  ->from('VoyageBundle:Annonce:Annonce', 'a')
+                  ->where("a.etat=0");
+
+               $query = $qb->getQuery();               
+            
+  
+
+
+
+           $annonces = $query->getResult();
+    
+    
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select id_Annonce from annonce where etat=0 and prix=(select max(prix) from annonce) ');
+    $stmt->execute();
+    $p = $stmt->fetchAll();
+    
+    
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select id_Annonce from commentaire');
+    $stmt->execute();
+    $c = $stmt->fetchAll();
+    
+    
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select * from annonce where etat=0 and type_Hebergement like "Hotel 5 *" ');
+    $stmt->execute();
+    $h = $stmt->fetchAll();
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select * from annonce where etat=0 and note=(select max(note) from annonce)');
+    $stmt->execute();
+    $n = $stmt->fetchAll();
         
         return array(
-            'entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()
+            'entities' => $annonces,'username'=>"admin",'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
         );
     }
     public function index2Action()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
+         $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select * from annonce where etat=0 ');
+    $stmt->execute();
+    $annonce = $stmt->fetchAll();
+    
+    
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select id_Annonce from annonce where etat=0 and prix=(select max(prix) from annonce) ');
+    $stmt->execute();
+    $p = $stmt->fetchAll();
+    
+    
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select id_Annonce from commentaire');
+    $stmt->execute();
+    $c = $stmt->fetchAll();
+    
+    
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select * from annonce where etat=0 and type_Hebergement like "Hotel 5 *" ');
+    $stmt->execute();
+    $h = $stmt->fetchAll();
+    $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select * from annonce where etat=0 and note=(select max(note) from annonce)');
+    $stmt->execute();
+    $n = $stmt->fetchAll();
+        return $this->render('VoyageBundle:Proposition:index.html.twig',array(
+            'entities' => $annonce,'username'=>"admin",'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
+        ));
         
-        return $this->render('VoyageBundle:Annonce:index2.html.twig',array('entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()));
     }
     /**
      * Creates a new Annonce entity.
      *
-     * @Route("/", name="annonce_create")
+     * @Route("/", name="proposition_create")
      * @Method("POST")
-     * @Template("VoyageBundle:Annonces:new.html.twig")
+     * @Template("VoyageBundle:Proposition:new.html.twig")
      */
-    public function createAction(Request $request)
+
+
+       public function createAction()
     {
-        $entity = new Annonce();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+                      $stmt = $this->getDoctrine()->getEntityManager()
+                        ->getConnection()
+                          ->prepare("select max(id_Annonce)as max from annonce");
+                    $stmt->execute();
+                    $n = $stmt->fetchAll();
+                    foreach( $n as $a)
+                    $fin=$a['max'];     
+           
+           
+           
+           
+           $annonce=new Annonce();
+                   $request=$this->getRequest();
+        if($request ->getMethod()=="POST")
+        {
+             $nom=$request->get('nom');
+             $typeAnnonce=$request->get('typeAnnonce');
+             $destination=$request->get('destination');
+             $long=$request->get('long');
+             $att=$request->get('att');
+             $depart=$request->get('depart');
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+             $dateDeb=$request->get('dateDeb');
+             $dateFin=$request->get('dateFin');
+              $description=$request->get('description');
+              $TypeHebergement=$request->get('TypeHebergement');
+           
+             $hebergement=$request->get('hebergement');
+             $prix=$request->get('prix');
+             $transport=$request->get('transport');
+             $image=$request->get('image');
+             $uploaddir = '../img/';
+             $max=$fin+1;
+             $uploadfile = $uploaddir . $max;
+             move_uploaded_file($image,$uploadfile);
+             $etat=$request->get('etat');
+             
 
-            return $this->redirect($this->generateUrl('annonce_show', array('id' => $entity->getId())));
-        }
+                 
+                    $stmt = $this->getDoctrine()->getEntityManager()
+                        ->getConnection()
+                          ->prepare("INSERT INTO `annonce`(`id_Annonceur`, `nom`, `date_Deb`, `date_Fin`, `depart`, `destination`, `description`, `hebergement`, `type_Hebergement`, `type_Annonce`, `transport`, `note`, `etat`, `prix`, `signalisation`, `image`, `att`, `long`) 
+                              VALUES 
+                              ('93','".$nom."','".$dateDeb."','".$dateFin."','".$depart."','".$destination."','".$description."','".$hebergement."','".$TypeHebergement."','".$typeAnnonce."','".$transport."','0','0','".$prix."','0','".$uploadfile."','".$att."','".$long."')");
+             
+                   
+                   
+                   
+                   
+                   try {  
+                    
+                    
+                               $stmt->execute();
 
-        return array(
-            'entity' => $entity,
-            'username'=>$this->get('security.context')->getToken()->getUser()
-        );
+                    
+            return $this->redirect($this->generateUrl('proposition_show', array('id' => $max)));                    
+                 } catch (\Exception $e) {
+            return $this->redirect($this->generateUrl('proposition_show', array('id' => $max)));                    
+                 }
+                    return $this->render('VoyageBundle:Proposition:new.html.twig',array('username'=>'kimo','entity'=>$annonce));
+         }
+return $this->render('VoyageBundle:Proposition:new.html.twig',array('username'=>'kimo','entity'=>$annonce));
+
     }
+
+
+
 
     /**
     * Creates a form to create a Annonce entity.
@@ -80,7 +214,7 @@ class AnnonceController extends Controller
     private function createCreateForm(Annonce $entity)
     {
         $form = $this->createForm(new AnnonceType(), $entity, array(
-            'action' => $this->generateUrl('annonce_create'),
+            'action' => $this->generateUrl('proposition_create'),
             'method' => 'POST',
         ));
 
@@ -90,9 +224,9 @@ class AnnonceController extends Controller
     }
 
     /**
-     * Displays a form to create a new Annonce entity.
+     * Displays a form to create a new Proposition entity.
      *
-     * @Route("/new", name="annonce_new")
+     * @Route("/new", name="proposition_new")
      * @Method("GET")
      * @Template()
      */
@@ -104,19 +238,32 @@ class AnnonceController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-            'username'=>$this->get('security.context')->getToken()->getUser()
+            'username'=>"admin"
         );
     }
 
     /**
      * Finds and displays a Annonce entity.
      *
-     * @Route("/{id}", name="annonce_show")
+     * @Route("/{id}", name="proposition_show")
      * @Method("GET")
      * @Template()
      */
     public function showAction($id)
     {
+         $em= $this-> container->get('doctrine')->getEntityManager();
+    
+  
+         $modele = $em-> getRepository('VoyageBundle:Annonce')->find($id);
+         $request=$this->get('request');
+       $latitude = $request->get('lat');
+        $longitude = $request->get('lon');
+        
+        
+        
+        
+        
+        
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
@@ -125,20 +272,25 @@ class AnnonceController extends Controller
             throw $this->createNotFoundException('Unable to find Annonce entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
+        $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('select * from commentaire c, personne p where ((c.id_Annonce='.$id.') and (p.id_Personne=c.id_Personne)) order by id_Commentaire DESC');
+        $stmt->execute();
+        $comments = $stmt->fetchAll();
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-            'username'  => $this->get('security.context')->getToken()->getUser()
-            
+            'username'  => 'admin',
+            'comments'=>$comments,
+             'att'=>$latitude,
+            'long '=>$longitude,
+            'error'=>''
         );
     }
 
     /**
      * Displays a form to edit an existing Annonce entity.
      *
-     * @Route("/{id}/edit", name="annonce_edit")
+     * @Route("/{id}/edit", name="proposition_edit")
      * @Method("GET")
      * @Template()
      */
@@ -152,13 +304,13 @@ class AnnonceController extends Controller
             throw $this->createNotFoundException('Unable to find Annonce entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'username'=>'kimo'
+            
         );
     }
 
@@ -172,7 +324,7 @@ class AnnonceController extends Controller
     private function createEditForm(Annonce $entity)
     {
         $form = $this->createForm(new AnnonceType(), $entity, array(
-            'action' => $this->generateUrl('annonce_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('proposition_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -191,10 +343,10 @@ class AnnonceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
+        $entity = $em->getRepository('VoyageBundle:Proposition')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Annonce entity.');
+            throw $this->createNotFoundException('Unable to find proposition entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -204,7 +356,7 @@ class AnnonceController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('annonce_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('proposition_edit', array('id' => $id)));
         }
 
         return array(
@@ -216,7 +368,7 @@ class AnnonceController extends Controller
     /**
      * Deletes a Annonce entity.
      *
-     * @Route("/{id}", name="annonce_delete")
+     * @Route("/{id}", name="proposition_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -224,19 +376,40 @@ class AnnonceController extends Controller
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('VoyageBundle:Annonce')->find($id);
-
+          
+            
+            $entity = $em->getRepository('VoyageBundle:Proposition')->find($id);
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Annonce entity.');
+                throw $this->createNotFoundException('Unable to find proposition entity.');
             }
-
+            
+            
+              $stmt = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('delete from reservation where id_Annonce='.$id);
+                $stmt->execute();
+            $stmt2 = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('delete from commentaire where id_Annonce='.$id);
+                $stmt2->execute();
+                $stmt3 = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('delete from jaime where id_Annonce='.$id);
+                $stmt3->execute();
+                $stmt4 = $this->getDoctrine()->getEntityManager()
+             ->getConnection()
+                ->prepare('delete from facture where id_Annonce='.$id);
+                $stmt4->execute();
+        
+        
+            if ($entity) {
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('annonce'));
+        return $this->redirect($this->generateUrl('proposition'));
     }
 
     /**
@@ -249,10 +422,12 @@ class AnnonceController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('annonce_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('proposition_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
     }
+    
 }
+

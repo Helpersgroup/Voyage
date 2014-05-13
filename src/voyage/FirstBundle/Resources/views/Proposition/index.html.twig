@@ -1,0 +1,131 @@
+{% extends "VoyageBundle::layout.html.twig"%}
+
+{% block contains %}
+
+<!-- Crum -->
+                <div class="crum-wrapper">
+                	<div class="container">
+                    	<div class="row">
+                        	<div class="span12">
+                            	<a href="#">Accueil</a>
+                                <span class="crum">List proposition</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Crum-->
+
+
+                <!-- Grid page -->
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="span3" id="sidebar">
+                            <div class="span9 right_content">
+                                <div class="row">
+                                    <div class="portfolio-nav span9 clearfix">
+                                        <strong>Tri par:</strong>
+                                        <ul class="option-set clearfix" data-option-key="filter">
+                                            <li><a href="#filter" data-option-value="*"  class="selected">Defaul</a></li>
+                                            <li><a href="#filter" data-option-value=".branding" >Heberegement </a></li>
+                                            <li><a href="#filter" data-option-value=".price" >Prix</a></li>
+                                            <li><a href="#filter" data-option-value=".star" >Stars</a></li>
+                                            <li><a href="#filter" data-option-value=".rate" >Commenter</a></li>
+                                        </ul>
+                                        
+                                        <div class="grid_btn">
+                                            <a href="#" class="grid"></a>
+                                            <a href="#" class="list active"></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <span class="border"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row travel_lest" id="project-container">
+                                   
+                                    {% for entity in entities %} 
+                                     {% set verif = 0 %}
+                                    {% for hh in h %}
+                                        
+                                        {%  if  entity.id_Annonce==hh.id_Annonce %}
+                                        <div class="span9 offer element branding">
+                                            {% set verif = 1 %}
+                                        {% endif%}
+                                    {% endfor %}
+                                                
+                                    {% for pp in p %}
+                                        {%  if  entity.id_Annonce==pp.id_Annonce and verif!=1 %}
+                                        <div class="span9 offer element price"> 
+                                            {% set verif = 1 %}
+                                                
+                                        {% endif%}
+                                    {% endfor %}
+                                     {% for nn in n %}
+                                        
+                                        {%  if  entity.id_Annonce==nn.id_Annonce and verif!=1 %}
+                                        <div class="span9 offer element star"> 
+                                            {% set verif = 1 %}
+                                        {% endif%}
+                                    {% endfor %}
+                                    {% for cc in c %}
+                                        
+                                        {%  if  entity.id_Annonce==cc.id_Annonce and verif!=1%}
+                                        <div class="span9 offer element rate">
+                                            {% set verif = 1 %}
+                                        {% endif%}
+                                    {% endfor %} 
+                                      {%  if  verif==0 %}
+                                        <div class="span9 offer element">
+                                        {% endif%}           
+
+                                             
+                                             
+                                        <figure>
+                                            {{ entity.image }}
+                                            <img src="{{asset(entity.image)}}"  alt="Offer Image">
+                                            <div class="overlay">
+                                                <a href="#" class="like"></a>
+                                            </div>
+                                        </figure>
+                                        <article>
+                                            <h3>Blue beach</h3>
+                                            <h4>thailand</h4>
+                                            <div>
+                                                <p>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#" class="active"></a>
+                                                    <a href="#"></a>
+                                                    <a href="#"></a>
+                                                </p>
+                                                <span>Read 8 Reviews</span>
+                                            </div>
+                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                        </article>
+                                        <div class="price">
+                                            <h3>138$</h3>
+                                            <a href="{{ path('proposition_show', { 'id': entity.id_Annonce }) }}"></a>
+                                        </div>
+                                    </div>
+
+                                     {% endfor %}
+
+                                            </div>
+                                <span class="border"></span>
+                            
+                                <div class="pagination clearfix">
+                                    <p>Showing<a href="#"> 1 </a>page   <a href="#">30</a></p>
+                                    <div class="errows">
+                                        <a href="#" class="left_errow"></a>
+                                        <a href="#" class="right_errow"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid page -->
+             {% endblock %}

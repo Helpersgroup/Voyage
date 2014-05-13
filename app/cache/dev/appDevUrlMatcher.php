@@ -242,8 +242,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // add_comment
-            if (0 === strpos($pathinfo, '/annonce/addComment') && preg_match('#^/annonce/addComment/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/annonce/add') && preg_match('#^/annonce/add/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_comment')), array (  '_controller' => 'voyage\\FirstBundle\\Controller\\EvalController::addAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/reservations')) {
+            // confirmer_reservation
+            if ($pathinfo === '/reservationsC') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\ReservationController::emailAction',  '_route' => 'confirmer_reservation',);
+            }
+
+            // reservationsShow
+            if ($pathinfo === '/reservations/all') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\ReservationController::ShowReservationsAction',  '_route' => 'reservationsShow',);
+            }
+
+            // annuler_reservation
+            if ($pathinfo === '/reservationsA') {
+                return array (  '_controller' => 'voyage\\FirstBundle\\Controller\\ReservationController::emailaAction',  '_route' => 'annuler_reservation',);
             }
 
         }
