@@ -47,7 +47,7 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
                         <li>
                           <img src=\"";
             // line 16
-            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/USA_Street_Chicago.png"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "image")), "html", null, true);
             echo "\" alt=\"Slider Image\">
                           <div class=\"detail-one\">
                             <h3>";

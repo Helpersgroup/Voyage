@@ -115,7 +115,7 @@ class __TwigTemplate_56faaa14d803e4af0553571610e572f448912164e7282b8b1d74bc34e8a
             foreach ($context['_seq'] as $context["_key"] => $context["pp"]) {
                 // line 60
                 echo "                                        ";
-                if ((($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id_Annonce") == $this->getAttribute((isset($context["pp"]) ? $context["pp"] : $this->getContext($context, "pp")), "id_Annonce")) && ((isset($context["verif"]) ? $context["verif"] : $this->getContext($context, "verif")) != 1))) {
+                if ((($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idAnnonce") == $this->getAttribute((isset($context["pp"]) ? $context["pp"] : $this->getContext($context, "pp")), "id_Annonce")) && ((isset($context["verif"]) ? $context["verif"] : $this->getContext($context, "verif")) != 1))) {
                     // line 61
                     echo "                                        <div class=\"span9 offer element price\"> 
                                             ";
@@ -140,7 +140,7 @@ class __TwigTemplate_56faaa14d803e4af0553571610e572f448912164e7282b8b1d74bc34e8a
                 echo "                                        
                                         ";
                 // line 68
-                if ((($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id_Annonce") == $this->getAttribute((isset($context["nn"]) ? $context["nn"] : $this->getContext($context, "nn")), "id_Annonce")) && ((isset($context["verif"]) ? $context["verif"] : $this->getContext($context, "verif")) != 1))) {
+                if ((($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idAnnonce") == $this->getAttribute((isset($context["nn"]) ? $context["nn"] : $this->getContext($context, "nn")), "id_Annonce")) && ((isset($context["verif"]) ? $context["verif"] : $this->getContext($context, "verif")) != 1))) {
                     // line 69
                     echo "                                        <div class=\"span9 offer element star\"> 
                                             ";
@@ -164,7 +164,7 @@ class __TwigTemplate_56faaa14d803e4af0553571610e572f448912164e7282b8b1d74bc34e8a
                 echo "                                        
                                         ";
                 // line 75
-                if ((($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id_Annonce") == $this->getAttribute((isset($context["cc"]) ? $context["cc"] : $this->getContext($context, "cc")), "id_Annonce")) && ((isset($context["verif"]) ? $context["verif"] : $this->getContext($context, "verif")) != 1))) {
+                if ((($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idAnnonce") == $this->getAttribute((isset($context["cc"]) ? $context["cc"] : $this->getContext($context, "cc")), "id_Annonce")) && ((isset($context["verif"]) ? $context["verif"] : $this->getContext($context, "verif")) != 1))) {
                     // line 76
                     echo "                                        <div class=\"span9 offer element rate\">
                                             ";
@@ -193,38 +193,49 @@ class __TwigTemplate_56faaa14d803e4af0553571610e572f448912164e7282b8b1d74bc34e8a
                                              
                                              
                                         <figure>
-                                            ";
-            // line 87
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "image"), "html", null, true);
-            echo "
                                             <img src=\"";
-            // line 88
-            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "image")), "html", null, true);
+            // line 87
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-1.png"), "html", null, true);
             echo "\"  alt=\"Offer Image\">
                                             <div class=\"overlay\">
                                                 <a href=\"#\" class=\"like\"></a>
                                             </div>
                                         </figure>
                                         <article>
-                                            <h3>Blue beach</h3>
-                                            <h4>thailand</h4>
+                                            <h3>";
+            // line 93
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nom"), "html", null, true);
+            echo "</h3>
+                                            <h4>";
+            // line 94
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "depart"), "html", null, true);
+            echo "</h4>
                                             <div>
                                                 <p>
                                                     <a href=\"#\" class=\"active\"></a>
                                                     <a href=\"#\" class=\"active\"></a>
-                                                    <a href=\"#\" class=\"active\"></a>
+                                                    <a href=\"#\" ></a>
                                                     <a href=\"#\"></a>
                                                     <a href=\"#\"></a>
                                                 </p>
-                                                <span>Read 8 Reviews</span>
+                                                <p>Date depart : ";
+            // line 103
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "dateDeb"), "y/m/d"), "html", null, true);
+            echo "</p>
                                             </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                            <p>";
+            // line 105
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "description"), "html", null, true);
+            echo "</p>
                                         </article>
                                         <div class=\"price\">
-                                            <h3>138\$</h3>
+                                            <h3>";
+            // line 108
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "prix"), "html", null, true);
+            echo " \$</h3>
                                             <a href=\"";
-            // line 110
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proposition_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id_Annonce"))), "html", null, true);
+            // line 109
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proposition_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "idAnnonce"))), "html", null, true);
             echo "\"></a>
                                         </div>
                                     </div>
@@ -234,7 +245,7 @@ class __TwigTemplate_56faaa14d803e4af0553571610e572f448912164e7282b8b1d74bc34e8a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 115
+        // line 114
         echo "
                                             </div>
                                 <span class=\"border\"></span>
@@ -266,6 +277,6 @@ class __TwigTemplate_56faaa14d803e4af0553571610e572f448912164e7282b8b1d74bc34e8a
 
     public function getDebugInfo()
     {
-        return array (  238 => 115,  227 => 110,  202 => 88,  198 => 87,  191 => 82,  187 => 81,  185 => 80,  177 => 79,  174 => 78,  172 => 77,  169 => 76,  167 => 75,  164 => 74,  159 => 73,  153 => 72,  150 => 71,  148 => 70,  145 => 69,  143 => 68,  140 => 67,  135 => 66,  129 => 65,  125 => 63,  123 => 62,  120 => 61,  117 => 60,  113 => 59,  110 => 58,  104 => 57,  101 => 56,  99 => 55,  96 => 54,  94 => 53,  91 => 52,  86 => 51,  84 => 50,  78 => 49,  31 => 4,  28 => 3,);
+        return array (  249 => 114,  238 => 109,  234 => 108,  228 => 105,  223 => 103,  211 => 94,  207 => 93,  198 => 87,  191 => 82,  187 => 81,  185 => 80,  177 => 79,  174 => 78,  172 => 77,  169 => 76,  167 => 75,  164 => 74,  159 => 73,  153 => 72,  150 => 71,  148 => 70,  145 => 69,  143 => 68,  140 => 67,  135 => 66,  129 => 65,  125 => 63,  123 => 62,  120 => 61,  117 => 60,  113 => 59,  110 => 58,  104 => 57,  101 => 56,  99 => 55,  96 => 54,  94 => 53,  91 => 52,  86 => 51,  84 => 50,  78 => 49,  31 => 4,  28 => 3,);
     }
 }

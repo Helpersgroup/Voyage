@@ -13,7 +13,7 @@
                             
                          {% for annonce in annonces %}    
                         <li>
-                          <img src="{{asset('bundles/voyage/images/USA_Street_Chicago.png')}}" alt="Slider Image">
+                          <img src="{{asset(annonce.image)}}" alt="Slider Image">
                           <div class="detail-one">
                             <h3>{{annonce.nom}}</h3>
                             <h2>{{annonce.Destination}}</h2>
