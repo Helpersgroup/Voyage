@@ -4,8 +4,52 @@
 <!--[if IE 9]>    <html class="ie9" > <![endif]-->
 <!--[if IE 9]>    <html class="ie10" > <![endif]-->
 <!--[if (gt IE 10)|!(IE)]><!--> <html lang="en-US"> <!--<![endif]-->
-        
+       
+      
 <head>
+        <script type="text/javascript">
+
+      window.fbAsyncInit = function() {
+    FB.init({
+        appId   : 'YOUR_APP_ID',
+        oauth   : true,
+        status  : true, // check login status
+        cookie  : true, // enable cookies to allow the server to access the session
+        xfbml   : true // parse XFBML
+    });
+
+  };
+
+function fb_login(){
+    FB.login(function(response) {
+
+        if (response.authResponse) {
+            console.log('Welcome!  Fetching your information.... ');
+            //console.log(response); // dump complete info
+            access_token = response.authResponse.accessToken; //get access token
+            user_id = response.authResponse.userID; //get FB UID
+
+            FB.api('/me', function(response) {
+                user_email = response.email; //get user email
+          // you can store this data into your database             
+            });
+
+        } else {
+            //user hit cancel button
+            console.log('User cancelled login or did not fully authorize.');
+
+        }
+    }, {
+        scope: 'publish_stream,email'
+    });
+}
+(function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+}());
+</script>
                 <!-- META TAGS -->
                 <meta charset="UTF-8" />
                 <meta name="viewport" content="width=device-width" />
@@ -69,9 +113,10 @@
                                     <a href="{{path('voyage_homepage')}}login" id="login-link">Login</a>
                                     <a href="{{path('voyage_homepage')}}register" id="signon-link">Inscription</a>
                                 </div>
+{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
 
                                         <div class="social-nav">
-                                            <a href="#" class="facebook "></a>
+                                            <a href="#" class="facebook"  onclick="fb_login();"y></a>
                                             <a href="#" class="twitter" ></a>
                                             <a href="#" class="google"></a>
                                             <a href="#" class="rss"></a>
@@ -362,6 +407,23 @@
                         $('html,body').animate({scrollTop: $("#"+id).offset().top},3000);
                     }
                 </script>
+                <script type="text/javascript">
+
+        var authurl = '{{ path('_security_check_facebook') }}';
+
+        function goLogIn(){
+            window.location = authurl;
+        }
+
+        function onFbInit() {
+            if (typeof(FB) != 'undefined' && FB != null ) {
+                FB.Event.subscribe('auth.statusChange', function(response) {
+                    setTimeout(goLogIn, 500);
+                });
+            }
+        }
+
+</script>
                 <script type="text/javascript">
                     $(document).ready(function(){
                         $('.scrollbar1').tinyscrollbar();

@@ -53,10 +53,7 @@ class __TwigTemplate_4aff939c47769bb4954a4c8cd152e3ed9efbd276bc0811bc715ea756232
         // line 17
         echo $this->env->getExtension('routing')->getPath("fos_user_security_check");
         echo "\" method=\"post\">
-    <input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        // line 18
-        echo twig_escape_filter($this->env, (isset($context["csrf_token"]) ? $context["csrf_token"] : $this->getContext($context, "csrf_token")), "html", null, true);
-        echo "\" />
+ 
 
 
    <label for=\"username\">";
@@ -103,6 +100,6 @@ class __TwigTemplate_4aff939c47769bb4954a4c8cd152e3ed9efbd276bc0811bc715ea756232
 
     public function getDebugInfo()
     {
-        return array (  83 => 31,  74 => 25,  68 => 22,  64 => 21,  58 => 18,  54 => 17,  48 => 13,  42 => 11,  40 => 10,  31 => 5,  28 => 4,);
+        return array (  80 => 31,  71 => 25,  65 => 22,  61 => 21,  54 => 17,  48 => 13,  42 => 11,  40 => 10,  31 => 5,  28 => 4,);
     }
 }

@@ -23,8 +23,52 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
 <!--[if IE 9]>    <html class=\"ie9\" > <![endif]-->
 <!--[if IE 9]>    <html class=\"ie10\" > <![endif]-->
 <!--[if (gt IE 10)|!(IE)]><!--> <html lang=\"en-US\"> <!--<![endif]-->
-        
+       
+      
 <head>
+        <script type=\"text/javascript\">
+
+      window.fbAsyncInit = function() {
+    FB.init({
+        appId   : 'YOUR_APP_ID',
+        oauth   : true,
+        status  : true, // check login status
+        cookie  : true, // enable cookies to allow the server to access the session
+        xfbml   : true // parse XFBML
+    });
+
+  };
+
+function fb_login(){
+    FB.login(function(response) {
+
+        if (response.authResponse) {
+            console.log('Welcome!  Fetching your information.... ');
+            //console.log(response); // dump complete info
+            access_token = response.authResponse.accessToken; //get access token
+            user_id = response.authResponse.userID; //get FB UID
+
+            FB.api('/me', function(response) {
+                user_email = response.email; //get user email
+          // you can store this data into your database             
+            });
+
+        } else {
+            //user hit cancel button
+            console.log('User cancelled login or did not fully authorize.');
+
+        }
+    }, {
+        scope: 'publish_stream,email'
+    });
+}
+(function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+}());
+</script>
                 <!-- META TAGS -->
                 <meta charset=\"UTF-8\" />
                 <meta name=\"viewport\" content=\"width=device-width\" />
@@ -33,25 +77,25 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                 <title>Voyage à la Carte</title>
                 
                <link rel=\"stylesheet\" href=\"";
-        // line 16
+        // line 60
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/css/bootstrap.css"), "html", null, true);
         echo "\">
                 <link rel=\"stylesheet\" href=\"";
-        // line 17
+        // line 61
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/css/style.css"), "html", null, true);
         echo "\">
                 <link rel=\"stylesheet\" href=\"";
-        // line 18
+        // line 62
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/css/responsive.css"), "html", null, true);
         echo "\">
                 <link rel=\"stylesheet\" href=\"";
-        // line 19
+        // line 63
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/css/flexslider.css"), "html", null, true);
         echo "\">
                 
                <!-- favicon -->
                 <link rel=\"shortcut icon\" href=\"";
-        // line 22
+        // line 66
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/favicon.png"), "html", null, true);
         echo "\">
                 
@@ -71,7 +115,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                             <div class=\"span2\">
                                 <div class=\"logo\">
                                     <a href=\"";
-        // line 39
+        // line 83
         echo $this->env->getExtension('routing')->getPath("voyage_homepage");
         echo "\"><img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/logo.png"), "html", null, true);
@@ -92,7 +136,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                                     </ul>
                                 </div>
                                 <form class=\"serch\" action=\"";
-        // line 55
+        // line 99
         echo $this->env->getExtension('routing')->getPath("recherche");
         echo "\" method=POST >
                                     <input type=\"text\" placeholder=\"search\" name=\"search\" />
@@ -107,22 +151,29 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                                 </div>
                                 <div class=\"btns\">
                                      <a href=\"";
-        // line 67
+        // line 111
         echo $this->env->getExtension('routing')->getPath("voyage_homepage");
         echo "logout\" id=\"login-link\">logout</a>
                                    
                                     <a href=\"";
-        // line 69
+        // line 113
         echo $this->env->getExtension('routing')->getPath("voyage_homepage");
         echo "login\" id=\"login-link\">Login</a>
                                     <a href=\"";
-        // line 70
+        // line 114
         echo $this->env->getExtension('routing')->getPath("voyage_homepage");
         echo "register\" id=\"signon-link\">Inscription</a>
                                 </div>
-
+";
+        // line 116
+        echo $this->env->getExtension('facebook')->renderInitialize(array("xfbml" => true, "fbAsyncInit" => "onFbInit();"));
+        echo "
+       ";
+        // line 117
+        echo $this->env->getExtension('facebook')->renderLoginButton();
+        echo "
                                         <div class=\"social-nav\">
-                                            <a href=\"#\" class=\"facebook \"></a>
+                                            <a href=\"#\" class=\"facebook\"  onclick=\"fb_login();\"y></a>
                                             <a href=\"#\" class=\"twitter\" ></a>
                                             <a href=\"#\" class=\"google\"></a>
                                             <a href=\"#\" class=\"rss\"></a>
@@ -137,7 +188,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                 
  
               <script src=\"";
-        // line 88
+        // line 133
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
   
@@ -146,11 +197,11 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
 \t\t addEventListener(\"load\", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 \t\t</script>
 \t\t <!--hatha ili bih il feyda fil design --> <link rel=\"stylesheet\" href=\"";
-        // line 94
+        // line 139
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/css2/style.css"), "html", null, true);
         echo "\">
 \t\t<!-- hatha  mta3 il login --> <script type=\"text/javascript\" src=\"";
-        // line 95
+        // line 140
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/login.js"), "html", null, true);
         echo "\"></script>
 \t\t 
@@ -165,7 +216,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                                 <nav class=\"nav frist-top-nav\"  >
                                     <ul>
                                         <li><a href=\"";
-        // line 107
+        // line 152
         echo $this->env->getExtension('routing')->getPath("voyage_homepage");
         echo "\">accueil </a>
                                           <!--  <ul class=\"clearfix\">
@@ -175,20 +226,20 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                                         </li>
                                         
                                         <li><a href=\"";
-        // line 114
+        // line 159
         echo $this->env->getExtension('routing')->getPath("annonce");
         echo "\">Annonces</a>
                                             <ul class=\"clearfix\">
                                                 <li><a href=\"";
-        // line 116
+        // line 161
         echo $this->env->getExtension('routing')->getPath("annonce_create");
         echo "\">Ajout Annonce</a>
                                                 <li><a href=\"";
-        // line 117
+        // line 162
         echo $this->env->getExtension('routing')->getPath("annonce2");
         echo "\">List Annonce</a></li>
                                                 <li><a href=\"";
-        // line 118
+        // line 163
         echo $this->env->getExtension('routing')->getPath("annonce_show", array("id" => 1));
         echo "\">Detail Annonce</a></li>
                                             </ul>
@@ -196,15 +247,15 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                                         
                                    
                                         <li><a href=\"";
-        // line 123
+        // line 168
         echo $this->env->getExtension('routing')->getPath("annonce");
         echo "\">Reservation<label>2</label></a></li>
                                          <li><a href=\"";
-        // line 124
+        // line 169
         echo $this->env->getExtension('routing')->getPath("proposition");
         echo "\">Proposition<label>6</label></a></li>
                                         <li  class=\"last\"><a href=\"";
-        // line 125
+        // line 170
         echo $this->env->getExtension('routing')->getPath("voyage_contact");
         echo "\">Contact</a></li>
                                    
@@ -216,7 +267,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
 \t\t\t\t\t\t\t        \t\t\t<h4>Hello,<a href=\"#\"> admin</a></h4>
 \t\t\t\t\t\t\t        \t\t\t<ul>
 \t\t\t\t\t\t\t        \t\t\t\t<li class=\"profile active\"><a href=\"";
-        // line 134
+        // line 179
         echo $this->env->getExtension('routing')->getPath("profil");
         echo "\">Profile </a></li>
 \t\t\t\t\t\t\t        \t\t\t\t<li class=\"logout\"><a href=\"#\"> Logout</a></li>
@@ -229,26 +280,26 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                                                 
                                                         <ul class=\"menu profile_img\">
                                                             <li><a class=\"active-icon c1\" id=\"7ell\" href=\"";
-        // line 144
+        // line 189
         echo $this->env->getExtension('routing')->getPath("profil");
         echo "\" > <img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/img/profile-pic.png"), "html", null, true);
         echo "\" /></a>
 \t\t\t\t\t\t\t\t\t<ul class=\"sub-menu\">
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 146
+        // line 191
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/supr.png"), "html", null, true);
         echo "\" alt=\"\" />Profile</a></li>
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 147
+        // line 192
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/start.png"), "html", null, true);
         echo "\" alt=\"\" />Favourites</a></li>
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 148
+        // line 193
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/gar.png"), "html", null, true);
         echo "\" alt=\"\" />Settings</a></li>
 \t\t\t\t\t\t\t\t\t\t<li><a href=\"#\"><img src=\"";
-        // line 149
+        // line 194
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/logout.png"), "html", null, true);
         echo "\" alt=\"\" />Logout</a></li>
 \t\t\t\t\t\t\t\t\t</ul>
@@ -325,9 +376,9 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                 
                 
 ";
-        // line 223
+        // line 268
         $this->displayBlock('contains', $context, $blocks);
-        // line 224
+        // line 269
         echo "                
                 
                 
@@ -345,7 +396,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                         \t
                             <div class=\"span3 f-widget copy-right\">
                             \t<a href=\"#\" class=\"f-logo\"><img src=\"";
-        // line 240
+        // line 285
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/logo.png"), "html", null, true);
         echo "\" alt=\"Logo\"></a>
                             \t<p>© 2014 <a href=\"#\">Helpers-Team</a>. All rights reserved</p>
@@ -436,7 +487,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                         <a href=\"#\" class=\"close2\">Close</a>
                     \t<h2>Inscription Client</h2>
                         <h5><a href=\"";
-        // line 328
+        // line 373
         echo $this->env->getExtension('routing')->getPath("inscription");
         echo "\">Vous etes un Agent </a></h5>
                         <form method=\"get\" action=\"#\">
@@ -457,55 +508,55 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
 
                 <!-- Scripts -->
 \t\t<script src=\"";
-        // line 346
+        // line 391
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-1.7.1.min.js"), "html", null, true);
         echo "\"></script>
 \t\t<script src=\"";
-        // line 347
+        // line 392
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 348
+        // line 393
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.flexslider-min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 349
+        // line 394
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.elastislide.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 350
+        // line 395
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.carouFredSel-6.0.4-packed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 351
+        // line 396
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jcarousellite_1.0.1.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 352
+        // line 397
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.zweatherfeed.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 353
+        // line 398
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.simpleWeather-2.3.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 354
+        // line 399
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.cycle.all.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 355
+        // line 400
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery-ui.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 356
+        // line 401
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 357
+        // line 402
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.isotope.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 358
+        // line 403
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/jquery.tinyscrollbar.min.js"), "html", null, true);
         echo "\"></script>
                 <script>
@@ -514,6 +565,26 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
                         \$('html,body').animate({scrollTop: \$(\"#\"+id).offset().top},3000);
                     }
                 </script>
+                <script type=\"text/javascript\">
+
+        var authurl = '";
+        // line 412
+        echo $this->env->getExtension('routing')->getPath("_security_check_facebook");
+        echo "';
+
+        function goLogIn(){
+            window.location = authurl;
+        }
+
+        function onFbInit() {
+            if (typeof(FB) != 'undefined' && FB != null ) {
+                FB.Event.subscribe('auth.statusChange', function(response) {
+                    setTimeout(goLogIn, 500);
+                });
+            }
+        }
+
+</script>
                 <script type=\"text/javascript\">
                     \$(document).ready(function(){
                         \$('.scrollbar1').tinyscrollbar();
@@ -531,7 +602,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
     });
                 </script>
                 <script src=\"";
-        // line 381
+        // line 443
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/js/custom.js"), "html", null, true);
         echo "\"></script>\t\t
 \t\t</body>
@@ -539,7 +610,7 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
 </html>";
     }
 
-    // line 223
+    // line 268
     public function block_contains($context, array $blocks = array())
     {
     }
@@ -556,6 +627,6 @@ class __TwigTemplate_d4eb275ed7787f4deb298400cf93a4492a6fdc00edb3c4af7c60fb13337
 
     public function getDebugInfo()
     {
-        return array (  543 => 223,  535 => 381,  509 => 358,  505 => 357,  501 => 356,  497 => 355,  493 => 354,  489 => 353,  485 => 352,  481 => 351,  477 => 350,  473 => 349,  469 => 348,  465 => 347,  461 => 346,  440 => 328,  349 => 240,  331 => 224,  329 => 223,  252 => 149,  248 => 148,  244 => 147,  240 => 146,  233 => 144,  220 => 134,  208 => 125,  204 => 124,  200 => 123,  192 => 118,  188 => 117,  184 => 116,  179 => 114,  169 => 107,  154 => 95,  150 => 94,  141 => 88,  120 => 70,  116 => 69,  111 => 67,  96 => 55,  75 => 39,  55 => 22,  49 => 19,  45 => 18,  41 => 17,  37 => 16,  20 => 1,);
+        return array (  614 => 268,  606 => 443,  572 => 412,  560 => 403,  556 => 402,  552 => 401,  548 => 400,  544 => 399,  540 => 398,  536 => 397,  532 => 396,  528 => 395,  524 => 394,  520 => 393,  516 => 392,  512 => 391,  491 => 373,  400 => 285,  382 => 269,  380 => 268,  303 => 194,  299 => 193,  295 => 192,  291 => 191,  284 => 189,  271 => 179,  259 => 170,  255 => 169,  251 => 168,  243 => 163,  239 => 162,  235 => 161,  230 => 159,  220 => 152,  205 => 140,  201 => 139,  192 => 133,  173 => 117,  169 => 116,  164 => 114,  160 => 113,  155 => 111,  140 => 99,  119 => 83,  99 => 66,  93 => 63,  89 => 62,  85 => 61,  81 => 60,  20 => 1,);
     }
 }
