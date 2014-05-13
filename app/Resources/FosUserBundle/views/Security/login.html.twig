@@ -15,7 +15,7 @@
 	<h2>Connexion</h2>
              <br>           
 <form action="{{ path("fos_user_security_check") }}" method="post">
- 
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
 
    <label for="username">{{ 'security.login.username'|trans }}</label>

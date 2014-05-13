@@ -103,12 +103,13 @@ function fb_login(){
                             </div>
                             <!--top Menu -->
 
-                            <div class="span3 login_btn">
+              {%if username=='anon.' %}
+                                          <div class="span3 login_btn">
                                 <div class="lan">
                                     <p><a href="#">En</a><span>|</span><a href="#">Fr</a></p>
                                 </div>
                                 <div class="btns">
-                                     <a href="{{path('voyage_homepage')}}logout" id="login-link">logout</a>
+                                     
                                    
                                     <a href="{{path('voyage_homepage')}}login" id="login-link">Login</a>
                                     <a href="{{path('voyage_homepage')}}register" id="signon-link">Inscription</a>
@@ -123,6 +124,23 @@ function fb_login(){
                                         </div>
 
                             </div>
+                            {%else%}
+                              <div class="span3 login_btn">
+                                <div class="lan">
+                                    <p><a href="#">En</a><span>|</span><a href="#">Fr</a></p>
+                                </div>
+                                <div class="btns">
+                                     <a href="{{path('voyage_homepage')}}logout" id="login-link">logout</a>
+                                   
+                                    
+                                </div>
+
+                                        
+
+                            </div>
+                            
+                            
+                            {% endif %}
 
                         </div>
                     </div>
@@ -174,7 +192,8 @@ function fb_login(){
 				                      <form id="loginForm">
 				                        <fieldset id="body">
 				                            <div class="user-info">
-							        			<h4>Hello,<a href="#"> admin</a></h4>
+            
+							        			<h4>Hello,<a href="#"> {{username}}</a></h4>
 							        			<ul>
 							        				<li class="profile active"><a href="{{path('profil')}}">Profile </a></li>
 							        				<li class="logout"><a href="#"> Logout</a></li>
@@ -195,7 +214,7 @@ function fb_login(){
 									</ul>
 								</li>
 							</ul>
-                                         <a id="loginButton" class=""><span> admin </span></a>
+                                         <a id="loginButton" class=""><span>  {{username}} </span></a>
                                                     
                                          </ul>
                                 </nav>

@@ -76,7 +76,7 @@ class AnnonceController extends Controller
     $n = $stmt->fetchAll();
         
         return array(
-            'entities' => $annonces,'username'=>"admin",'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
+            'entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser(),'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
         );
     }
     public function index2Action()
@@ -113,7 +113,7 @@ class AnnonceController extends Controller
     $stmt->execute();
     $n = $stmt->fetchAll();
         return $this->render('VoyageBundle:Annonce:index2.html.twig',array(
-            'entities' => $annonce,'username'=>"admin",'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
+            'entities' => $annonce,'username'=>$this->get('security.context')->getToken()->getUser(),'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
         ));
         
     }
@@ -139,7 +139,7 @@ class AnnonceController extends Controller
         }
  return $this->render('VoyageBundle:Annonce:new.html.twig',array(
             'entity' => $entity,
-            'username'=>"admin"
+            'username'=>$this->get('security.context')->getToken()->getUser()
         
         ));
          
@@ -179,7 +179,7 @@ class AnnonceController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-            'username'=>"admin"
+            'username'=>$this->get('security.context')->getToken()->getUser()
         );
     }
 
@@ -220,7 +220,7 @@ class AnnonceController extends Controller
         $comments = $stmt->fetchAll();
         return array(
             'entity'      => $entity,
-            'username'  => 'admin',
+            'username'  => $this->get('security.context')->getToken()->getUser(),
             'comments'=>$comments,
              'att'=>$latitude,
             'long '=>$longitude
@@ -364,7 +364,7 @@ class AnnonceController extends Controller
         return array(
             'entity'      => $result,
             'delete_form' => $deleteForm->createView(),
-            'username'  => 'admin'
+            'username'  => $this->get('security.context')->getToken()->getUser()
             
         );
     }

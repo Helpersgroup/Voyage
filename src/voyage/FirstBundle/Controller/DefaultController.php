@@ -20,8 +20,9 @@ class DefaultController extends Controller
     	
         $session = $this->getRequest()->getSession();
 
+        
 // We store an attribute
-                $session->set('nom',sha1( 'admin'));
+                $session->set('nom',sha1( $this->get('security.context')->getToken()->getUser()));
 
 // in another controller for another request, we retrieve the value of this attribute
        
@@ -33,17 +34,18 @@ class DefaultController extends Controller
         
         
         return $this->render('VoyageBundle:Default:index.html.twig',array(
-            'annonces' => $annonces,'username'=>"admin"
+            'annonces' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()
         ));
         }
         else{
+            
              $em = $this->getDoctrine()->getManager();
 
         $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
         
         
         return $this->render('VoyageBundle:Default:index.html.twig',array(
-            'annonces' => $annonces,'username'=>"admin"
+            'annonces' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()
         ));
         }
     }
@@ -51,7 +53,7 @@ class DefaultController extends Controller
       
        public function contactAction()
     {
-        return $this->render('VoyageBundle:Default:contact.html.twig',array('username'=>"admin"));
+        return $this->render('VoyageBundle:Default:contact.html.twig',array('username'=>$this->get('security.context')->getToken()->getUser()));
     }
       
 }

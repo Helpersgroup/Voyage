@@ -64,7 +64,7 @@ class RechercheController extends Controller
         
         
      return $this->render('VoyageBundle:Annonce:index.html.twig',array(
-            'entities' => $annonces,'username'=>"admin",'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
+            'entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser(),'p'=>$p,'c'=>$c,'n'=>$n,'h'=>$h
         ));   
         
        

@@ -135,6 +135,8 @@ public function serialize()
         if (isset($fbdata['id'])) {
             $this->setFacebookId($fbdata['id']);
             $this->addRole('ROLE_FACEBOOK');
+            $this->setUsername($fbdata['first_name']);
+            $this->getUsername($fbdata['first_name']);
         }
         if (isset($fbdata['first_name'])) {
             $this->getNom($fbdata['first_name']);

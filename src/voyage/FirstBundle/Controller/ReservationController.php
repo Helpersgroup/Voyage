@@ -32,7 +32,7 @@ class AnnonceController extends Controller
         $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
         
         return array(
-            'entities' => $annonces,'username'=>"admin"
+            'entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()
         );
     }
     public function index2Action()
@@ -41,7 +41,7 @@ class AnnonceController extends Controller
 
         $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
         
-        return $this->render('VoyageBundle:Annonce:index2.html.twig',array('entities' => $annonces,'username'=>"admin"));
+        return $this->render('VoyageBundle:Annonce:index2.html.twig',array('entities' => $annonces,'username'=>$this->get('security.context')->getToken()->getUser()));
     }
     /**
      * Creates a new Annonce entity.
@@ -66,7 +66,7 @@ class AnnonceController extends Controller
 
         return array(
             'entity' => $entity,
-            'username'=>"admin"
+            'username'=>$this->get('security.context')->getToken()->getUser()
         );
     }
 
@@ -104,7 +104,7 @@ class AnnonceController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-            'username'=>"admin"
+            'username'=>$this->get('security.context')->getToken()->getUser()
         );
     }
 
@@ -130,7 +130,7 @@ class AnnonceController extends Controller
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-            'username'  => 'admin'
+            'username'  => $this->get('security.context')->getToken()->getUser()
             
         );
     }
