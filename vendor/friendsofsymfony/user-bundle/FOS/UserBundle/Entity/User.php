@@ -22,5 +22,7 @@ abstract class User extends AbstractUser
     {
         trigger_error(sprintf('%s is deprecated. Extend FOS\UserBundle\Model\User directly.', __CLASS__), E_USER_DEPRECATED);
         parent::__construct();
+         $this->roles = array(
+                           'ROLE_ADMIN' => 'Admin');
     }
 }

@@ -72,6 +72,8 @@ class SecurityController extends ContainerAware
 
     public function logoutAction()
     {
+        $this->get('security.context')->setToken(null);
+$this->get('request')->getSession()->invalidate();
         throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
     }
 }

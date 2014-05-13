@@ -45,8 +45,21 @@ class RegistrationFormType extends AbstractType
                 'second_options' => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
-         
+                
+           ->add('roles', 'collection', array(
+                   'type' => 'choice',
+                   'options' => array(
+                       'choices' => array(
+                           'ROLE_USER' => 'Client',
+                           'ROLE_Resp' => 'Responsable',
+                          
+                       )
+                   )
+               )
+           )
+           
         ;
+        
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

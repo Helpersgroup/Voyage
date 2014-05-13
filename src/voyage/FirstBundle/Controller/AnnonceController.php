@@ -27,15 +27,7 @@ class AnnonceController extends Controller
      */
     public function indexAction()
     {
-                $session = $this->getRequest()->getSession();
-
-                $value = $session->get('nom');
-                    $s=sha1('kimo'.'symfony');
-                if($value==$s)
-                  die("hello");
-                else
-                    die("nooo");
-                
+               
         
         $em=$this -> container -> get('Doctrine')-> getEntityManager();
         $annonces = $em->getRepository('VoyageBundle:Annonce')->findAll();
