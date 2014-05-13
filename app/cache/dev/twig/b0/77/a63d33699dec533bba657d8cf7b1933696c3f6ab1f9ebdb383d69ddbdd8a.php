@@ -35,35 +35,33 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
                 <!-- Slider -->
 \t\t\t\t<div class=\"flexslider\">
                 \t<ul class=\"slides\">
-                            
-                            
-                            
+    
                          ";
-        // line 14
+        // line 12
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["annonces"]) ? $context["annonces"] : $this->getContext($context, "annonces")));
         foreach ($context['_seq'] as $context["_key"] => $context["annonce"]) {
             echo "    
                         <li>
                           <img src=\"";
-            // line 16
+            // line 14
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "image")), "html", null, true);
             echo "\" alt=\"Slider Image\">
                           <div class=\"detail-one\">
                             <h3>";
-            // line 18
+            // line 16
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "nom"), "html", null, true);
             echo "</h3>
                             <h2>";
-            // line 19
+            // line 17
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "Destination"), "html", null, true);
             echo "</h2>
                            \t<span>\$ ";
-            // line 20
+            // line 18
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "prix"), "html", null, true);
             echo "</span>
                           \t<a href=\"";
-            // line 21
+            // line 19
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("annonce_show", array("id" => $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "idAnnonce"))), "html", null, true);
             echo "\"></a> \t
                           </div>
@@ -74,7 +72,7 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 26
+        // line 24
         echo "                    </ul>
                     
                     
@@ -86,7 +84,7 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
 
                       <h3> <span class=\"flight\">Voyage</span> <a href=\"#\"></a> </h3>
                       <form method=\"post\" action=\"";
-        // line 36
+        // line 34
         echo $this->env->getExtension('routing')->getPath("recherche2");
         echo "\">
                       <div class=\"detail\">
@@ -177,7 +175,7 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
                         <div class=\"row offer-sec\">
                         <ul class=\"elastislide-list clearfix\" id=\"carousel\">
                 ";
-        // line 124
+        // line 122
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["annonces"]) ? $context["annonces"] : $this->getContext($context, "annonces")));
         foreach ($context['_seq'] as $context["_key"] => $context["annonce"]) {
@@ -186,7 +184,7 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
                             \t<div class=\"offer\">
                                 \t<figure>
                                 \t\t<img src=\"";
-            // line 128
+            // line 126
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/voyage/images/offerpic-1.png"), "html", null, true);
             echo "\"  alt=\"Offer Image\">
                                 \t\t<div class=\"overlay\">
@@ -195,11 +193,11 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
                                     </figure>
                                     <article>
                                     \t<h3>";
-            // line 134
+            // line 132
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "nom"), "html", null, true);
             echo "</h3>
                                         <h4>";
-            // line 135
+            // line 133
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "Destination"), "html", null, true);
             echo "</h4>
                                         <p><a href=\"#\" class=\"active\"></a>
@@ -212,11 +210,11 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
                                     </article>
                                     <div class=\"price\">
                                     \t<h3>";
-            // line 145
+            // line 143
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "prix"), "html", null, true);
             echo "\$</h3>
                                         <a href=\"";
-            // line 146
+            // line 144
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("annonce_show", array("id" => $this->getAttribute((isset($context["annonce"]) ? $context["annonce"] : $this->getContext($context, "annonce")), "idAnnonce"))), "html", null, true);
             echo "\"></a>
                                     </div>
@@ -227,7 +225,7 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['annonce'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 150
+        // line 148
         echo "  
                            
                             
@@ -266,6 +264,6 @@ class __TwigTemplate_b077a63d33699dec533bba657d8cf7b1933696c3f6ab1f9ebdb383d69dd
 
     public function getDebugInfo()
     {
-        return array (  231 => 150,  220 => 146,  216 => 145,  203 => 135,  199 => 134,  190 => 128,  181 => 124,  90 => 36,  78 => 26,  67 => 21,  63 => 20,  59 => 19,  55 => 18,  50 => 16,  43 => 14,  31 => 4,  28 => 3,);
+        return array (  229 => 148,  218 => 144,  214 => 143,  201 => 133,  197 => 132,  188 => 126,  179 => 122,  88 => 34,  76 => 24,  65 => 19,  61 => 18,  57 => 17,  53 => 16,  48 => 14,  41 => 12,  31 => 4,  28 => 3,);
     }
 }
