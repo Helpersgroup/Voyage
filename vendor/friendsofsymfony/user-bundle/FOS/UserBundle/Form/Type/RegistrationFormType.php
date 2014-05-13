@@ -46,18 +46,8 @@ class RegistrationFormType extends AbstractType
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
                 
-           ->add('roles', 'collection', array(
-                   'type' => 'choice',
-                   'options' => array(
-                       'choices' => array(
-                           'ROLE_USER' => 'Client',
-                           'ROLE_Resp' => 'Responsable',
-                          
-                       )
-                   )
-               )
-           )
-           
+          
+                     
         ;
         
     }

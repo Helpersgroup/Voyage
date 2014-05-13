@@ -167,6 +167,7 @@ public function serialize()
 
     public function setNom($nom) {
         $this->nom = $nom;
+        $this->addRole('ROLE_USER');
     }
     public function getPrenom() {
         return $this->prenom;
